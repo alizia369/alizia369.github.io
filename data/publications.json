@@ -1,5 +1,5 @@
 {
- "_note": "Curated from Google Scholar (Oct 2026). Fields: year, title, authors, venue, type (journal|conference|workshop|preprint|book|thesis|dataset), topics, links {paper, arxiv, code, project}, note, featured. Run `python build.py` after editing.",
+ "_note": "Curated from Google Scholar (Oct 2026). Fields: year, title, authors, venue, type (journal|conference|workshop|preprint|book|thesis|dataset), topics, links {paper, arxiv, code, project}, note, featured (home page card), selected (home page list). Run `python build.py` after editing.",
  "items": [
   {
    "year": 2026,
@@ -18,7 +18,8 @@
     "code": "https://github.com/alizia369/TopoTTA",
     "project": "https://topotta.github.io"
    },
-   "featured": true
+   "featured": true,
+   "selected": true
   },
   {
    "year": 2026,
@@ -35,7 +36,8 @@
     "arxiv": "https://arxiv.org/abs/2601.20333",
     "code": "https://github.com/alizia369/TopoOT"
    },
-   "featured": true
+   "featured": true,
+   "selected": true
   },
   {
    "year": 2026,
@@ -48,7 +50,8 @@
     "sensing",
     "topology"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2026,
@@ -60,7 +63,8 @@
    "topics": [
     "health"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2026,
@@ -77,7 +81,8 @@
     "arxiv": "https://arxiv.org/abs/2510.15547",
     "code": "https://github.com/alizia369/MM-HCAN"
    },
-   "featured": true
+   "featured": true,
+   "selected": true
   },
   {
    "year": 2026,
@@ -90,7 +95,8 @@
     "sensing",
     "topology"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2026,
@@ -104,7 +110,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2506.01214"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2026,
@@ -118,7 +125,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2505.01831"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2026,
@@ -130,7 +138,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2026,
@@ -143,7 +152,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2603.09037"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2026,
@@ -156,7 +166,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2603.13374"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2026,
@@ -169,7 +180,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2602.03951"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2026,
@@ -183,7 +195,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2605.08870"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2026,
@@ -196,7 +209,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2603.09484"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2026,
@@ -209,7 +223,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2605.14239"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2025,
@@ -226,7 +241,8 @@
     "arxiv": "https://arxiv.org/abs/2510.21793",
     "code": "https://github.com/alizia369/MAFR"
    },
-   "featured": true
+   "featured": true,
+   "selected": true
   },
   {
    "year": 2025,
@@ -240,7 +256,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2510.17484"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2025,
@@ -252,7 +269,8 @@
    "topics": [
     "hyperspectral"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -264,7 +282,8 @@
    "topics": [
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2025,
@@ -279,7 +298,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2410.23901"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2025,
@@ -291,7 +311,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2025,
@@ -304,7 +325,8 @@
     "hyperspectral",
     "agriculture"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2025,
@@ -316,7 +338,8 @@
    "topics": [
     "health"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -330,7 +353,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2407.18097"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2025,
@@ -344,7 +368,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2408.05029"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2025,
@@ -356,7 +381,8 @@
    "topics": [
     "generative"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -368,7 +394,8 @@
    "topics": [
     "agriculture"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -380,7 +407,8 @@
    "topics": [
     "health"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -392,7 +420,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -404,7 +433,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -416,7 +446,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2025,
@@ -430,7 +461,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2501.16700"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2025,
@@ -441,7 +473,8 @@
    "topics": [
     "agriculture"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2024,
@@ -456,7 +489,8 @@
    "links": {
     "paper": "https://link.springer.com/article/10.1007/s10462-024-10710-9",
     "arxiv": "https://arxiv.org/abs/2302.03836"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2024,
@@ -472,7 +506,8 @@
     "paper": "https://www.jmlr.org/papers/v25/24-0110.html",
     "arxiv": "https://arxiv.org/abs/2402.02441",
     "code": "https://github.com/pyt-team"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2024,
@@ -484,7 +519,8 @@
    "topics": [
     "hyperspectral"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2024,
@@ -497,7 +533,8 @@
     "agriculture",
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2024,
@@ -511,7 +548,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2411.19005"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2024,
@@ -523,7 +561,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2024,
@@ -535,7 +574,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2023,
@@ -550,7 +590,8 @@
    "links": {
     "paper": "https://proceedings.mlr.press/v221/papillon23a.html",
     "arxiv": "https://arxiv.org/abs/2309.15188"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2023,
@@ -564,7 +605,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2305.16555"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2023,
@@ -577,7 +619,8 @@
     "other"
    ],
    "links": {},
-   "note": "Runner-up paper award"
+   "note": "Runner-up paper award",
+   "selected": true
   },
   {
    "year": 2023,
@@ -589,7 +632,8 @@
    "topics": [
     "health"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2023,
@@ -601,7 +645,8 @@
    "topics": [
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2023,
@@ -615,7 +660,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2302.08054"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2023,
@@ -628,7 +674,8 @@
    ],
    "links": {
     "arxiv": "https://arxiv.org/abs/2309.00005"
-   }
+   },
+   "selected": false
   },
   {
    "year": 2023,
@@ -639,7 +686,8 @@
    "topics": [
     "agriculture"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2021,
@@ -654,7 +702,8 @@
    ],
    "links": {
     "paper": "https://doi.org/10.1109/TIP.2021.3072215"
-   }
+   },
+   "selected": true
   },
   {
    "year": 2021,
@@ -667,7 +716,8 @@
     "hyperspectral",
     "agriculture"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2020,
@@ -679,7 +729,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2020,
@@ -691,7 +742,8 @@
     "hyperspectral",
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2019,
@@ -703,7 +755,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2018,
@@ -715,7 +768,8 @@
    "topics": [
     "hyperspectral"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2018,
@@ -729,7 +783,8 @@
     "agriculture",
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2017,
@@ -741,7 +796,8 @@
    "topics": [
     "hyperspectral"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2015,
@@ -754,7 +810,8 @@
     "hyperspectral",
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2015,
@@ -767,7 +824,8 @@
     "hyperspectral",
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2013,
@@ -781,7 +839,8 @@
     "agriculture",
     "3d"
    ],
-   "links": {}
+   "links": {},
+   "selected": true
   },
   {
    "year": 2010,
@@ -793,7 +852,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2010,
@@ -805,7 +865,8 @@
    "topics": [
     "sensing"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2010,
@@ -817,7 +878,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   },
   {
    "year": 2008,
@@ -829,7 +891,8 @@
    "topics": [
     "other"
    ],
-   "links": {}
+   "links": {},
+   "selected": false
   }
  ]
 }

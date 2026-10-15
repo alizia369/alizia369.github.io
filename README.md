@@ -12,15 +12,16 @@ Most updates only touch the data files, then rebuild:
 | To change | Edit |
 |---|---|
 | News | `data/news.json` (newest first; the first six show, the rest sit behind "Show older news") |
-| Publications | `data/publications.json` (set `"featured": true` and add an entry in `FEATURED_COPY` in `build.py` to show it on the home page) |
+| Publications | `data/publications.json` (`"selected": true` puts a paper in the home page list; featured cards are set in `FEATURED_COPY` in `build.py`) |
 | Research projects | `data/projects.json` (images go in `assets/img/projects/`) |
-| Page text (bio, Teaching, CV) | the matching `build_*` function in `build.py` |
+| Grants | `data/grants.json` (the summary line and the table on the Grants page) |
+| Page text (bio, Teaching, Resume) | the matching `build_*` function in `build.py` |
 | Look and feel | `assets/css/site.css` |
 
 Then run `python3 build.py` (Python 3.12 or newer, standard library only) and commit the generated `index.html` files along with your edits.
 
 ## Files
 
-- `build.py` generates `index.html`, `research/`, `publications/`, `teaching/` and `cv/`
+- `build.py` generates `index.html`, `research/`, `publications/`, `teaching/`, `grants/` and `resume/` (plus a redirect from the old `cv/` address)
 - `assets/` holds styles, scripts, images, CV PDFs and the livestock video
 - `acml2026-tdl` and `horl2026` are separate repositories served under this site's address
