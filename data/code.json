@@ -1,0 +1,25 @@
+{
+  "_note": "Repositories shown on the Code page, grouped. Add new repos to the right group and rebuild.",
+  "profile": "https://github.com/alizia369",
+  "groups": [
+    {"title": "Recent research code", "lang": "Python, PyTorch", "items": [
+      {"name": "TopoOT", "url": "https://github.com/alizia369/TopoOT", "venue": "NeurIPS 2026", "text": "Topology-aware optimal transport for source-free test-time anomaly segmentation."},
+      {"name": "TopoTTA", "url": "https://github.com/alizia369/TopoTTA", "venue": "IEEE TPAMI 2026", "text": "Persistent-homology pseudo-labels for test-time adaptation in anomaly segmentation."},
+      {"name": "MM-HCAN", "url": "https://github.com/alizia369/MM-HCAN", "venue": "IEEE Sensors Journal 2026", "text": "Hypergraph contrastive fusion of vibration signals and spectrograms for motor fault diagnosis."},
+      {"name": "MAFR", "url": "https://github.com/alizia369/MAFR", "venue": "DICTA 2025", "text": "RGB and point cloud fusion with attention-guided restoration for industrial anomaly detection."}
+    ]},
+    {"title": "Hyperspectral computer vision", "lang": "MATLAB, original research code from the PhD and related projects", "items": [
+      {"name": "hsi-chromatic-defocus-depth", "url": "https://github.com/alizia369/hsi-chromatic-defocus-depth", "venue": "IEEE TIP 2021", "text": "Relative depth from a single hyperspectral image using chromatic aberration and defocus blur."},
+      {"name": "sugarcane-smut-hsi", "url": "https://github.com/alizia369/sugarcane-smut-hsi", "venue": "IVCNZ 2021", "text": "Early detection of sugarcane smut disease from hyperspectral images."},
+      {"name": "hsi-occluded-object-detection", "url": "https://github.com/alizia369/hsi-occluded-object-detection", "venue": "PhD thesis 2020", "text": "Detecting partly hidden objects using spectral cues, from the PhD thesis."},
+      {"name": "hsi-material-boundary-detection", "url": "https://github.com/alizia369/hsi-material-boundary-detection", "venue": "DICTA 2017", "text": "Material-based boundary detection in hyperspectral images."},
+      {"name": "hsi-3d-reconstruction", "url": "https://github.com/alizia369/hsi-3d-reconstruction", "venue": "WACV 2015", "text": "3D reconstruction that combines the geometry recovered from each spectral band."},
+      {"name": "hsi-relative-depth-estimation", "url": "https://github.com/alizia369/hsi-relative-depth-estimation", "venue": "DICTA 2015", "text": "Relative depth from band-to-band changes in defocus blur."},
+      {"name": "hsi-matlab-utils", "url": "https://github.com/alizia369/hsi-matlab-utils", "venue": "Toolbox", "text": "Shared functions for reading, correcting, normalising and viewing hyperspectral cubes."}
+    ]},
+    {"title": "Community software and teaching", "lang": "", "items": [
+      {"name": "TopoX", "url": "https://github.com/pyt-team", "venue": "JMLR 2024", "text": "Python packages for machine learning on topological domains: TopoNetX, TopoEmbedX and TopoModelX. I am one of the contributors."},
+      {"name": "acml2026-tdl", "url": "https://github.com/alizia369/acml2026-tdl", "venue": "ACML 2026", "text": "Site and interactive filtration demo for our topological deep learning tutorial.", "site": "https://alizia369.github.io/acml2026-tdl/"}
+    ]}
+  ]
+}

@@ -48,7 +48,7 @@ def svg(name):
 
 # ---------------------------------------------------------------- layout
 MENU = [("/", "About"), ("/research/", "Research"), ("/publications/", "Publications"),
-        ("/teaching/", "Teaching"), ("/grants/", "Grants"), ("/resume/", "Resume")]
+        ("/code/", "Code"), ("/teaching/", "Teaching"), ("/grants/", "Grants"), ("/resume/", "Resume")]
 
 ICONS = {
     "mail": '<path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.3V17h16V7.3l-8 5.4-8-5.4ZM5.6 7 12 11.3 18.4 7H5.6Z"/>',
@@ -110,6 +110,7 @@ def page(path, title, description, body):
 {body}
     <footer>
       <p>Get in touch at <a href="mailto:alizia369@gmail.com">alizia369@gmail.com</a> or <a href="mailto:ali.zia@anu.edu.au">ali.zia@anu.edu.au</a>.</p>
+      <p>Code on <a href="https://github.com/alizia369">GitHub</a>, papers on <a href="https://scholar.google.com/citations?user=BVBJ06QAAAAJ">Google Scholar</a>, and <a href="https://orcid.org/0000-0003-4819-6666">ORCID</a> and <a href="https://www.linkedin.com/in/ali-zia-0411b123/">LinkedIn</a> profiles.</p>
       <p>Last updated {updated}.</p>
       <button class="theme-switch" type="button" id="theme-switch">Dark theme</button>
     </footer>
@@ -163,7 +164,13 @@ def compact_pub(p):
             f'<span class="meta"><span class="v">{esc(venue)}</span>{links}{note}</span></li>')
 
 
-def build_home(news, pubs):
+def repo_row(r):
+    site = f' <a href="{esc(r["site"])}">site</a>' if r.get("site") else ""
+    return (f'<div class="repo"><a class="name" href="{esc(r["url"])}">{esc(r["name"])}</a><span class="tag2">{esc(r["venue"])}</span>'
+            f'<p>{esc(r["text"])}{site}</p></div>')
+
+
+def build_home(news, pubs, code):
     items = "".join(
         f'<li{" class=\"more\"" if i >= 6 else ""}><time datetime="{esc(n["date"])}">{nice_date(n["date"])}</time><span>{n["text"]}</span></li>'
         for i, n in enumerate(news))
@@ -193,6 +200,8 @@ def build_home(news, pubs):
             seen.append(label)
             groups.append((label, []))
         groups[-1][1].append(p)
+    repos_html = "".join(repo_row(r) for r in code["groups"][0]["items"])
+    n_hsi = len(code["groups"][1]["items"])
     sel_html = "".join(f'<h3 class="year">{lab}</h3><ul class="pubs">{"".join(compact_pub(p) for p in ps)}</ul>' for lab, ps in groups)
 
     body = f"""
@@ -246,14 +255,9 @@ def build_home(news, pubs):
 
     <section id="code">
       <h2>Code</h2>
-      <div class="repos">
-        <div class="repo"><a class="name" href="https://github.com/alizia369/TopoOT">TopoOT</a><span class="tag2">NeurIPS 2026</span><p>Topology-aware optimal transport for source-free test-time anomaly segmentation.</p></div>
-        <div class="repo"><a class="name" href="https://github.com/alizia369/TopoTTA">TopoTTA</a><span class="tag2">IEEE TPAMI 2026</span><p>Persistent-homology pseudo-labels for test-time adaptation in anomaly segmentation.</p></div>
-        <div class="repo"><a class="name" href="https://github.com/alizia369/MM-HCAN">MM-HCAN</a><span class="tag2">IEEE Sensors Journal 2026</span><p>Hypergraph contrastive fusion of vibration signals and spectrograms for motor fault diagnosis.</p></div>
-        <div class="repo"><a class="name" href="https://github.com/alizia369/MAFR">MAFR</a><span class="tag2">DICTA 2025</span><p>RGB and point cloud fusion with attention-guided restoration for industrial anomaly detection.</p></div>
-        <div class="repo"><a class="name" href="https://github.com/pyt-team">TopoX</a><span class="tag2">JMLR 2024</span><p>Python packages for machine learning on topological domains: TopoNetX, TopoEmbedX and TopoModelX.</p></div>
-        <div class="repo"><a class="name" href="https://alizia369.github.io/acml2026-tdl/">Topological deep learning tutorial</a><span class="tag2">ACML 2026</span><p>Materials and an interactive filtration demo for our ACML 2026 tutorial.</p></div>
-      </div>
+      <div class="repos">{repos_html}</div>
+      <p class="muted" style="margin-top:14px">Plus {n_hsi} hyperspectral computer vision repositories in MATLAB from my PhD and related projects.</p>
+      <a class="more-link" href="/code/">All code</a> &nbsp; <a class="more-link" href="https://github.com/alizia369">github.com/alizia369</a>
     </section>"""
     write("/", "About", "Ali Zia is a machine learning researcher at La Trobe University working on topological deep learning, hyperspectral imaging and reliable AI for agriculture, health and industry.", body)
 
@@ -344,6 +348,23 @@ def build_publications(pubs):
       {''.join(blocks)}
     </section>"""
     write("/publications/", "Publications", "Publications of Ali Zia on topological deep learning, hyperspectral imaging, anomaly detection and applied machine learning.", body)
+
+
+# ---------------------------------------------------------------- code
+def build_code(code):
+    groups = []
+    for g in code["groups"]:
+        lang = f'<p class="muted">{esc(g["lang"])}</p>' if g.get("lang") else ""
+        groups.append(f'<section><h2>{esc(g["title"])}</h2>{lang}<div class="repos">{"".join(repo_row(r) for r in g["items"])}</div></section>')
+    total = sum(len(g["items"]) for g in code["groups"])
+    body = f"""
+    <section aria-labelledby="t">
+      <h1 class="page-title" id="t">Code</h1>
+      <p class="intro-text">Research code for my papers, from recent PyTorch projects to the original MATLAB code behind my hyperspectral work. Everything is on <a href="{esc(code["profile"])}">github.com/alizia369</a>.</p>
+      <div class="downloads"><a class="primary" href="{esc(code["profile"])}">All repositories on GitHub</a><a href="/publications/">Papers with code links</a></div>
+    </section>
+    {''.join(groups)}"""
+    write("/code/", "Code", f"Open-source research code by Ali Zia: {total} repositories covering topological deep learning, anomaly detection and hyperspectral computer vision.", body)
 
 
 # ---------------------------------------------------------------- teaching
@@ -470,7 +491,9 @@ if __name__ == "__main__":
     news = data("news.json")["items"]
     pubs = data("publications.json")["items"]
     projects = data("projects.json")
-    build_home(news, pubs)
+    code = data("code.json")
+    build_home(news, pubs, code)
+    build_code(code)
     build_research(projects["items"], projects.get("earlier", []))
     build_publications(pubs)
     build_teaching()

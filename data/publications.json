@@ -701,7 +701,8 @@
     "3d"
    ],
    "links": {
-    "paper": "https://doi.org/10.1109/TIP.2021.3072215"
+    "paper": "https://doi.org/10.1109/TIP.2021.3072215",
+    "code": "https://github.com/alizia369/hsi-chromatic-defocus-depth"
    },
    "selected": true
   },
@@ -716,7 +717,10 @@
     "hyperspectral",
     "agriculture"
    ],
-   "links": {},
+   "links": {
+    "paper": "https://doi.org/10.1109/IVCNZ54163.2021.9653386",
+    "code": "https://github.com/alizia369/sugarcane-smut-hsi"
+   },
    "selected": false
   },
   {
@@ -742,7 +746,10 @@
     "hyperspectral",
     "3d"
    ],
-   "links": {},
+   "links": {
+    "paper": "https://research-repository.griffith.edu.au/items/6c4ccabf-f952-4780-8592-ac6f8ea62dae",
+    "code": "https://github.com/alizia369/hsi-occluded-object-detection"
+   },
    "selected": false
   },
   {
@@ -796,7 +803,10 @@
    "topics": [
     "hyperspectral"
    ],
-   "links": {},
+   "links": {
+    "paper": "https://researchportalplus.anu.edu.au/en/publications/material-based-boundary-detection-in-hyperspectral-images/",
+    "code": "https://github.com/alizia369/hsi-material-boundary-detection"
+   },
    "selected": false
   },
   {
@@ -810,7 +820,10 @@
     "hyperspectral",
     "3d"
    ],
-   "links": {},
+   "links": {
+    "paper": "https://doi.org/10.1109/WACV.2015.49",
+    "code": "https://github.com/alizia369/hsi-3d-reconstruction"
+   },
    "selected": true
   },
   {
@@ -824,7 +837,10 @@
     "hyperspectral",
     "3d"
    ],
-   "links": {},
+   "links": {
+    "paper": "https://research-repository.griffith.edu.au/items/712b9517-7939-5a37-a748-9cb5ed0f4b0e",
+    "code": "https://github.com/alizia369/hsi-relative-depth-estimation"
+   },
    "selected": false
   },
   {
