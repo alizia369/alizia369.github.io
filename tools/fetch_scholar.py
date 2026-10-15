@@ -34,7 +34,7 @@ def main():
         except Exception as e:  # Scholar often blocks cloud IPs
             err.append(f"{'proxy' if use_proxy else 'direct'}: {e}")
     if not author or not author.get("citedby"):
-        print("Scholar fetch failed; keeping previous figures.", *err, sep="\n")
+        print("::warning title=Scholar fetch failed::" + " | ".join(err)[:900])
         return 0
     old = json.loads(OUT.read_text()) if OUT.exists() else {}
     new = {
@@ -50,7 +50,7 @@ def main():
         print(f"Suspicious drop {old['citations']} -> {new['citations']}; not saving.")
         return 0
     OUT.write_text(json.dumps(new, indent=1) + "\n")
-    print("Saved", new)
+    print(f"::notice title=Scholar figures saved::{new}")
     return 0
 
 
