@@ -1,7 +1,7 @@
 # alizia369.github.io
 Personal research homepage of Ali Zia (news, publications and code). Live at https://alizia369.github.io/
 
-Edit `index.html` to update: news items are at the top of the News section; add a photo as `assets/img/profile.jpg` (see the comment in the sidebar).
+Edit `index.html` to update: news items are at the top of the News section; the photo is `assets/img/profile.jpg`.
 
 | Paper | Venue | Code |
 |---|---|---|
