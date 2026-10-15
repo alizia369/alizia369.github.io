@@ -1,0 +1,115 @@
+{
+ "_note": "Projects shown on the Research page, in order. image is relative to assets/img/projects/. papers is a list of {label, url}.",
+ "items": [
+  {
+   "title": "Chickpea quality from hyperspectral imaging",
+   "partners": "CSIRO, 2023 onward",
+   "image": "chickpea.jpg",
+   "alt": "Chickpea seed varieties under imaging, with a diagram of seed composition and box plots of predicted protein content by variety",
+   "text": "Predicting protein and composition of chickpea varieties and flour from hyperspectral data, so breeders and processors can screen quality without wet chemistry.",
+   "papers": [
+    {
+     "label": "Current Research in Food Science, 2025",
+     "url": ""
+    }
+   ]
+  },
+  {
+   "title": "Finding weak contamination signals in meat",
+   "partners": "CSIRO AI4M, 2022 onward",
+   "image": "meat.jpg",
+   "alt": "Grid of steak hyperspectral images and abundance maps from classical and deep unmixing methods for E. coli, fat and meat",
+   "text": "A benchmark for detecting faint E. coli signatures in steak with hyperspectral unmixing, comparing classical methods with transformer and CNN models. Follow-up work includes the WS-Net weak-signal unmixing model.",
+   "papers": [
+    {
+     "label": "DICTA 2024",
+     "url": ""
+    },
+    {
+     "label": "WS-Net (arXiv)",
+     "url": "https://arxiv.org/abs/2603.09037"
+    }
+   ]
+  },
+  {
+   "title": "Cattle behaviour from video",
+   "partners": "CSIRO",
+   "image": "livestock.jpg",
+   "alt": "Cattle in a paddock with detection boxes and pose keypoints overlaid",
+   "text": "Detecting and tracking individual cattle in the field and classifying their behaviour over time, for welfare, early disease detection and breeding. We released the CVB dataset and a CVAT-based tool that cuts annotation time by labelling only behaviour changes.",
+   "papers": [
+    {
+     "label": "CVB dataset (arXiv)",
+     "url": "https://arxiv.org/abs/2305.16555"
+    },
+    {
+     "label": "Animal action review, AI Review 2026",
+     "url": "https://arxiv.org/abs/2506.01214"
+    }
+   ],
+   "video": "assets/video/livestock-behaviour.mp4"
+  },
+  {
+   "title": "Sugarcane disease and resilience",
+   "partners": "",
+   "image": "sugarcane.jpg",
+   "alt": "Hyperspectral sugarcane leaf images after graph-Laplacian processing, with a table of ResNet results",
+   "text": "Near-infrared hyperspectral imaging with CNNs to identify mosaic-resistant sugarcane varieties and to catch smut disease before symptoms show.",
+   "papers": [
+    {
+     "label": "Mosaic resilience (arXiv)",
+     "url": "https://arxiv.org/abs/2501.16700"
+    },
+    {
+     "label": "Smut detection, IVCNZ 2021",
+     "url": ""
+    }
+   ]
+  },
+  {
+   "title": "Counting beneficial insects released by drone",
+   "partners": "",
+   "image": "insects.jpg",
+   "alt": "A drone fitted with an insect dispersal unit on a lab bench",
+   "text": "YOLOv5 and DETR models count insects and larvae in mixtures dispersed by UAVs, so growers can check that natural pest control is spread where it is needed.",
+   "papers": []
+  },
+  {
+   "title": "Restoring historical documents",
+   "partners": "",
+   "image": "documents.jpg",
+   "alt": "Torn document fragments, detected fragment pieces and a reconstructed historical map",
+   "text": "Detecting tears, creases and faded text in archival documents, then reassembling and digitising them.",
+   "papers": []
+  },
+  {
+   "title": "Remote monitoring for Parkinson's disease",
+   "partners": "COMSATS University",
+   "image": "parkinsons.jpg",
+   "alt": "System diagram linking a patient's wearable sensors to a clinician through a central server",
+   "text": "Wireless inertial sensors and cameras separate normal movement from tremor, scored against the UPDRS scale so clinicians can follow patients at home.",
+   "papers": []
+  },
+  {
+   "title": "Robot mapping and navigation",
+   "partners": "Best project award, 2011",
+   "image": "robot-mapping.jpg",
+   "alt": "A mobile robot with a laptop, a diagram of map exchange between robots, and reconstructed 3D maps of a room",
+   "text": "Mobile robots that build 2D and 3D maps of their surroundings and plan paths around obstacles, with maps shared between robots.",
+   "papers": [
+    {
+     "label": "Sensor fusion for obstacle avoidance, ISDA 2010",
+     "url": ""
+    }
+   ]
+  }
+ ],
+ "earlier": [
+  "Smart home automation with face recognition, alarm and smoke detection, number-plate detection and IP camera streaming",
+  "Facial and vocal emotion recognition",
+  "Computer control using finger movement",
+  "Content-based video retrieval",
+  "Smart traffic surveillance and vehicle identification",
+  "Camera surveillance using mobile phones"
+ ]
+}

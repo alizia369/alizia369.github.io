@@ -1,0 +1,16 @@
+{
+  "_note": "Newest first. date is YYYY-MM or YYYY. text may contain simple HTML links. Items after the first 6 are hidden behind 'Show older news'.",
+  "items": [
+    {"date": "2026-10", "text": "Code for <a href=\"https://github.com/alizia369/TopoOT\">TopoOT</a>, <a href=\"https://github.com/alizia369/TopoTTA\">TopoTTA</a>, <a href=\"https://github.com/alizia369/MAFR\">MAFR</a> and <a href=\"https://github.com/alizia369/MM-HCAN\">MM-HCAN</a> is now public."},
+    {"date": "2026-10", "text": "<strong>TopoOT accepted at NeurIPS 2026</strong> as a main-conference poster. See you in Sydney."},
+    {"date": "2026-10", "text": "“Learnable Persistent Topology for Multi-View Radar Semantic Segmentation” accepted at the NeurIPS 2026 workshop on Symmetry and Geometry in Neural Representations."},
+    {"date": "2026", "text": "Our tutorial <a href=\"https://alizia369.github.io/acml2026-tdl/\">Topological Deep Learning for Robust Representation Learning</a> was accepted at ACML 2026 (Melbourne, 1 December), with Usman Ali and Abdelwahed Khamis."},
+    {"date": "2026", "text": "<strong><a href=\"https://doi.org/10.1109/TPAMI.2026.3710196\">TopoTTA</a> published in IEEE TPAMI.</strong>"},
+    {"date": "2026", "text": "Papers at ECCV 2026 (structurally consistent multi-view radar segmentation) and IEEE JBHI (expert fusion for blastocyst assessment and IVF decision support)."},
+    {"date": "2026", "text": "MM-HCAN published in the IEEE Sensors Journal; HyperEcho, on higher-order representations for automotive radar, at IEEE PerCom 2026."},
+    {"date": "2026", "text": "Seed funding as lead for SpectraResist-AI, detecting herbicide resistance in ryegrass, and a La Trobe Research Infrastructure grant for a high-speed camera."},
+    {"date": "2025", "text": "MAFR and Split-Fuse-Transport at DICTA 2025; Hierarchical Spatial Mamba at ACPR 2025; BioNet and NeFF at WACV 2025."},
+    {"date": "2024", "text": "Our review of topological deep learning appeared in Artificial Intelligence Review, and TopoX in the Journal of Machine Learning Research."},
+    {"date": "2023", "text": "Runner-up paper award at DICTA 2023 for contrastive-aware ViT for weakly supervised segmentation."}
+  ]
+}

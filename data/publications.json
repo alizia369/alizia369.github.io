@@ -1,0 +1,835 @@
+{
+ "_note": "Curated from Google Scholar (Oct 2026). Fields: year, title, authors, venue, type (journal|conference|workshop|preprint|book|thesis|dataset), topics, links {paper, arxiv, code, project}, note, featured. Run `python build.py` after editing.",
+ "items": [
+  {
+   "year": 2026,
+   "title": "Learning Topology-Aware Representations via Test-Time Adaptation for Anomaly Segmentation",
+   "authors": "A. Zia, U. Ali, A. Rehman, U. Ramzan, K. Han, M. Faheem, S. Qureshi, W. Xiang",
+   "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+   "short": "IEEE TPAMI",
+   "type": "journal",
+   "topics": [
+    "topology",
+    "anomaly"
+   ],
+   "links": {
+    "paper": "https://doi.org/10.1109/TPAMI.2026.3710196",
+    "arxiv": "https://arxiv.org/abs/2606.28268",
+    "code": "https://github.com/alizia369/TopoTTA",
+    "project": "https://topotta.github.io"
+   },
+   "featured": true
+  },
+  {
+   "year": 2026,
+   "title": "Topology-Aware Optimal Transport for Source-Free Test-Time Adaptation in Anomaly Segmentation",
+   "authors": "A. Zia, U. Ali, U. Ramzan, A. Rehman, A. Khamis, W. Xiang",
+   "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+   "short": "NeurIPS",
+   "type": "conference",
+   "topics": [
+    "topology",
+    "anomaly"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2601.20333",
+    "code": "https://github.com/alizia369/TopoOT"
+   },
+   "featured": true
+  },
+  {
+   "year": 2026,
+   "title": "Learning Structurally Consistent Representations for Multi-view Radar Semantic Segmentation",
+   "authors": "A. Zia, M. U. Ramzan, A. Khamis, U. Ali, A. Rehman",
+   "venue": "European Conference on Computer Vision (ECCV)",
+   "short": "ECCV",
+   "type": "conference",
+   "topics": [
+    "sensing",
+    "topology"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2026,
+   "title": "Expert Fusion Network for Automated Blastocyst Morphology and IVF Decision Support",
+   "authors": "A. Zia, S. Qureshi, F. Ansarizadeh, M. Fozan, E. Kamawal, S. Anwer, et al.",
+   "venue": "IEEE Journal of Biomedical and Health Informatics",
+   "short": "IEEE JBHI",
+   "type": "journal",
+   "topics": [
+    "health"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2026,
+   "title": "Hypergraph Contrastive Sensor Fusion for Multimodal Fault Diagnosis in Induction Motors",
+   "authors": "U. Ali, A. Zia, W. Ali, U. Ramzan, A. Rehman, M. T. Chaudhry, W. Xiang",
+   "venue": "IEEE Sensors Journal",
+   "short": "IEEE Sensors Journal",
+   "type": "journal",
+   "topics": [
+    "sensing",
+    "topology"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2510.15547",
+    "code": "https://github.com/alizia369/MM-HCAN"
+   },
+   "featured": true
+  },
+  {
+   "year": 2026,
+   "title": "HyperEcho: Structured Higher Order Representation for Automotive Radar Semantic Segmentation",
+   "authors": "A. Khamis, M. U. Ramzan, U. Ali, A. Zia",
+   "venue": "IEEE International Conference on Pervasive Computing and Communications (PerCom)",
+   "short": "IEEE PerCom",
+   "type": "conference",
+   "topics": [
+    "sensing",
+    "topology"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2026,
+   "title": "A Review on Vision-Centric Coarse to Fine-Grained Animal Action Recognition",
+   "authors": "A. Zia, R. Sharma, A. Khamis, U. Ali, X. Li, M. Husnain, N. Shafi, S. Anwar, et al.",
+   "venue": "Artificial Intelligence Review 59(5)",
+   "short": "AI Review",
+   "type": "journal",
+   "topics": [
+    "agriculture"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2506.01214"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "Multi-Scale Target-Aware Representation Learning for Fundus Image Enhancement",
+   "authors": "H. Wu, Y. Huang, Y. Wu, Q. Yang, B. Wang, L. Zhang, M. F. Khan, A. Zia, et al.",
+   "venue": "Neural Networks 195",
+   "short": "Neural Networks",
+   "type": "journal",
+   "topics": [
+    "health"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2505.01831"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "News Classification in Low-Resource Languages: Insights from Transformer and Baseline Models",
+   "authors": "W. B. Demilie, A. Zia",
+   "venue": "Concurrency and Computation: Practice and Experience 38(6)",
+   "short": "CCPE",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2026,
+   "title": "WS-Net: Weak-Signal Representation Learning and Gated Abundance Reconstruction for Hyperspectral Unmixing via State-Space and Weak Signal Attention Fusion",
+   "authors": "Z. Long, A. Zia, G. Fu, V. Rolland, J. Zhou",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2603.09037"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "Geometry-Aware Semantic Reasoning for Training-Free Video Anomaly Detection",
+   "authors": "A. Zia, U. Ali, M. U. Ramzan, H. Abid, A. Rehman, W. Xiang",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "anomaly"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2603.13374"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "Representation Geometry as a Diagnostic for Out-of-Distribution Robustness",
+   "authors": "A. Zia, F. Hazratian",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "robustness"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2602.03951"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "TopoGeoScore: A Self-Supervised Source-Only Geometric Framework for OOD Checkpoint Selection",
+   "authors": "F. Hazratian, A. Zia, H. D. Nguyen",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "robustness",
+    "topology"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2605.08870"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "Component-Aware Sketch-to-Image Generation Using Self-Attention Encoding and Coordinate-Preserving Fusion",
+   "authors": "A. Zia, M. U. Ramzan, U. Ali, M. Faheem, A. Khamis, S. Qureshi",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "generative"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2603.09484"
+   }
+  },
+  {
+   "year": 2026,
+   "title": "Implicit Spatial-Frequency Fusion of Hyperspectral and LiDAR Data via Kolmogorov-Arnold Networks",
+   "authors": "Z. Long, J. X. Yang, J. Wang, A. Zia, G. Fu, J. Zhou",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2605.14239"
+   }
+  },
+  {
+   "year": 2025,
+   "title": "2D–3D Feature Fusion via Cross-Modal Latent Synthesis and Attention-Guided Restoration for Industrial Anomaly Detection",
+   "authors": "U. Ali, A. Zia, A. Rehman, U. Ramzan, Z. Hassan, T. Sattar, J. Wang, W. Xiang",
+   "venue": "International Conference on Digital Image Computing: Techniques and Applications (DICTA)",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "anomaly",
+    "3d"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2510.21793",
+    "code": "https://github.com/alizia369/MAFR"
+   },
+   "featured": true
+  },
+  {
+   "year": 2025,
+   "title": "Split-Fuse-Transport: Annotation-Free Saliency via Dual Clustering and Optimal Transport Alignment",
+   "authors": "M. U. Ramzan, A. Zia, A. Khamis, N. Ali, U. Ali, W. Xiang",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2510.17484"
+   }
+  },
+  {
+   "year": 2025,
+   "title": "Weakly Supervised Pixel-Wise Classification of Hyperspectral Images with Noise-Adaptive Hybrid Attention and Triple Contrastive Learning",
+   "authors": "D. Effah, A. Zia, M. Awrangjeb, Y. Gao, K. Sarpong",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Hierarchical Spatial Mamba Framework for Point Cloud Classification",
+   "authors": "Y. Sun, A. Zia, Z. Long, Z. Qiu, W. Xiang, J. Zhou",
+   "venue": "Asian Conference on Pattern Recognition (ACPR)",
+   "short": "ACPR",
+   "type": "conference",
+   "topics": [
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "BioNet and NeFF: Crop Biomass Prediction from Point Clouds to Drone Imagery",
+   "authors": "X. Li, Z. Hayder, A. Zia, C. Cassidy, S. Liu, W. Stiller, E. Stone, W. Conaty, et al.",
+   "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+   "short": "WACV",
+   "type": "conference",
+   "topics": [
+    "agriculture",
+    "3d"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2410.23901"
+   }
+  },
+  {
+   "year": 2025,
+   "title": "Advances in Machine Learning for Wetland Classification: A Comprehensive Survey of Methods and Applications",
+   "authors": "D. Effah, A. Zia, M. Awrangjeb, Y. Gao, K. Sarpong",
+   "venue": "Artificial Intelligence Review 59(1)",
+   "short": "AI Review",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Unlocking Chickpea Flour Potential: AI-Powered Prediction for Quality Assessment and Compositional Characterisation",
+   "authors": "A. Zia, M. Husnain, S. Buck, J. Richetti, E. Hulm, J. P. Ral, V. Rolland, X. Sirault",
+   "venue": "Current Research in Food Science 10",
+   "short": "Curr. Res. Food Sci.",
+   "type": "journal",
+   "topics": [
+    "hyperspectral",
+    "agriculture"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "A Mental State Aware Brain Computer Interface for Adaptive Control of Electric Powered Wheelchair",
+   "authors": "S. A. H. Hussain, I. Raza, S. A. Hussain, M. H. Jamal, T. Gulrez, A. Zia",
+   "venue": "Scientific Reports 15",
+   "short": "Scientific Reports",
+   "type": "journal",
+   "topics": [
+    "health"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "SSTD: Stripe-Like Space Target Detection Using Single-Point Weak Supervision",
+   "authors": "Z. Zhu, A. Zia, X. Li, B. Dan, Y. Ma, E. Liu, R. Zhao",
+   "venue": "IEEE International Conference on Multimedia and Expo (ICME)",
+   "short": "ICME",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2407.18097"
+   }
+  },
+  {
+   "year": 2025,
+   "title": "Collaborative Static-Dynamic Teaching: A Semi-Supervised Framework for Stripe-Like Space Target Detection",
+   "authors": "Z. Zhu, A. Zia, X. Li, B. Dan, Y. Ma, H. Long, K. Lu, E. Liu, R. Zhao",
+   "venue": "Remote Sensing 17(8)",
+   "short": "Remote Sensing",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2408.05029"
+   }
+  },
+  {
+   "year": 2025,
+   "title": "Text-to-Floorplan Synthesis via Graph-Conditioned Diffusion Processes",
+   "authors": "M. A. Rehan, S. Qureshi, A. Zia",
+   "venue": "International Conference on Image and Vision Computing New Zealand (IVCNZ)",
+   "short": "IVCNZ",
+   "type": "conference",
+   "topics": [
+    "generative"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Benchmarking Deep Learning Models for Weed Detection in Precision Agriculture",
+   "authors": "S. Qureshi, A. Zia, A. Ameer, A. Latif",
+   "venue": "CANVAS",
+   "short": "CANVAS",
+   "type": "conference",
+   "topics": [
+    "agriculture"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Enhancing Silent Speech Decoding Using EEG and Gradient Boosting Classifiers: A Comparative Analysis of XGBoost and LightGBM on a Native Arabic Silent Speech Dataset",
+   "authors": "R. Shah, A. Riaz, S. Qureshi, A. Zia, U. Iqbal",
+   "venue": "International Conference on Activity and Behavior Computing (ABC)",
+   "short": "ABC",
+   "type": "conference",
+   "topics": [
+    "health"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Predicting User Behavior on Video Streaming by Using Watch-Time Duration Analysis",
+   "authors": "Z. Anwer, S. Qureshi, S. M. Z. Iqbal, A. Zia, S. Anwer",
+   "venue": "Knowledge-Based Systems",
+   "short": "KBS",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Genre-Aware User Profiling Using Duration Count Matrices: A Novel Approach to Enhancing Content Recommendation Systems",
+   "authors": "A. Alqazzaz, Z. Anwar, M. Hassan, S. Qureshi, M. Alsulami, A. Zia, S. Alyami, et al.",
+   "venue": "PLOS ONE 20(4)",
+   "short": "PLOS ONE",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Deadline-Aware Workload Scheduling for Edge-Enhanced IoT Devices: A Blockchain-Enabled Approach to Incentive-Based Computing",
+   "authors": "M. T. Chaudhry, A. Yousafzai, A. Zia, S. A. Abid, F. Ahmad",
+   "venue": "Peer-to-Peer Networking and Applications 18(4)",
+   "short": "P2P Netw. Appl.",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2025,
+   "title": "Determining Mosaic Resilience in Sugarcane Plants Using Hyperspectral Images",
+   "authors": "A. Zia, J. Zhou, M. Olayemi",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "hyperspectral",
+    "agriculture"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2501.16700"
+   }
+  },
+  {
+   "year": 2025,
+   "title": "Deep Learning in UAV-Based Sensing for Agriculture: A Survey",
+   "authors": "A. Zia, J. Wang, X. Li, M. Z. Hossain, J. Richetti, A. Ameer, S. Qureshi, P. Stewart, et al.",
+   "venue": "SSRN preprint",
+   "type": "preprint",
+   "topics": [
+    "agriculture"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2024,
+   "title": "Topological Deep Learning: A Review of an Emerging Paradigm",
+   "authors": "A. Zia, A. Khamis, J. Nichols, U. B. Tayab, Z. Hayder, et al.",
+   "venue": "Artificial Intelligence Review 57(77)",
+   "short": "AI Review",
+   "type": "journal",
+   "topics": [
+    "topology"
+   ],
+   "links": {
+    "paper": "https://link.springer.com/article/10.1007/s10462-024-10710-9",
+    "arxiv": "https://arxiv.org/abs/2302.03836"
+   }
+  },
+  {
+   "year": 2024,
+   "title": "TopoX: A Suite of Python Packages for Machine Learning on Topological Domains",
+   "authors": "M. Hajij, M. Papillon, F. Frantzen, J. Agerberg, I. AlJabea, R. Ballester, et al., including A. Zia",
+   "venue": "Journal of Machine Learning Research 25(374)",
+   "short": "JMLR",
+   "type": "journal",
+   "topics": [
+    "topology"
+   ],
+   "links": {
+    "paper": "https://www.jmlr.org/papers/v25/24-0110.html",
+    "arxiv": "https://arxiv.org/abs/2402.02441",
+    "code": "https://github.com/pyt-team"
+   }
+  },
+  {
+   "year": 2024,
+   "title": "A New Hyperspectral Unmixing Benchmark for Weak Signal Meat Contamination Detection",
+   "authors": "Z. Long, A. Zia, J. Nelis, V. Rolland, J. Zhou",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2024,
+   "title": "MMCBE: Multi-Modality Dataset for Crop Biomass Estimation and Beyond",
+   "authors": "X. Li, Z. Hayder, A. Zia, C. Cassidy, S. Liu, W. Stiller, E. Stone, W. Conaty, et al.",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "agriculture",
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2024,
+   "title": "Locally-Focused Face Representation for Sketch-to-Image Generation Using Noise-Induced Refinement",
+   "authors": "M. U. Ramzan, A. Zia, A. Khamis, A. Elgharabawy, A. Liaqat, U. Ali",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "generative"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2411.19005"
+   }
+  },
+  {
+   "year": 2024,
+   "title": "A Comparative Analysis of IoT Device Fingerprinting Methods",
+   "authors": "M. M. Mir, W. L. Tan, M. Awrangjeb, A. Zia",
+   "venue": "International Telecommunication Networks and Applications Conference (ITNAC)",
+   "short": "ITNAC",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2024,
+   "title": "An Improved IoT Device Fingerprinting via Enhanced Feature Selection",
+   "authors": "M. M. Mir, M. Awrangjeb, W. L. Tan, A. Zia",
+   "venue": "International Conference on Signal Processing and Communication Systems (ICSPCS)",
+   "short": "ICSPCS",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2023,
+   "title": "ICML 2023 Topological Deep Learning Challenge: Design and Results",
+   "authors": "M. Papillon, M. Hajij, A. Myers, H. Jenne, J. Mathe, T. Papamarkou, et al., including A. Zia",
+   "venue": "Topological, Algebraic and Geometric Learning Workshops (PMLR 221)",
+   "short": "PMLR",
+   "type": "workshop",
+   "topics": [
+    "topology"
+   ],
+   "links": {
+    "paper": "https://proceedings.mlr.press/v221/papillon23a.html",
+    "arxiv": "https://arxiv.org/abs/2309.15188"
+   }
+  },
+  {
+   "year": 2023,
+   "title": "CVB: A Video Dataset of Cattle Visual Behaviors",
+   "authors": "A. Zia, R. Sharma, R. Arablouei, G. Bishop-Hurley, J. McNally, N. Bagnall, et al.",
+   "venue": "CVPR Workshops",
+   "short": "CVPR-W",
+   "type": "dataset",
+   "topics": [
+    "agriculture"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2305.16555"
+   }
+  },
+  {
+   "year": 2023,
+   "title": "Contrastive-Aware ViT for Weakly Supervised Semantic Segmentation",
+   "authors": "P. Pativada, Z. Hayder, A. Zia, N. Barnes",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {},
+   "note": "Runner-up paper award"
+  },
+  {
+   "year": 2023,
+   "title": "How Do Native and Non-native Listeners Differ? Investigation with Dominant Frequency Bands in Auditory Evoked Potential",
+   "authors": "Y. Zhou, M. R. Hasan, M. M. Hasan, A. Zia, M. Z. Hossain",
+   "venue": "International Conference on Neural Information Processing (ICONIP)",
+   "short": "ICONIP",
+   "type": "conference",
+   "topics": [
+    "health"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2023,
+   "title": "Multiscale Representations Learning Transformer Framework for Point Cloud Classification",
+   "authors": "Y. Sun, A. Zia, J. Zhou",
+   "venue": "IEEE International Conference on Image Processing (ICIP)",
+   "short": "ICIP",
+   "type": "conference",
+   "topics": [
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2023,
+   "title": "Spectral 3D Computer Vision: A Review",
+   "authors": "Y. Sun, A. Zia, V. Rolland, C. Yu, J. Zhou",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "hyperspectral",
+    "3d"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2302.08054"
+   }
+  },
+  {
+   "year": 2023,
+   "title": "High Spectral Spatial Resolution Synthetic Hyperspectral Dataset from Multi-Source Fusion",
+   "authors": "Y. Sun, A. Zia, J. Zhou",
+   "venue": "arXiv preprint",
+   "type": "preprint",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2309.00005"
+   }
+  },
+  {
+   "year": 2023,
+   "title": "Comparing the Effectiveness of Classic Mask R-CNN and Vision Transformer in Early Weed Detection",
+   "authors": "S. Qureshi, A. Ameer, A. Zia, A. Latif, S. Karrila",
+   "venue": "SSRN preprint",
+   "type": "preprint",
+   "topics": [
+    "agriculture"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2021,
+   "title": "Exploring Chromatic Aberration and Defocus Blur for Relative Depth Estimation from Monocular Hyperspectral Image",
+   "authors": "A. Zia, J. Zhou, Y. Gao",
+   "venue": "IEEE Transactions on Image Processing 30",
+   "short": "IEEE TIP",
+   "type": "journal",
+   "topics": [
+    "hyperspectral",
+    "3d"
+   ],
+   "links": {
+    "paper": "https://doi.org/10.1109/TIP.2021.3072215"
+   }
+  },
+  {
+   "year": 2021,
+   "title": "Early Detection of Sugarcane Smut Disease in Hyperspectral Images",
+   "authors": "D. Bao, J. Zhou, S. A. Bhuiyan, A. Zia, R. Ford, Y. Gao",
+   "venue": "IVCNZ",
+   "short": "IVCNZ",
+   "type": "conference",
+   "topics": [
+    "hyperspectral",
+    "agriculture"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2020,
+   "title": "Short-Term Load Forecasting for Microgrid Energy Management System Using Hybrid HHO-FNN Model with Best-Basis Stationary Wavelet Packet Transform",
+   "authors": "U. B. Tayab, A. Zia, F. Yang, J. Lu, M. Kashif",
+   "venue": "Energy 203",
+   "short": "Energy",
+   "type": "journal",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2020,
+   "title": "Exploring Extrinsic Spectral Properties of Hyperspectral Image for 3D Computer Vision",
+   "authors": "A. Zia",
+   "venue": "PhD thesis, Griffith University",
+   "type": "thesis",
+   "topics": [
+    "hyperspectral",
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2019,
+   "title": "Microgrid Energy Management System for Academic Building",
+   "authors": "U. B. Tayab, J. Lu, F. Yang, M. Islam, A. Zia, J. Hossain",
+   "venue": "Australasian Universities Power Engineering Conference (AUPEC)",
+   "short": "AUPEC",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2018,
+   "title": "Spectral-Spatial Scale Invariant Feature Transform for Hyperspectral Images",
+   "authors": "S. L. Al-Khafaji, J. Zhou, A. Zia, A. W. C. Liew",
+   "venue": "IEEE Transactions on Image Processing 27(2)",
+   "short": "IEEE TIP",
+   "type": "journal",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2018,
+   "title": "3D Plant Modelling Using Spectral Data from Visible to Near Infrared Range",
+   "authors": "A. Zia, J. Liang",
+   "venue": "Computer Vision: Concepts, Methodologies, Tools, and Applications (IGI Global)",
+   "short": "Book chapter",
+   "type": "book",
+   "topics": [
+    "hyperspectral",
+    "agriculture",
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2017,
+   "title": "Material Based Boundary Detection in Hyperspectral Images",
+   "authors": "S. L. Al-Khafaji, A. Zia, J. Zhou, A. W. C. Liew",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2015,
+   "title": "3D Reconstruction from Hyperspectral Images",
+   "authors": "A. Zia, J. Liang, J. Zhou, Y. Gao",
+   "venue": "IEEE Winter Conference on Applications of Computer Vision (WACV)",
+   "short": "WACV",
+   "type": "conference",
+   "topics": [
+    "hyperspectral",
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2015,
+   "title": "Relative Depth Estimation from Hyperspectral Data",
+   "authors": "A. Zia, J. Zhou, Y. Gao",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "hyperspectral",
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2013,
+   "title": "3D Plant Modelling via Hyperspectral Imaging",
+   "authors": "J. Liang, A. Zia, J. Zhou, X. Sirault",
+   "venue": "IEEE International Conference on Computer Vision Workshops (ICCVW)",
+   "short": "ICCV-W",
+   "type": "workshop",
+   "topics": [
+    "hyperspectral",
+    "agriculture",
+    "3d"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2010,
+   "title": "Bézier Curve Based Dynamic Obstacle Avoidance and Trajectory Learning for Autonomous Mobile Robots",
+   "authors": "T. Chaudhry, T. Gulrez, A. Zia, S. Zaheer",
+   "venue": "International Conference on Intelligent Systems Design and Applications (ISDA)",
+   "short": "ISDA",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2010,
+   "title": "Heterogeneous Sensor Fusion Framework for Autonomous Mobile Robot Obstacle Avoidance",
+   "authors": "A. Zia, T. Gulrez, T. Chaudhry",
+   "venue": "ISDA",
+   "short": "ISDA",
+   "type": "conference",
+   "topics": [
+    "sensing"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2010,
+   "title": "Object Recognition Using SIFT Feature over Fastly Extracted Salient Map",
+   "authors": "A. Zia",
+   "venue": "IITM",
+   "short": "IITM",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  },
+  {
+   "year": 2008,
+   "title": "Content-Based Image Retrieval via Subspace-Projected Salient Features",
+   "authors": "J. H. Huang, A. Zia, J. Zhou, A. Robles-Kelly",
+   "venue": "DICTA",
+   "short": "DICTA",
+   "type": "conference",
+   "topics": [
+    "other"
+   ],
+   "links": {}
+  }
+ ]
+}

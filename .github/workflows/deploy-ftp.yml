@@ -1,0 +1,43 @@
+name: Upload site to ali-zia.me (Solid Hosting)
+# On every push to main, uploads the built site to the hosting account over FTPS.
+# Needs repository secrets FTP_SERVER, FTP_USERNAME and FTP_PASSWORD.
+# The FTP account's home folder decides where files land (new.ali-zia.me while previewing,
+# the main ali-zia.me folder after the switch). Only changed files are uploaded.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+concurrency:
+  group: ftp-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that FTP secrets are set
+        id: check
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -z "$FTP_SERVER" ]; then echo "FTP secrets not set yet; skipping upload."; echo "ready=no" >> "$GITHUB_OUTPUT"; else echo "ready=yes" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.ready == 'yes'
+      - name: Upload over FTPS
+        if: steps.check.outputs.ready == 'yes'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          # Shared hosts often present a certificate for their own hostname rather than yours.
+          # "loose" keeps the connection encrypted but accepts that mismatch.
+          security: loose
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
+            build.py
+            .nojekyll

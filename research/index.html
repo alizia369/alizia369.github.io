@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research | Ali Zia</title>
+<meta name="description" content="Research themes and selected projects of Ali Zia: topological deep learning, hyperspectral imaging and reliable AI.">
+<link rel="canonical" href="https://ali-zia.me/research/">
+<meta property="og:title" content="Research | Ali Zia">
+<meta property="og:description" content="Research themes and selected projects of Ali Zia: topological deep learning, hyperspectral imaging and reliable AI.">
+<meta property="og:image" content="https://ali-zia.me/assets/img/profile.jpg">
+<meta property="og:url" content="https://ali-zia.me/research/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23161c2d'/%3E%3Crect x='6' y='9' width='4' height='14' fill='%235b4bb7'/%3E%3Crect x='12' y='9' width='4' height='14' fill='%231e9e8f'/%3E%3Crect x='18' y='9' width='4' height='14' fill='%23d6aa1e'/%3E%3Crect x='24' y='9' width='3' height='14' fill='%23c8374a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<div class="strip" aria-hidden="true"></div>
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="/">Ali Zia</a>
+    <nav aria-label="Main"><ul class="nav"><li><a href="/">Home</a></li><li><a href="/research/" aria-current="page">Research</a></li><li><a href="/publications/">Publications</a></li><li><a href="/teaching/">Teaching</a></li><li><a href="/cv/">CV</a></li></ul></nav>
+  </div>
+</header>
+<main id="content">
+
+<div class="wrap">
+  <header class="page-head">
+    <h1>Research</h1>
+    <p>My work asks how to give learning systems structure they can trust: the shape of the data, the physics of the sensor, and the relationships between modalities. Most of it is applied with partners in agriculture, food, health and industry.</p>
+  </header>
+
+  <section class="theme">
+    <div><h2>Topological deep learning</h2>
+      <p>Topology describes what stays the same when data is stretched or corrupted: connected parts, loops and voids. I use persistent homology to turn anomaly maps into reliable pseudo-labels (TopoTTA, TPAMI 2026), optimal transport to compare persistence diagrams across scales (TopoOT, NeurIPS 2026), and hypergraphs and cell complexes to model relations between sensors and views in radar and fault diagnosis.</p>
+      <p>I co-wrote a <a href="https://link.springer.com/article/10.1007/s10462-024-10710-9">review of topological deep learning</a> in Artificial Intelligence Review, contributed to the <a href="https://www.jmlr.org/papers/v25/24-0110.html">TopoX</a> software suite, and am teaching a tutorial on the topic at ACML 2026.</p></div>
+    <img src="/assets/img/projects/tdl-pipeline.jpg" alt="Diagram of topological deep learning stages: topological embedding, representation and loss, and post-training topological analysis" loading="lazy">
+  </section>
+
+  <section class="theme">
+    <div><h2>Hyperspectral and multimodal sensing</h2>
+      <p>A hyperspectral camera records hundreds of narrow bands, so each pixel carries a spectrum rather than three colours. My PhD used these spectra for 3D vision, recovering depth from chromatic aberration and defocus. Since then I have worked on weak-signal unmixing for contamination in meat, protein prediction in chickpea, disease detection in sugarcane and herbicide resistance in ryegrass, and on fusing spectral data with lidar and point clouds.</p></div>
+    <img src="/assets/img/projects/hsi-cube.jpg" alt="A hyperspectral image cube with the reflectance spectrum of one pixel, and a band image of a scene" loading="lazy">
+  </section>
+
+  <section class="theme">
+    <div><h2>Reliable AI under real conditions</h2>
+      <p>Models trained in the lab meet new lighting, sensors and populations in deployment. I work on test-time adaptation that needs no source data or labels, on diagnosing out-of-distribution robustness from representation geometry, and on decision support where errors are costly, such as embryo assessment for IVF.</p></div>
+    <img src="/assets/img/anomaly-masks.jpg" alt="Anomaly segmentation results: input, ground truth, heat map, threshold baseline, TTT4AS and TopoTTA" loading="lazy">
+  </section>
+
+  <section class="section" aria-labelledby="proj-h">
+    <div class="section-head"><h2 id="proj-h">Selected projects</h2></div>
+    <div class="projects"><article class="project"><img src="/assets/img/projects/chickpea.jpg" alt="Chickpea seed varieties under imaging, with a diagram of seed composition and box plots of predicted protein content by variety" loading="lazy"><h3>Chickpea quality from hyperspectral imaging</h3><p class="partners">CSIRO, 2023 onward</p><p>Predicting protein and composition of chickpea varieties and flour from hyperspectral data, so breeders and processors can screen quality without wet chemistry.</p><ul class="refs"><li>Current Research in Food Science, 2025</li></ul></article><article class="project"><img src="/assets/img/projects/meat.jpg" alt="Grid of steak hyperspectral images and abundance maps from classical and deep unmixing methods for E. coli, fat and meat" loading="lazy"><h3>Finding weak contamination signals in meat</h3><p class="partners">CSIRO AI4M, 2022 onward</p><p>A benchmark for detecting faint E. coli signatures in steak with hyperspectral unmixing, comparing classical methods with transformer and CNN models. Follow-up work includes the WS-Net weak-signal unmixing model.</p><ul class="refs"><li>DICTA 2024</li><li><a href="https://arxiv.org/abs/2603.09037">WS-Net (arXiv)</a></li></ul></article><article class="project"><img src="/assets/img/projects/livestock.jpg" alt="Cattle in a paddock with detection boxes and pose keypoints overlaid" loading="lazy"><h3>Cattle behaviour from video</h3><p class="partners">CSIRO</p><p>Detecting and tracking individual cattle in the field and classifying their behaviour over time, for welfare, early disease detection and breeding. We released the CVB dataset and a CVAT-based tool that cuts annotation time by labelling only behaviour changes. <a href="/assets/video/livestock-behaviour.mp4">Watch a clip</a>.</p><ul class="refs"><li><a href="https://arxiv.org/abs/2305.16555">CVB dataset (arXiv)</a></li><li><a href="https://arxiv.org/abs/2506.01214">Animal action review, AI Review 2026</a></li></ul></article><article class="project"><img src="/assets/img/projects/sugarcane.jpg" alt="Hyperspectral sugarcane leaf images after graph-Laplacian processing, with a table of ResNet results" loading="lazy"><h3>Sugarcane disease and resilience</h3><p>Near-infrared hyperspectral imaging with CNNs to identify mosaic-resistant sugarcane varieties and to catch smut disease before symptoms show.</p><ul class="refs"><li><a href="https://arxiv.org/abs/2501.16700">Mosaic resilience (arXiv)</a></li><li>Smut detection, IVCNZ 2021</li></ul></article><article class="project"><img src="/assets/img/projects/insects.jpg" alt="A drone fitted with an insect dispersal unit on a lab bench" loading="lazy"><h3>Counting beneficial insects released by drone</h3><p>YOLOv5 and DETR models count insects and larvae in mixtures dispersed by UAVs, so growers can check that natural pest control is spread where it is needed.</p></article><article class="project"><img src="/assets/img/projects/documents.jpg" alt="Torn document fragments, detected fragment pieces and a reconstructed historical map" loading="lazy"><h3>Restoring historical documents</h3><p>Detecting tears, creases and faded text in archival documents, then reassembling and digitising them.</p></article><article class="project"><img src="/assets/img/projects/parkinsons.jpg" alt="System diagram linking a patient&#x27;s wearable sensors to a clinician through a central server" loading="lazy"><h3>Remote monitoring for Parkinson&#x27;s disease</h3><p class="partners">COMSATS University</p><p>Wireless inertial sensors and cameras separate normal movement from tremor, scored against the UPDRS scale so clinicians can follow patients at home.</p></article><article class="project"><img src="/assets/img/projects/robot-mapping.jpg" alt="A mobile robot with a laptop, a diagram of map exchange between robots, and reconstructed 3D maps of a room" loading="lazy"><h3>Robot mapping and navigation</h3><p class="partners">Best project award, 2011</p><p>Mobile robots that build 2D and 3D maps of their surroundings and plan paths around obstacles, with maps shared between robots.</p><ul class="refs"><li>Sensor fusion for obstacle avoidance, ISDA 2010</li></ul></article></div>
+    <h3 style="font-size:1.25rem;margin:40px 0 12px">Earlier projects</h3>
+    <ul class="plain measure"><li>Smart home automation with face recognition, alarm and smoke detection, number-plate detection and IP camera streaming</li><li>Facial and vocal emotion recognition</li><li>Computer control using finger movement</li><li>Content-based video retrieval</li><li>Smart traffic surveillance and vehicle identification</li><li>Camera surveillance using mobile phones</li></ul>
+  </section>
+</div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div>
+      <p>Ali Zia, School of Computing, Engineering and Mathematical Sciences, La Trobe University, Melbourne.</p>
+      <p><a href="mailto:alizia369@gmail.com">alizia369@gmail.com</a> &nbsp; <a href="https://scholar.google.com/citations?user=BVBJ06QAAAAJ">Google Scholar</a> &nbsp; <a href="https://github.com/alizia369">GitHub</a> &nbsp; <a href="https://orcid.org/0000-0003-4819-6666">ORCID</a> &nbsp; <a href="https://www.linkedin.com/in/ali-zia-0411b123/">LinkedIn</a></p>
+      <p>Last updated October 2026.</p>
+    </div>
+    <button class="theme-switch" type="button" id="theme-switch">Dark theme</button>
+  </div>
+</footer>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

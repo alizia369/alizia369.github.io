@@ -1,0 +1,36 @@
+<svg viewBox="0 0 300 150" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+<line x1="5.0" y1="126.0" x2="91.0" y2="40.0" class="pd-diag"/>
+<line x1="5.0" y1="126.0" x2="91.0" y2="126.0" class="pd-axis"/><line x1="5.0" y1="126.0" x2="5.0" y2="40.0" class="pd-axis"/>
+<text x="48.0" y="144" text-anchor="middle" class="pd-lab">t₁</text>
+<circle cx="11.8" cy="103.6" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="12.9" cy="110.8" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="25.1" cy="93.3" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<rect x="12.0" y="52.9" width="8" height="8" fill="#c8374a" transform="rotate(45 16.0 56.9)"/>
+<rect x="29.6" y="43.1" width="8" height="8" fill="#c8374a" transform="rotate(45 33.6 47.1)"/>
+<circle cx="28.1" cy="92.3" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="46.0" cy="76.1" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<line x1="112.0" y1="126.0" x2="198.0" y2="40.0" class="pd-diag"/>
+<line x1="112.0" y1="126.0" x2="198.0" y2="126.0" class="pd-axis"/><line x1="112.0" y1="126.0" x2="112.0" y2="40.0" class="pd-axis"/>
+<text x="155.0" y="144" text-anchor="middle" class="pd-lab">t₂</text>
+<circle cx="118.5" cy="101.8" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="123.9" cy="104.0" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="126.4" cy="95.0" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<rect x="120.9" y="56.0" width="8" height="8" fill="#c8374a" transform="rotate(45 124.9 60.0)"/>
+<rect x="137.9" y="43.8" width="8" height="8" fill="#c8374a" transform="rotate(45 141.9 47.8)"/>
+<circle cx="140.8" cy="86.7" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="149.3" cy="75.2" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<line x1="219.0" y1="126.0" x2="305.0" y2="40.0" class="pd-diag"/>
+<line x1="219.0" y1="126.0" x2="305.0" y2="126.0" class="pd-axis"/><line x1="219.0" y1="126.0" x2="219.0" y2="40.0" class="pd-axis"/>
+<text x="262.0" y="144" text-anchor="middle" class="pd-lab">t₃</text>
+<circle cx="230.2" cy="97.2" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="228.7" cy="106.2" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="233.9" cy="97.6" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<rect x="224.8" y="57.1" width="8" height="8" fill="#c8374a" transform="rotate(45 228.8 61.1)"/>
+<rect x="246.0" y="42.2" width="8" height="8" fill="#c8374a" transform="rotate(45 250.0 46.2)"/>
+<circle cx="245.0" cy="90.1" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<circle cx="261.1" cy="81.3" r="3.2" fill="#2f6fd0" fill-opacity=".7"/>
+<path d="M21.0,56.9 Q70.5,34.9 119.9,60.0" fill="none" stroke="#0d6b58" stroke-width="1.4" stroke-dasharray="4 3" class="ot"/>
+<path d="M129.9,60.0 Q176.8,38.0 223.8,61.1" fill="none" stroke="#0d6b58" stroke-width="1.4" stroke-dasharray="4 3" class="ot"/>
+<path d="M38.6,47.1 Q87.7,25.1 136.9,47.8" fill="none" stroke="#0d6b58" stroke-width="1.4" stroke-dasharray="4 3" class="ot"/>
+<path d="M146.9,47.8 Q195.9,24.2 245.0,46.2" fill="none" stroke="#0d6b58" stroke-width="1.4" stroke-dasharray="4 3" class="ot"/>
+</svg>
