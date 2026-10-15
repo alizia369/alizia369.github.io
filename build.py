@@ -42,6 +42,19 @@ def nice_date(d):
     return f"{MONTHS[int(parts[1]) - 1]} {parts[0]}" if len(parts) > 1 else parts[0]
 
 
+def _scholar():
+    p = ROOT / "data" / "scholar.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {"citations": 0, "h_index": 0, "updated": ""}
+
+
+SCHOLAR = _scholar()
+
+
+def scholar_date():
+    d = SCHOLAR.get("updated", "")
+    return f"{MONTHS[int(d[5:7]) - 1]} {d[:4]}" if len(d) >= 7 else ""
+
+
 def svg(name):
     return (ROOT / "assets" / "svg" / name).read_text(encoding="utf-8")
 
@@ -102,8 +115,8 @@ def page(path, title, description, body):
     <nav aria-label="Site"><ul class="menu">{menu}</ul></nav>
     <ul class="links">{links}</ul>
     <div class="metrics">
-      <p><b>911</b> citations, h-index <b>14</b></p>
-      <p>Google Scholar, October 2026</p>
+      <p><b>{SCHOLAR["citations"]:,}</b> citations, h-index <b>{SCHOLAR["h_index"]}</b></p>
+      <p>Google Scholar, {scholar_date()}</p>
     </div>
   </aside>
   <main id="content">

@@ -1,0 +1,33 @@
+name: Update Google Scholar figures
+# Every three days, fetch citations, h-index and i10-index from Google Scholar into
+# data/scholar.json, rebuild the pages and commit if anything changed.
+on:
+  schedule:
+    - cron: "20 19 */3 * *"   # 06:20 Sydney summer time, the day after each date
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/scholar.yml", "tools/fetch_scholar.py"]
+permissions:
+  contents: write
+concurrency:
+  group: scholar
+  cancel-in-progress: true
+jobs:
+  scholar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install --quiet scholarly
+      - run: timeout 900 python tools/fetch_scholar.py || true
+      - run: python build.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add -A data/scholar.json '*.html'
+          if git diff --cached --quiet; then echo "No change"; else git commit -m "Update Google Scholar figures" && git push; fi
