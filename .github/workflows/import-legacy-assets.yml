@@ -1,0 +1,33 @@
+name: Import legacy WordPress assets
+# Copies images and PDFs from the old WordPress site into assets/legacy/.
+# Runs whenever tools/legacy-assets.txt changes on main.
+on:
+  push:
+    branches: [main]
+    paths: [tools/legacy-assets.txt]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download files
+        run: |
+          mkdir -p assets/legacy
+          grep -v '^#' tools/legacy-assets.txt | grep -v '^$' | while read -r url; do
+            name=$(basename "$url")
+            if curl -fsSL --max-time 120 -A "Mozilla/5.0" "$url" -o "assets/legacy/$name"; then
+              echo "ok   $name $(stat -c%s "assets/legacy/$name") bytes"
+            else
+              echo "FAIL $url"; rm -f "assets/legacy/$name"
+            fi
+          done
+          # GitHub rejects files over 100 MB
+          find assets/legacy -size +95M -print -delete
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
+          git add assets/legacy
+          git diff --cached --quiet && echo "nothing new" || (git commit -m "Import legacy assets from ali-zia.me" && git push)
