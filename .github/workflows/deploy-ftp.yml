@@ -20,7 +20,7 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
         run: |
           if [ -z "$FTP_SERVER" ]; then echo "FTP secrets not set yet; skipping upload."; echo "ready=no" >> "$GITHUB_OUTPUT"; else echo "ready=yes" >> "$GITHUB_OUTPUT"; fi
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         if: steps.check.outputs.ready == 'yes'
       - name: Upload over FTPS
         if: steps.check.outputs.ready == 'yes'
