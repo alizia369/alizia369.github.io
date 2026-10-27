@@ -51,6 +51,7 @@
     "topology"
    ],
    "links": {
+    "paper": "https://eccv.ecva.net/virtual/2026/poster/5805",
     "arxiv": "https://arxiv.org/abs/2606.31609",
     "code": "https://github.com/alizia369/HyperRadar"
    },
