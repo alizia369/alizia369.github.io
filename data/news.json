@@ -1,6 +1,7 @@
 {
   "_note": "Newest first. date is YYYY-MM or YYYY. text may contain simple HTML links. Items after the first 6 are hidden behind 'Show older news'.",
   "items": [
+    {"date": "2026-10", "text": "Code for <a href=\"https://github.com/alizia369/HyperRadar\">HyperRadar</a> (ECCV 2026, multi-view radar segmentation) is now public."},
     {"date": "2026-10", "text": "Code for <a href=\"https://github.com/alizia369/TopoOT\">TopoOT</a>, <a href=\"https://github.com/alizia369/TopoTTA\">TopoTTA</a>, <a href=\"https://github.com/alizia369/MAFR\">MAFR</a> and <a href=\"https://github.com/alizia369/MM-HCAN\">MM-HCAN</a> is now public."},
     {"date": "2026-10", "text": "<strong>TopoOT accepted at NeurIPS 2026</strong> as a main-conference poster. See you in Sydney."},
     {"date": "2026-10", "text": "“Learnable Persistent Topology for Multi-View Radar Semantic Segmentation” accepted at the NeurIPS 2026 workshop on Symmetry and Geometry in Neural Representations."},

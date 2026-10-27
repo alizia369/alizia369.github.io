@@ -50,7 +50,10 @@
     "sensing",
     "topology"
    ],
-   "links": {},
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2606.31609",
+    "code": "https://github.com/alizia369/HyperRadar"
+   },
    "selected": true
   },
   {

@@ -4,6 +4,7 @@
   "groups": [
     {"title": "Recent research code", "lang": "Python, PyTorch", "items": [
       {"name": "TopoOT", "url": "https://github.com/alizia369/TopoOT", "venue": "NeurIPS 2026", "text": "Topology-aware optimal transport for source-free test-time anomaly segmentation."},
+      {"name": "HyperRadar", "url": "https://github.com/alizia369/HyperRadar", "venue": "ECCV 2026", "text": "Learnable hypergraphs and cross-view optimal transport for multi-view radar semantic segmentation."},
       {"name": "TopoTTA", "url": "https://github.com/alizia369/TopoTTA", "venue": "IEEE TPAMI 2026", "text": "Persistent-homology pseudo-labels for test-time adaptation in anomaly segmentation."},
       {"name": "MM-HCAN", "url": "https://github.com/alizia369/MM-HCAN", "venue": "IEEE Sensors Journal 2026", "text": "Hypergraph contrastive fusion of vibration signals and spectrograms for motor fault diagnosis."},
       {"name": "MAFR", "url": "https://github.com/alizia369/MAFR", "venue": "DICTA 2025", "text": "RGB and point cloud fusion with attention-guided restoration for industrial anomaly detection."}
