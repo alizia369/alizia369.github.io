@@ -371,14 +371,15 @@ def build_teaching():
         <div>
           <ul class="entries">
             <li><div class="h">La Trobe University</div><div class="s">Data Analysis and Design (casual lecturer)</div></li>
-            <li><div class="h">Griffith University</div><div class="s">Programming (casual lecturer); lab instructor over several years for Programming, Advanced Programming, Software Engineering, Software Design, Big Data Analysis, Sensor Networks and others</div></li>
+            <li><div class="h">Griffith University, 2014–2021</div><div class="s">Lecturer and lab instructor: Sensor Networks (3706ICT) and Introduction to Big Data Analytics (7030ICT) during the ARC Hub postdoc; Introduction to Programming (1001ICT), Software Development (1802ICT), Programming Principles (7001ICT), Software Engineering, Advanced Programming and Software Design. Student Coach for first-year ICT students.</div></li>
             <li><div class="h">Australian National University</div><div class="s">Teaching in computing courses</div></li>
           </ul>
         </div>
         <div>
           <ul class="entries">
             <li><div class="h">COMSATS University, Pakistan</div><div class="s">Artificial Intelligence (eight semesters), Machine Learning (three), Computer Vision (two), Systems Programming and Advanced Operating Systems; designed the AI, Operating Systems and Systems Programming courses</div></li>
-            <li><div class="h">Also taught</div><div class="s">Electric Circuits, Human–Computer Interaction, Computing for Management</div></li>
+            <li><div class="h">Also taught</div><div class="s">Electric Circuits (Griffith, 1301ENG), Human–Computer Interaction, Computing for Management</div></li>
+            <li><div class="h">Service at COMSATS</div><div class="s">Batch advisor and student counsellor; member of campus-level committees and of the teams organising international conferences, workshops and seminars</div></li>
           </ul>
         </div>
       </div>
@@ -392,8 +393,11 @@ def build_teaching():
     <section aria-labelledby="tut-h">
       <h2 id="tut-h">Tutorials and workshops</h2>
       <ul class="entries measure">
-        <li><div class="h"><a href="https://alizia369.github.io/acml2026-tdl/">Topological Deep Learning for Robust Representation Learning</a></div><div class="s">Tutorial at ACML 2026, Melbourne, 1 December 2026, with Usman Ali and Abdelwahed Khamis</div></li>
+        <li><div class="h"><a href="https://alizia369.github.io/acml2026-tdl/">Topological Deep Learning for Robust Representation Learning</a></div><div class="s">Tutorial at ACML 2026, Melbourne, 1 December 2026, with Abdelwahed Khamis</div></li>
         <li><div class="h">CSIRO ML Workshop Series</div><div class="s">Co-lead</div></li>
+        <li><div class="h">ML/AI Animal Science Workshop</div><div class="s">Host and organiser, CSIRO, 2024</div></li>
+        <li><div class="h">Early-career researcher event</div><div class="s">Host and organiser of a three-day programme of workshops and seminars, CSIRO, 2024</div></li>
+        <li><div class="h">DICTA 2024 poster sessions</div><div class="s">Poster session lead, Perth</div></li>
       </ul>
     </section>
 
@@ -465,6 +469,7 @@ def build_resume():
           </ul>
           <h2 class="block-title" style="margin-top:32px">Service and recognition</h2>
           <ul class="entries">
+            <li><div class="h">Associate Editor</div><div class="s"><a href="https://link.springer.com/journal/42979/editorial-board" rel="noopener">SN Computer Science</a> (Springer Nature)</div></li>
             <li><div class="h">Lead guest editor</div><div class="s"><a href="https://link.springer.com/collections/fiaehabchh" rel="noopener">SN Computer Science collection, AI for Agriculture</a>, 2026</div></li>
             <li><div class="h">Tutorial lead</div><div class="s"><a href="https://www.acml-conf.org/2026/program/tutorials/" rel="noopener">Topological Deep Learning, ACML 2026</a></div></li>
             <li><div class="h">Silver Reviewer</div><div class="s">ICML 2026</div></li>
@@ -472,10 +477,17 @@ def build_resume():
             <li><div class="h">Co-lead</div><div class="s">CSIRO ML Workshop Series</div></li>
             <li><div class="h">Best student paper award</div><div class="s">APRS/IEEE, DICTA 2025</div></li>
             <li><div class="h">Guest editor</div><div class="s">Frontiers in Remote Sensing special issue on resilient cities, remote sensing and AI, 2025</div></li>
+            <li><div class="h">Scientific committee</div><div class="s">2026 Australian Agronomy Conference</div></li>
+            <li><div class="h">Programme committee</div><div class="s">IVCNZ 2025</div></li>
+            <li><div class="h">Poster session lead</div><div class="s">DICTA 2024, Perth</div></li>
+            <li><div class="h">Workshop host</div><div class="s">CSIRO ML/AI Animal Science Workshop and a three-day early-career researcher event, 2024</div></li>
             <li><div class="h">Sole invited speaker</div><div class="s">Joint IEEE GRSS, IEEE CS and CDS seminar at ANU, 2025</div></li>
             <li><div class="h">Runner-up paper award</div><div class="s">DICTA 2023</div></li>
+            <li><div class="h">Committee nominations</div><div class="s">CERC and AgCatalyst committees, CSIRO Agriculture and Food, 2023</div></li>
+            <li><div class="h">Topological Deep Learning Challenge</div><div class="s">ICML 2023 TAG in Machine Learning team</div></li>
             <li><div class="h">Invited seminars</div><div class="s">COMSATS University and University of the Punjab, 2023</div></li>
             <li><div class="h">Best project award</div><div class="s">Robot path identification and map construction, 2011</div></li>
+            <li><div class="h">Memberships</div><div class="s">IEEE, AAAI, Australian Computer Society, Queensland AI Hub</div></li>
           </ul>
           <p style="margin-top:20px"><a href="/grants/">Grants</a> and <a href="/teaching/">teaching</a> have their own pages.</p>
         </div>
@@ -728,7 +740,7 @@ def build_research(projects, earlier, pubs, code):
 
     <section id="applications" aria-labelledby="apps-h">
       <h2 id="apps-h">Applications</h2>
-      <p class="intro-text">Where these methods are put to work, with the papers and projects in each area.</p>
+      <p class="intro-text">Where these methods are put to work, with the papers and projects in each area. Current and developing collaborations include Agriculture Victoria, Hort Innovation, the Grains Research and Development Corporation (GRDC), Denso and Turosi.</p>
       {"".join(domains)}
       {other_html}
       <h3 class="block-title" style="margin-top:36px">Earlier projects</h3>

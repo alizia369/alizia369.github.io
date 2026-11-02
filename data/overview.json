@@ -247,6 +247,13 @@
  "recognition": [
   {
    "icon": "book",
+   "title": "Associate Editor",
+   "detail": "SN Computer Science (Springer Nature)",
+   "year": "Current",
+   "url": "https://link.springer.com/journal/42979/editorial-board"
+  },
+  {
+   "icon": "book",
    "title": "Lead guest editor",
    "detail": "SN Computer Science (Springer Nature) collection, AI for Agriculture, open for submissions until 31 May 2027",
    "year": "2026",
