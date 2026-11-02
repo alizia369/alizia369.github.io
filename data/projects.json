@@ -1,5 +1,5 @@
 {
- "_note": "Projects shown on the Research page, in order. image is relative to assets/img/projects/. papers is a list of {label, url}.",
+ "_note": "Projects shown on the Research page, in order. image is relative to assets/img/projects/. papers is a list of {label, url}. domain places the project under an application area on the Research page (agri, health, energy, security or other).",
  "items": [
   {
    "title": "Chickpea quality from hyperspectral imaging",
@@ -12,7 +12,8 @@
      "label": "Current Research in Food Science, 2025",
      "url": ""
     }
-   ]
+   ],
+   "domain": "agri"
   },
   {
    "title": "Finding weak contamination signals in meat",
@@ -29,7 +30,8 @@
      "label": "WS-Net (arXiv)",
      "url": "https://arxiv.org/abs/2603.09037"
     }
-   ]
+   ],
+   "domain": "agri"
   },
   {
    "title": "Cattle behaviour from video",
@@ -47,7 +49,8 @@
      "url": "https://arxiv.org/abs/2506.01214"
     }
    ],
-   "video": "assets/video/livestock-behaviour.mp4"
+   "video": "assets/video/livestock-behaviour.mp4",
+   "domain": "agri"
   },
   {
    "title": "Sugarcane disease and resilience",
@@ -64,7 +67,8 @@
      "label": "Smut detection, IVCNZ 2021",
      "url": ""
     }
-   ]
+   ],
+   "domain": "agri"
   },
   {
    "title": "Counting beneficial insects released by drone",
@@ -72,7 +76,8 @@
    "image": "insects.jpg",
    "alt": "A drone fitted with an insect dispersal unit on a lab bench",
    "text": "YOLOv5 and DETR models count insects and larvae in mixtures dispersed by UAVs, so growers can check that natural pest control is spread where it is needed.",
-   "papers": []
+   "papers": [],
+   "domain": "agri"
   },
   {
    "title": "Restoring historical documents",
@@ -80,7 +85,8 @@
    "image": "documents.jpg",
    "alt": "Torn document fragments, detected fragment pieces and a reconstructed historical map",
    "text": "Detecting tears, creases and faded text in archival documents, then reassembling and digitising them.",
-   "papers": []
+   "papers": [],
+   "domain": "other"
   },
   {
    "title": "Remote monitoring for Parkinson's disease",
@@ -88,7 +94,8 @@
    "image": "parkinsons.jpg",
    "alt": "System diagram linking a patient's wearable sensors to a clinician through a central server",
    "text": "Wireless inertial sensors and cameras separate normal movement from tremor, scored against the UPDRS scale so clinicians can follow patients at home.",
-   "papers": []
+   "papers": [],
+   "domain": "health"
   },
   {
    "title": "Robot mapping and navigation",
@@ -101,7 +108,8 @@
      "label": "Sensor fusion for obstacle avoidance, ISDA 2010",
      "url": ""
     }
-   ]
+   ],
+   "domain": "other"
   }
  ],
  "earlier": [

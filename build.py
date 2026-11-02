@@ -10,19 +10,35 @@ Standard library only; Python 3.12 or newer.
 """
 import html
 import json
+import os
 import pathlib
 import re
 from datetime import date
 
 ROOT = pathlib.Path(__file__).resolve().parent
 SITE = "https://ali-zia.me"
+# Optional base path for a preview copy served below a domain root, e.g. SITE_BASE=/site-staging
+# for https://alizia369.github.io/site-staging/. Leave unset for production: output is unchanged.
+BASE = os.environ.get("SITE_BASE", "").rstrip("/")
+
+
+def rebase(text):
+    """Prefix root-relative links with BASE and mark the preview so search engines skip it."""
+    if not BASE:
+        return text
+    text = re.sub(r'(href|src)="/(?!/)', rf'\1="{BASE}/', text)
+    text = text.replace("; url=/", f"; url={BASE}/")
+    text = text.replace("<head>\n", '<head>\n<meta name="robots" content="noindex, nofollow">\n', 1)
+    text = text.replace("<body>\n", '<body>\n<div style="background:#b7650e;color:#fff;text-align:center;'
+                        'font:600 13px/2.2 system-ui,sans-serif">Staging preview, not the live site</div>\n', 1)
+    return text
 ME = re.compile(r"\b(A\.\s?Zia)\b")
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 TOPICS = [("topology", "Topology"), ("hyperspectral", "Hyperspectral"), ("anomaly", "Anomaly detection"),
           ("agriculture", "Agriculture & food"), ("health", "Health"), ("sensing", "Radar & sensing"),
           ("3d", "3D vision"), ("robustness", "Robustness"), ("generative", "Generative"), ("other", "Other")]
 TYPES = [("journal", "Journal"), ("conference", "Conference"), ("workshop", "Workshop"),
-         ("preprint", "Preprint"), ("dataset", "Dataset"), ("book", "Book chapter"), ("thesis", "Thesis")]
+         ("preprint", "Preprint"), ("editorial", "Editorial"), ("dataset", "Dataset"), ("book", "Book chapter"), ("thesis", "Thesis")]
 
 
 def data(name):
@@ -48,6 +64,7 @@ def _scholar():
 
 
 SCHOLAR = _scholar()
+OV = data("overview.json")  # career, stats, themes and applications
 
 
 def scholar_date():
@@ -138,15 +155,15 @@ def page(path, title, description, body):
 def write(path, title, description, body):
     out = ROOT / (path.strip("/") or ".") / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(page(path, title, description, body), encoding="utf-8")
+    out.write_text(rebase(page(path, title, description, body)), encoding="utf-8")
     print("wrote", out.relative_to(ROOT))
 
 
 def redirect(old, new):
     out = ROOT / old.strip("/") / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{SITE}{new}">'
-                   f'<meta http-equiv="refresh" content="0; url={new}"><p>This page moved to <a href="{new}">{new}</a>.</p>\n', encoding="utf-8")
+    out.write_text(rebase(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{SITE}{new}">'
+                          f'<meta http-equiv="refresh" content="0; url={new}"><p>This page moved to <a href="{new}">{new}</a>.</p>\n'), encoding="utf-8")
     print("wrote", out.relative_to(ROOT), "->", new)
 
 
@@ -160,7 +177,7 @@ def link_buttons(links):
 
 # ---------------------------------------------------------------- home
 FEATURED_COPY = {
-    "Topology-Aware Optimal Transport": ("svg:topoot-chain.svg", "TopoOT chains optimal transport across persistence diagrams from different thresholds and filtrations, then trains a light head online on the features that stay stable. Up to +24.1% mean F1 over the next best method on 2D benchmarks."),
+    "Test-Time Adaptation for Anomaly Segmentation via": ("svg:topoot-chain.svg", "TopoOT chains optimal transport across persistence diagrams from different thresholds and filtrations, then trains a light head online on the features that stay stable. Up to +24.1% mean F1 over the next best method on 2D benchmarks."),
     "Learning Topology-Aware Representations": ("topotta-arch.jpg", "TopoTTA replaces threshold heuristics with persistent homology on anomaly maps, producing pseudo-labels that keep defects connected. About 15% higher F1 on average across five 2D and 3D benchmarks."),
     "Hypergraph Contrastive Sensor Fusion": ("mmhcan.jpg", "MM-HCAN builds hypergraphs within and across sensor modalities and trains them contrastively, diagnosing bearing, stator and rotor faults together. Up to 99.82% accuracy with strong cross-domain transfer."),
     "2D–3D Feature Fusion": ("mafr.jpg", "MAFR fuses RGB and point clouds in one latent space and finds anomalies by how badly each modality restores. Mean I-AUROC of 0.972 on MVTec 3D-AD."),
@@ -190,7 +207,7 @@ def build_home(news, pubs, code):
     toggle = ('<button class="toggle" type="button" aria-expanded="false" aria-controls="news-list" id="news-toggle">Show older news</button>'
               if len(news) > 6 else "")
 
-    order = ["Topology-Aware Optimal Transport", "Learning Topology-Aware Representations", "Hypergraph Contrastive Sensor Fusion", "2D–3D Feature Fusion"]
+    order = ["Test-Time Adaptation for Anomaly Segmentation via", "Learning Topology-Aware Representations", "Hypergraph Contrastive Sensor Fusion", "2D–3D Feature Fusion"]
     feats = []
     for key in order:
         p = next((x for x in pubs if x["title"].startswith(key)), None)
@@ -217,6 +234,15 @@ def build_home(news, pubs, code):
     n_hsi = len(code["groups"][1]["items"])
     sel_html = "".join(f'<h3 class="year">{lab}</h3><ul class="pubs">{"".join(compact_pub(p) for p in ps)}</ul>' for lab, ps in groups)
 
+    n_journal, n_conf, _ = counts(pubs, code)
+    glance_tiles = tiles([
+        tile(len(pubs), "publications", f"{n_journal} journal articles, {n_conf} conference and workshop papers and {len(pubs) - n_journal - n_conf} preprints and other works. {top_venues_line(pubs)}"),
+        tile(SCHOLAR.get("citations", 0), "citations", f"h-index {SCHOLAR.get('h_index', 0)} and i10-index {SCHOLAR.get('i10_index', 0)} on Google Scholar, {scholar_date()}"),
+        fixed_tile("funding"),
+        fixed_tile("offerings"),
+        fixed_tile("students"),
+        fixed_tile("years"),
+    ], 3, "Research and teaching in numbers")
     body = f"""
     <section id="about" aria-label="About">
       <p class="lede">I build machine learning models that keep working when data is scarce, noisy or shifted.</p>
@@ -230,6 +256,18 @@ def build_home(news, pubs, code):
       </figure>
     </section>
 
+    <section id="glance" aria-labelledby="glance-h">
+      <h2 id="glance-h">At a glance</h2>
+      {glance_tiles}
+      {milestones_html()}
+      <a class="more-link" href="/resume/#pathway">Full career pathway</a>
+    </section>
+
+    <section id="recognition" aria-labelledby="rec-h">
+      <h2 id="rec-h">Selected awards and recognition</h2>
+      {recognition_html(pubs)}
+    </section>
+
     <section id="news">
       <h2>News</h2>
       <ul class="news" id="news-list">{items}</ul>
@@ -238,21 +276,8 @@ def build_home(news, pubs, code):
 
     <section id="research-themes">
       <h2>Research</h2>
-      <div class="themes">
-        <div class="theme">
-          <div class="theme-fig"><div class="pd-pair">{svg("pd.svg")}<p class="pd-key"><i style="background:#2f6fd0;border-radius:50%"></i>components (H₀)<br><i style="background:#c8374a;transform:rotate(45deg)"></i>loops (H₁)<br><br>Points far from the diagonal are features that persist across scales.</p></div></div>
-          <div><h3>Topological deep learning</h3><p>Networks that reason over shape as well as signal: persistence-based pseudo-labels, optimal transport between persistence diagrams, and message passing on hypergraphs and cell complexes. This includes a widely read review of the field and the TopoX software suite.</p></div>
-        </div>
-        <div class="theme">
-          <div class="theme-fig">{svg("spec.svg")}</div>
-          <div><h3>Hyperspectral and multimodal sensing</h3><p>Hundreds of narrow bands reveal what RGB cannot: protein content in chickpea flour, contamination in meat, early disease in sugarcane and herbicide resistance in ryegrass. I work on weak-signal unmixing, spectral 3D vision and fusion with lidar and point clouds.</p></div>
-        </div>
-        <div class="theme">
-          <div class="theme-fig"><img src="/assets/img/anomaly-masks.jpg" alt="Anomaly segmentation results on a bottle and a transistor: input image, ground truth, anomaly heat map, threshold baseline, TTT4AS and TopoTTA. TopoTTA's masks are closest to the ground truth." loading="lazy" width="981" height="412"></div>
-          <div><h3>Reliable AI under real conditions</h3><p>Test-time adaptation and out-of-distribution robustness for models deployed where the data moves: industrial anomaly segmentation, radar perception, motor fault diagnosis and embryo assessment for IVF.</p></div>
-        </div>
-      </div>
-      <a class="more-link" href="/research/">See all research projects</a>
+      {theme_teasers()}
+      <a class="more-link" href="/research/#applications">Applications in agriculture, health, energy and IoT</a>
     </section>
 
     <section id="featured">
@@ -275,55 +300,6 @@ def build_home(news, pubs, code):
     write("/", "About", "Ali Zia is a machine learning researcher at La Trobe University working on topological deep learning, hyperspectral imaging and reliable AI for agriculture, health and industry.", body)
 
 
-# ---------------------------------------------------------------- research
-def build_research(projects, earlier):
-    cards = []
-    for p in projects:
-        refs = "".join(f'<li>{"<a href=\"" + esc(r["url"]) + "\">" + esc(r["label"]) + "</a>" if r["url"] else esc(r["label"])}</li>'
-                       for r in p.get("papers", []))
-        video = f' <a href="/{esc(p["video"])}">Watch a clip</a>.' if p.get("video") else ""
-        partners = f'<p class="partners">{esc(p["partners"])}</p>' if p.get("partners") else ""
-        cards.append(f'<article class="project"><img src="/assets/img/projects/{esc(p["image"])}" alt="{esc(p["alt"])}" loading="lazy">'
-                     f'<h3>{esc(p["title"])}</h3>{partners}<p>{esc(p["text"])}{video}</p>'
-                     f'{"<ul class=\"refs\">" + refs + "</ul>" if refs else ""}</article>')
-    earlier_html = "".join(f"<li>{esc(e)}</li>" for e in earlier)
-    body = f"""
-    <section aria-labelledby="t">
-      <h1 class="page-title" id="t">Research</h1>
-      <p class="intro-text">My work asks how to give learning systems structure they can trust: the shape of the data, the physics of the sensor and the relationships between modalities. Most of it is done with partners in agriculture, food, health and industry.</p>
-    </section>
-
-    <section aria-labelledby="themes-h">
-      <h2 id="themes-h">Themes</h2>
-      <div class="themes">
-        <div class="theme">
-          <div class="theme-fig"><img src="/assets/img/projects/tdl-pipeline.jpg" alt="Diagram of topological deep learning: topological embedding, representation and loss during training, and topological analysis after training" loading="lazy"></div>
-          <div><h3>Topological deep learning</h3>
-            <p>Topology describes what stays the same when data is stretched or corrupted: connected parts, loops and voids. I use persistent homology to turn anomaly maps into reliable pseudo-labels (TopoTTA, TPAMI 2026), optimal transport to compare persistence diagrams across scales (TopoOT, NeurIPS 2026), and hypergraphs and cell complexes to model relations between sensors and views in radar and fault diagnosis.</p>
-            <p>I co-wrote a <a href="https://link.springer.com/article/10.1007/s10462-024-10710-9">review of topological deep learning</a>, contributed to <a href="https://www.jmlr.org/papers/v25/24-0110.html">TopoX</a>, and am teaching a tutorial on the topic at ACML 2026.</p></div>
-        </div>
-        <div class="theme">
-          <div class="theme-fig"><img src="/assets/img/hero-cube.webp" alt="A field image of grazing cattle with detection boxes and pose keypoints, drawn as the front face of a hyperspectral cube whose layers are tinted from violet to near-infrared grey" loading="lazy"></div>
-          <div><h3>Hyperspectral and multimodal sensing</h3>
-            <p>A hyperspectral camera records hundreds of narrow bands, so each pixel carries a spectrum rather than three colours. My PhD used these spectra for 3D vision, recovering depth from chromatic aberration and defocus. Since then I have worked on weak-signal unmixing for contamination in meat, protein prediction in chickpea, disease detection in sugarcane and herbicide resistance in ryegrass, and on fusing spectral data with lidar and point clouds.</p></div>
-        </div>
-        <div class="theme">
-          <div class="theme-fig"><img src="/assets/img/anomaly-masks.jpg" alt="Anomaly segmentation results: input, ground truth, heat map, threshold baseline, TTT4AS and TopoTTA" loading="lazy"></div>
-          <div><h3>Reliable AI under real conditions</h3>
-            <p>Models trained in the lab meet new lighting, sensors and populations in deployment. I work on test-time adaptation that needs no source data or labels, on diagnosing out-of-distribution robustness from representation geometry, and on decision support where errors are costly, such as embryo assessment for IVF.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="proj-h">
-      <h2 id="proj-h">Research projects</h2>
-      <div class="projects">{''.join(cards)}</div>
-      <h3 class="block-title" style="margin-top:36px">Earlier projects</h3>
-      <ul class="plain measure">{earlier_html}</ul>
-    </section>"""
-    write("/research/", "Research", "Research themes and projects of Ali Zia: topological deep learning, hyperspectral imaging and reliable AI.", body)
-
-
 # ---------------------------------------------------------------- publications
 def build_publications(pubs):
     tl = dict(TOPICS)
@@ -339,7 +315,7 @@ def build_publications(pubs):
             tags = "".join(f'<span class="tag">{tl.get(t, t)}</span>' for t in p["topics"])
             note = f'<span class="award">{esc(p["note"])}</span>' if p.get("note") else ""
             search = esc(" ".join([p["title"], p["authors"], p["venue"], p.get("short", ""), str(p["year"])] + [tl.get(t, t) for t in p["topics"]]).lower())
-            lis.append(f'<li class="pub" data-type="{p["type"]}" data-topics="{" ".join(p["topics"])}" data-search="{search}">'
+            lis.append(f'<li class="pub" id="{pub_id(p)}" data-type="{p["type"]}" data-topics="{" ".join(p["topics"])}" data-search="{search}">'
                        f'<span class="t">{esc(p["title"])}</span><span class="a">{bold_me(p["authors"])}</span>'
                        f'<span class="meta"><span class="v">{esc(p["venue"])}</span>{links}{note}{tags}</span></li>')
         blocks.append(f'<section class="year-block"><h2>{year}</h2><ul class="pubs">{"".join(lis)}</ul></section>')
@@ -386,12 +362,7 @@ def build_teaching():
     <section aria-labelledby="t">
       <h1 class="page-title" id="t">Teaching and supervision</h1>
       <p class="intro-text">More than a decade of teaching in Australia and Pakistan, from first-year programming to graduate courses in AI and computer vision, alongside supervision of research students in machine learning and imaging.</p>
-      <div class="stats">
-        <div class="stat"><b>10+</b><span>years of teaching</span></div>
-        <div class="stat"><b>39+</b><span>students supervised</span></div>
-        <div class="stat"><b>15+</b><span>courses taught or designed</span></div>
-        <div class="stat"><b>4</b><span>universities in two countries</span></div>
-      </div>
+      """ + tiles([fixed_tile("offerings"), fixed_tile("courses"), fixed_tile("students"), fixed_tile("years")], 4, "Teaching in numbers") + """
     </section>
 
     <section aria-labelledby="courses-h">
@@ -464,6 +435,12 @@ def build_resume():
       <div class="downloads"><a class="primary" href="/assets/cv/Ali_Zia_CV_short.pdf">Short resume (PDF)</a><a href="/assets/cv/Ali_Zia_CV_detailed.pdf">Detailed resume (PDF)</a></div>
     </section>
 
+    <section class="career-path" id="pathway" aria-labelledby="path-h">
+      <h2 id="path-h">Career pathway</h2>
+      <p class="intro-text">Several roles ran in parallel, and research has come with teaching at every stage. Dates and details are in the lists below.</p>
+      """ + career_flow() + """
+    </section>
+
     <section>
       <div class="two">
         <div>
@@ -488,9 +465,16 @@ def build_resume():
           </ul>
           <h2 class="block-title" style="margin-top:32px">Service and recognition</h2>
           <ul class="entries">
-            <li><div class="h">Tutorial organiser</div><div class="s">Topological Deep Learning, ACML 2026</div></li>
+            <li><div class="h">Lead guest editor</div><div class="s"><a href="https://link.springer.com/collections/fiaehabchh" rel="noopener">SN Computer Science collection, AI for Agriculture</a>, 2026</div></li>
+            <li><div class="h">Tutorial lead</div><div class="s"><a href="https://www.acml-conf.org/2026/program/tutorials/" rel="noopener">Topological Deep Learning, ACML 2026</a></div></li>
+            <li><div class="h">Silver Reviewer</div><div class="s">ICML 2026</div></li>
+            <li><div class="h">Reviewer</div><div class="s">CVPR 2026</div></li>
             <li><div class="h">Co-lead</div><div class="s">CSIRO ML Workshop Series</div></li>
+            <li><div class="h">Best student paper award</div><div class="s">APRS/IEEE, DICTA 2025</div></li>
+            <li><div class="h">Guest editor</div><div class="s">Frontiers in Remote Sensing special issue on resilient cities, remote sensing and AI, 2025</div></li>
+            <li><div class="h">Sole invited speaker</div><div class="s">Joint IEEE GRSS, IEEE CS and CDS seminar at ANU, 2025</div></li>
             <li><div class="h">Runner-up paper award</div><div class="s">DICTA 2023</div></li>
+            <li><div class="h">Invited seminars</div><div class="s">COMSATS University and University of the Punjab, 2023</div></li>
             <li><div class="h">Best project award</div><div class="s">Robot path identification and map construction, 2011</div></li>
           </ul>
           <p style="margin-top:20px"><a href="/grants/">Grants</a> and <a href="/teaching/">teaching</a> have their own pages.</p>
@@ -500,6 +484,259 @@ def build_resume():
     write("/resume/", "Resume", "Resume of Ali Zia: positions, education, service and downloadable CVs.", body)
 
 
+# ---------------------------------------------------------------- shared components (career, tiles, evidence)
+CAT_LABEL = {"edu": "Education", "ind": "Industry", "acad": "Academic and teaching", "res": "Industry and academic research"}
+
+
+def pub_id(p):
+    """Stable anchor for a paper on the Publications page, derived from its title."""
+    s = re.sub(r"[^a-z0-9]+", "-", p["title"].lower()).strip("-")
+    if len(s) > 60:
+        s = s[:60].rsplit("-", 1)[0]
+    return "p-" + s
+
+
+def icon(name):
+    return svg(f"icons/{name}.svg")  # Lucide icons, ISC licence (assets/svg/icons/LICENSE-lucide.txt)
+
+
+def find_pub(pubs, prefix):
+    found = [p for p in pubs if p["title"].startswith(prefix)]
+    if len(found) != 1:
+        raise SystemExit(f"data/overview.json: {prefix!r} matches {len(found)} publications; it must match exactly one")
+    return found[0]
+
+
+def venue_tag(p):
+    label = p.get("short") or ("arXiv" if p["type"] == "preprint" else p["venue"])
+    return f'<a class="vt" href="/publications/#{pub_id(p)}" title="{esc(p["title"])}">{esc(label)} {p["year"]}</a>'
+
+
+def career_node(n):
+    badges = f'<span class="badge" data-cat="{n["cat"]}">{icon(n["cat"])}<span class="sr">{CAT_LABEL[n["cat"]]}</span></span>'
+    if n.get("teach"):
+        badges += f'<span class="badge" data-cat="acad">{icon("acad")}<span class="sr">with teaching</span></span>'
+    role = esc(n["role"])
+    if n.get("brief"):
+        role = f'<span class="full">{role}</span><span class="brief" aria-hidden="true">{esc(n["brief"])}</span>'
+    now = '<span class="now">Current role</span>' if n.get("current") else ""
+    extra = f'<span class="o">{esc(n["extra"])}</span>' if n.get("extra") else ""
+    cls = "node" + (" current" if n.get("current") else "") + (" par" if n.get("parallel") else "")
+    return (f'<li class="{cls}" id="cn-{n["id"]}" data-cat="{n["cat"]}" style="--col:{n["col"]};--row:{n.get("row", 1)}">'
+            f'<span class="badges">{badges}</span>{now}<span class="r">{role}</span><span class="o">{esc(n["org"])}</span>{extra}</li>')
+
+
+def tile(value, label, detail, decimals=0, prefix="", suffix=""):
+    shown = f"{prefix}{value:,.{decimals}f}{suffix}"
+    return (f'<div class="tile"><b><span data-count="{value}" data-decimals="{decimals}" data-prefix="{esc(prefix)}" '
+            f'data-suffix="{esc(suffix)}">{esc(shown)}</span></b>'
+            f'<span class="l">{esc(label)}</span><span class="d">{esc(detail)}</span></div>')
+
+
+def tiles(items, cols, label):
+    return f'<div class="tiles t{cols}" role="group" aria-label="{esc(label)}">{"".join(items)}</div>'
+
+
+def fixed_tile(key):
+    s = OV["stats"][key]
+    return tile(s["value"], s["label"], s["detail"], s.get("decimals", 0), s.get("prefix", ""), s.get("suffix", ""))
+
+
+def top_venues_line(pubs):
+    venues = OV["stats"]["top_venues"]
+    shorts = {p.get("short") for p in pubs}
+    missing = [v for v in venues if v not in shorts]
+    if missing:
+        raise SystemExit(f"data/overview.json: top_venues {missing} match no paper in publications.json")
+    return "Including " + ", ".join(venues[:-1]) + " and " + venues[-1]
+
+
+def counts(pubs, code):
+    n_journal = sum(p["type"] == "journal" for p in pubs)
+    n_conf = sum(p["type"] in ("conference", "workshop") for p in pubs)
+    n_repos = sum(len(g["items"]) for g in code["groups"])
+    return n_journal, n_conf, n_repos
+
+
+def legend_html():
+    return "".join(f'<li><span class="badge" data-cat="{k}">{icon(k)}</span>{v}</li>' for k, v in
+                   (("edu", "Education"), ("ind", "Industry"), ("acad", "Academic and teaching"), ("res", "Research with industry")))
+
+
+def career_flow():
+    car = OV["career"]
+    ids = {n["id"] for n in car["nodes"]}
+    for e in car["edges"]:
+        if e[0] not in ids or e[1] not in ids:
+            raise SystemExit(f"data/overview.json: career edge {e} names an unknown node")
+    band1 = "".join(career_node(n) for n in car["nodes"] if n["band"] == 1)
+    band2 = "".join(career_node(n) for n in car["nodes"] if n["band"] == 2)
+    return f"""<ul class="legend" aria-label="Key">{legend_html()}</ul>
+      <div class="flow" data-flow data-edges="{esc(json.dumps(car["edges"]))}">
+        <svg class="flow-lines" aria-hidden="true" focusable="false"></svg>
+        <ol class="band band1" aria-label="Early career">{band1}</ol>
+        <p class="par-label">{esc(car["parallel_label"])}</p>
+        <ol class="band band2" aria-label="Griffith, postdoctoral and current roles">{band2}</ol>
+      </div>"""
+
+
+def milestones_html():
+    lis = []
+    for i, m in enumerate(OV["milestones"]):
+        now = '<span class="sr">(current role)</span>' if m.get("current") else ""
+        lis.append(f'<li data-cat="{m["cat"]}"{" class=\"current\"" if m.get("current") else ""} style="--i:{i}">'
+                   f'<span class="badge">{icon(m["cat"])}<span class="sr">{CAT_LABEL[m["cat"]]}</span></span>'
+                   f'<span class="r">{esc(m["role"])}{now}</span><span class="o">{esc(m["org"])}</span></li>')
+    return f'<div class="mini-path" data-reveal><ol class="milestones" aria-label="Career milestones">{"".join(lis)}</ol></div>'
+
+
+def evidence(items, pubs):
+    lis = []
+    for it in items:
+        tags = "".join(venue_tag(find_pub(pubs, pre)) for pre in it["papers"])
+        lis.append(f'<li><span class="it">{esc(it["t"])}</span><span class="vts">{tags}</span></li>')
+    return f'<p class="ev-h">Key papers</p><ul class="ev">{"".join(lis)}</ul>'
+
+
+def gallery(figs, pubs):
+    out = []
+    for f in figs:
+        if f.get("svg"):
+            media = f'<div class="g-media drawn" role="img" aria-label="{esc(f["alt"])}">{svg(f["svg"])}</div>'
+        else:
+            if not (ROOT / "assets" / "img" / f["img"]).exists():
+                raise SystemExit(f"data/overview.json: figure {f['img']} not found in assets/img")
+            media = (f'<a class="g-media" href="/assets/img/{esc(f["img"])}" title="Open full size">'
+                     f'<img src="/assets/img/{esc(f["img"])}" alt="{esc(f["alt"])}" loading="lazy"></a>')
+        tag = " " + venue_tag(find_pub(pubs, f["paper"])) if f.get("paper") else ""
+        credit = f' <span class="g-credit">{esc(f["credit"])}</span>' if f.get("credit") else ""
+        out.append(f'<figure class="g-item">{media}<figcaption>{esc(f["caption"])}{tag}{credit}</figcaption></figure>')
+    return f'<p class="ev-h">From the papers</p><div class="gallery" data-n="{len(figs)}">{"".join(out)}</div>'
+
+
+def card_head(title, icon_name, level="h3"):
+    return f'<div class="card-head"><span class="area-ic">{icon(icon_name)}</span><{level}>{esc(title)}</{level}></div>'
+
+
+def project_card(p):
+    refs = "".join(f'<li>{"<a href=\"" + esc(r["url"]) + "\">" + esc(r["label"]) + "</a>" if r["url"] else esc(r["label"])}</li>'
+                   for r in p.get("papers", []))
+    video = f' <a href="/{esc(p["video"])}">Watch a clip</a>.' if p.get("video") else ""
+    partners = f'<p class="partners">{esc(p["partners"])}</p>' if p.get("partners") else ""
+    return (f'<article class="project"><img src="/assets/img/projects/{esc(p["image"])}" alt="{esc(p["alt"])}" loading="lazy">'
+            f'<h4>{esc(p["title"])}</h4>{partners}<p>{esc(p["text"])}{video}</p>'
+            f'{"<ul class=\"refs\">" + refs + "</ul>" if refs else ""}</article>')
+
+
+# Figure and prose for each research theme on the Research page; the evidence lists come from data/overview.json
+THEME_COPY = {
+    "topology": ('<img src="/assets/img/projects/tdl-pipeline.jpg" alt="Diagram of topological deep learning: topological embedding, representation and loss during training, and topological analysis after training" loading="lazy">',
+                 '<p>Topology describes what stays the same when data is stretched or corrupted: connected parts, loops and voids. I use persistent homology to turn anomaly maps into reliable pseudo-labels, optimal transport to compare persistence diagrams across scales, and hypergraphs and cell complexes to model relations between sensors and views in radar and fault diagnosis.</p>'
+                 '<p>I co-wrote a <a href="https://link.springer.com/article/10.1007/s10462-024-10710-9">review of topological deep learning</a>, contributed to <a href="https://www.jmlr.org/papers/v25/24-0110.html">TopoX</a>, and am teaching a tutorial on the topic at ACML 2026.</p>'),
+    "hyperspectral": ('<img src="/assets/img/papers/tip-depth-composite.webp" alt="Depth from chromatic aberration: a checkerboard board in a hyperspectral image, the same edge cropped from bands between 580 and 940 nm showing blur that changes with wavelength, and below, the 720 nm band image beside the recovered relative depth map" loading="lazy" width="1400" height="1041">',
+                      '<p>A hyperspectral camera records hundreds of narrow bands, so each pixel carries a spectrum rather than three colours. My PhD used these spectra for 3D vision, recovering depth from chromatic aberration and defocus. Since then I have worked on weak-signal unmixing, spectral features for food and crops, and on fusing spectral data with lidar, point clouds and radar.</p>'),
+    "reliable": ('<img src="/assets/img/anomaly-masks.jpg" alt="Anomaly segmentation results: input, ground truth, heat map, threshold baseline, TTT4AS and TopoTTA" loading="lazy" width="981" height="412">',
+                 '<p>Models trained in the lab meet new lighting, sensors and populations in deployment. I work on test-time adaptation that needs no source data or labels, on diagnosing out-of-distribution robustness from representation geometry, on training-free reasoning with vision–language models, and on learning when labels are scarce.</p>'),
+}
+
+THEME_CAPTION = {  # optional caption under a theme's main figure: (text, start of the paper title)
+    "hyperspectral": ("Depth from a single hyperspectral image, using chromatic aberration and defocus.", "Exploring Chromatic Aberration"),
+}
+
+THEME_TEASER = {
+    "topology": "Persistent homology, optimal transport between persistence diagrams and message passing on hypergraphs and cell complexes, with a widely read review of the field and the TopoX library.",
+    "hyperspectral": "Hundreds of narrow bands reveal what RGB cannot: protein in chickpea, contamination in meat, disease in sugarcane. Weak-signal unmixing, spectral 3D vision and fusion with lidar and radar.",
+    "reliable": "Test-time adaptation and out-of-distribution robustness for models deployed where data shifts: industrial inspection, radar, fault diagnosis and embryo assessment for IVF.",
+}
+
+
+def theme_caption(theme_id, pubs):
+    if theme_id not in THEME_CAPTION:
+        return ""
+    text, paper = THEME_CAPTION[theme_id]
+    return f'<p class="theme-cap">{esc(text)} {venue_tag(find_pub(pubs, paper))}</p>'
+
+
+def recognition_html(pubs):
+    lis = []
+    for r in OV["recognition"]:
+        detail = esc(r["detail"])
+        if r.get("paper"):
+            detail += " " + venue_tag(find_pub(pubs, r["paper"]))
+        title = esc(r["title"])
+        if r.get("url"):
+            title = f'<a href="{esc(r["url"])}" rel="noopener">{title}</a>'
+        lis.append(f'<li><span class="aw-ic">{icon(r["icon"])}</span><div><span class="h">{title}</span>'
+                   f'<span class="s">{detail}</span></div><span class="y">{esc(r["year"])}</span></li>')
+    return f'<ul class="awards">{"".join(lis)}</ul>'
+
+
+def theme_teasers():
+    cards = "".join(f'<a class="teaser" href="/research/#{t["id"]}" style="--a:var(--c-{t["color"]})">{card_head(t["title"], t["icon"])}'
+                    f'<p>{esc(THEME_TEASER[t["id"]])}</p><span class="go">Themes, papers and projects</span></a>' for t in OV["themes"])
+    return f'<div class="teasers">{cards}</div>'
+
+
+def build_research(projects, earlier, pubs, code):
+    n_journal, n_conf, n_repos = counts(pubs, code)
+    stats = tiles([
+        tile(n_journal, "journal articles", "Including IEEE TPAMI, IEEE TIP, JMLR and Artificial Intelligence Review"),
+        tile(n_conf, "conference and workshop papers", "Including NeurIPS, ECCV, WACV and CVPR workshops"),
+        tile(SCHOLAR.get("h_index", 0), "h-index", f"i10-index {SCHOLAR.get('i10_index', 0)} and {SCHOLAR.get('citations', 0):,} citations on Google Scholar, {scholar_date()}"),
+        tile(n_repos, "open-source repositories", "Research code for papers, from PyTorch to the original MATLAB"),
+    ], 4, "Research in numbers")
+
+    themes = []
+    for t in OV["themes"]:
+        fig, prose = THEME_COPY[t["id"]]
+        themes.append(f'<article class="theme-card" id="{t["id"]}" style="--a:var(--c-{t["color"]})">{card_head(t["title"], t["icon"])}'
+                      f'<div class="theme-body"><div><div class="theme-fig">{fig}</div>{theme_caption(t["id"], pubs)}</div><div class="theme-text">{prose}</div></div>'
+                      f'{gallery(t.get("figures", []), pubs) if t.get("figures") else ""}{evidence(t["items"], pubs)}</article>')
+
+    by_domain = {}
+    for p in projects:
+        by_domain.setdefault(p.get("domain", "other"), []).append(p)
+    known = {a["id"] for a in OV["applications"]} | {"other"}
+    for d in by_domain:
+        if d not in known:
+            raise SystemExit(f"data/projects.json: unknown domain {d!r}")
+    domains = []
+    for a in OV["applications"]:
+        projs = by_domain.get(a["id"], [])
+        proj_html = (f'<p class="ev-h">Projects</p><div class="projects">{"".join(project_card(p) for p in projs)}</div>' if projs else "")
+        figs = gallery(a["figures"], pubs) if a.get("figures") else ""
+        domains.append(f'<article class="domain" id="{a["id"]}" style="--a:var(--c-{a["color"]})">{card_head(a["title"], a["icon"])}'
+                       f'{figs}{evidence(a["items"], pubs)}{proj_html}</article>')
+    others = by_domain.get("other", [])
+    other_html = (f'<h3 class="block-title" style="margin-top:40px">Other projects</h3><div class="projects">{"".join(project_card(p) for p in others)}</div>'
+                  if others else "")
+    earlier_html = "".join(f"<li>{esc(e)}</li>" for e in earlier)
+
+    body = f"""
+    <section aria-labelledby="t">
+      <h1 class="page-title" id="t">Research</h1>
+      <p class="intro-text">My work asks how to give learning systems structure they can trust: the shape of the data, the physics of the sensor and the relationships between modalities. It runs along three themes and is applied with partners in agriculture, food, health, energy and industry.</p>
+      {stats}
+      <nav class="jump" aria-label="On this page">{"".join(f'<a href="#{t["id"]}">{esc(t["title"])}</a>' for t in OV["themes"])}<a href="#applications">Applications</a></nav>
+    </section>
+
+    <section aria-labelledby="themes-h">
+      <h2 id="themes-h">Research themes</h2>
+      <p class="intro-text">Each tag opens the paper behind it on the Publications page.</p>
+      {"".join(themes)}
+    </section>
+
+    <section id="applications" aria-labelledby="apps-h">
+      <h2 id="apps-h">Applications</h2>
+      <p class="intro-text">Where these methods are put to work, with the papers and projects in each area.</p>
+      {"".join(domains)}
+      {other_html}
+      <h3 class="block-title" style="margin-top:36px">Earlier projects</h3>
+      <ul class="plain measure">{earlier_html}</ul>
+    </section>"""
+    write("/research/", "Research", "Research themes and applications of Ali Zia: topological deep learning, hyperspectral and multimodal sensing, and reliable AI, applied to agriculture, health, energy and IoT security.", body)
+
+
 if __name__ == "__main__":
     news = data("news.json")["items"]
     pubs = data("publications.json")["items"]
@@ -507,7 +744,7 @@ if __name__ == "__main__":
     code = data("code.json")
     build_home(news, pubs, code)
     build_code(code)
-    build_research(projects["items"], projects.get("earlier", []))
+    build_research(projects["items"], projects.get("earlier", []), pubs, code)
     build_publications(pubs)
     build_teaching()
     build_grants(data("grants.json"))

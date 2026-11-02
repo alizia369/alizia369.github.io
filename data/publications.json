@@ -2,6 +2,35 @@
  "_note": "Curated from Google Scholar (Oct 2026). Fields: year, title, authors, venue, type (journal|conference|workshop|preprint|book|thesis|dataset), topics, links {paper, arxiv, code, project}, note, featured (home page card), selected (home page list). Run `python build.py` after editing.",
  "items": [
   {
+   "year": 2027,
+   "title": "Context-Aware AI for Localised Pollen-Risk Guidance in Asthma Self-Management",
+   "authors": "Z. Sako, A. Zia, N. Wickramasinghe",
+   "venue": "Hawaii International Conference on System Sciences (HICSS-60)",
+   "short": "HICSS",
+   "type": "conference",
+   "topics": [
+    "health"
+   ],
+   "links": {},
+   "selected": false,
+   "note": "Accepted"
+  },
+  {
+   "year": 2026,
+   "title": "Editorial: Building Resilient Cities with Remote Sensing and AI",
+   "authors": "S. Abbas, F. M. Qamer, A. Zia",
+   "venue": "Frontiers in Remote Sensing 7",
+   "short": "Frontiers in Remote Sensing",
+   "type": "editorial",
+   "topics": [
+    "sensing"
+   ],
+   "links": {
+    "paper": "https://doi.org/10.3389/frsen.2026.1991820"
+   },
+   "selected": false
+  },
+  {
    "year": 2026,
    "title": "Learning Topology-Aware Representations via Test-Time Adaptation for Anomaly Segmentation",
    "authors": "A. Zia, U. Ali, A. Rehman, U. Ramzan, K. Han, M. Faheem, S. Qureshi, W. Xiang",
@@ -23,7 +52,7 @@
   },
   {
    "year": 2026,
-   "title": "Topology-Aware Optimal Transport for Source-Free Test-Time Adaptation in Anomaly Segmentation",
+   "title": "Test-Time Adaptation for Anomaly Segmentation via Topology-Aware Optimal Transport Chaining",
    "authors": "A. Zia, U. Ali, U. Ramzan, A. Rehman, A. Khamis, W. Xiang",
    "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
    "short": "NeurIPS",
@@ -56,6 +85,40 @@
     "code": "https://github.com/alizia369/HyperRadar"
    },
    "selected": true
+  },
+  {
+   "year": 2026,
+   "title": "Spectral 3D Computer Vision: A Survey of Acquisition, Representations, Learning, and Applications",
+   "authors": "Y. Sun, A. Zia, V. Rolland, C. Yu, J. Zhou",
+   "venue": "Computer Science Review",
+   "type": "journal",
+   "topics": [
+    "hyperspectral",
+    "3d"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2302.08054"
+   },
+   "selected": true,
+   "short": "Computer Science Review",
+   "note": "Accepted"
+  },
+  {
+   "year": 2026,
+   "title": "Geometry-Conditioned Implicit Spatial–Frequency Fusion Network for Hyperspectral–LiDAR Classification",
+   "authors": "Z. Long, J. X. Yang, J. Wang, A. Zia, G. Fu, J. Zhou",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "type": "journal",
+   "topics": [
+    "hyperspectral",
+    "sensing"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2605.14239"
+   },
+   "selected": true,
+   "short": "IEEE TGRS",
+   "note": "Accepted"
   },
   {
    "year": 2026,
@@ -217,20 +280,6 @@
    "selected": false
   },
   {
-   "year": 2026,
-   "title": "Implicit Spatial-Frequency Fusion of Hyperspectral and LiDAR Data via Kolmogorov-Arnold Networks",
-   "authors": "Z. Long, J. X. Yang, J. Wang, A. Zia, G. Fu, J. Zhou",
-   "venue": "arXiv preprint",
-   "type": "preprint",
-   "topics": [
-    "hyperspectral"
-   ],
-   "links": {
-    "arxiv": "https://arxiv.org/abs/2605.14239"
-   },
-   "selected": false
-  },
-  {
    "year": 2025,
    "title": "2D–3D Feature Fusion via Cross-Modal Latent Synthesis and Attention-Guided Restoration for Industrial Anomaly Detection",
    "authors": "U. Ali, A. Zia, A. Rehman, U. Ramzan, Z. Hassan, T. Sattar, J. Wang, W. Xiang",
@@ -274,7 +323,8 @@
     "hyperspectral"
    ],
    "links": {},
-   "selected": false
+   "selected": false,
+   "note": "Best student paper award"
   },
   {
    "year": 2025,
@@ -650,21 +700,6 @@
     "3d"
    ],
    "links": {},
-   "selected": false
-  },
-  {
-   "year": 2023,
-   "title": "Spectral 3D Computer Vision: A Review",
-   "authors": "Y. Sun, A. Zia, V. Rolland, C. Yu, J. Zhou",
-   "venue": "arXiv preprint",
-   "type": "preprint",
-   "topics": [
-    "hyperspectral",
-    "3d"
-   ],
-   "links": {
-    "arxiv": "https://arxiv.org/abs/2302.08054"
-   },
    "selected": false
   },
   {

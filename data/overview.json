@@ -1,0 +1,660 @@
+{
+ "_note": "Structured content for the home, Research, Resume and Teaching pages. career: roles in chronological order (the phone timeline uses this order); band/col/row place them in the two-row desktop flow on the Resume page; cat is edu, ind, acad or res (industry + academic research); teach adds a teaching badge. milestones: the short career strip on the home page. stats: figures that cannot be counted from other data files (publication, citation and repository counts are computed); top_venues are named on the home publications tile and must each match the short name of at least one paper in publications.json. themes and applications: each item lists the start of one or more publication titles from publications.json; the build links every one to that paper on the Publications page and stops with an error if a title does not match exactly one paper. Projects join an application through their domain in projects.json. Theme and application figures: img is relative to assets/img/ (svg names a file in assets/svg/); paper links the caption to that publication. recognition: the Awards and recognition list on the home page, newest first; paper links an item to that publication.",
+ "stats": {
+  "funding": {
+   "value": 1.3,
+   "decimals": 1,
+   "prefix": "$",
+   "suffix": "M+",
+   "label": "AUD in competitive funding",
+   "detail": "CSIRO, the CSIRO–CAS partnership and La Trobe"
+  },
+  "offerings": {
+   "value": 60,
+   "suffix": "+",
+   "label": "course offerings taught",
+   "detail": "20+ in Australia and 40+ overseas; average student rating above 4/5"
+  },
+  "courses": {
+   "value": 15,
+   "suffix": "+",
+   "label": "distinct courses taught or designed",
+   "detail": "From first-year programming to graduate AI and computer vision"
+  },
+  "students": {
+   "value": 39,
+   "suffix": "+",
+   "label": "students supervised",
+   "detail": "6 postgraduate and 33 honours to completion, plus 4 current PhDs"
+  },
+  "years": {
+   "value": 10,
+   "suffix": "+",
+   "label": "years of teaching",
+   "detail": "La Trobe, Griffith, ANU and COMSATS"
+  },
+  "top_venues": [
+   "IEEE TPAMI",
+   "IEEE TIP",
+   "IEEE TGRS",
+   "Computer Science Review",
+   "NeurIPS",
+   "ECCV"
+  ]
+ },
+ "milestones": [
+  {
+   "cat": "edu",
+   "role": "B.Sc. (Hons)",
+   "org": "University of the Punjab"
+  },
+  {
+   "cat": "ind",
+   "role": "Software engineer",
+   "org": "Industry, Pakistan"
+  },
+  {
+   "cat": "edu",
+   "role": "Master's in Computing",
+   "org": "ANU"
+  },
+  {
+   "cat": "acad",
+   "role": "Assistant Professor",
+   "org": "COMSATS University"
+  },
+  {
+   "cat": "edu",
+   "role": "PhD, teaching and development",
+   "org": "Griffith University"
+  },
+  {
+   "cat": "res",
+   "role": "Postdoctoral Fellow",
+   "org": "Griffith, then ANU and CSIRO"
+  },
+  {
+   "cat": "res",
+   "role": "Research Fellow",
+   "org": "La Trobe University",
+   "current": true
+  }
+ ],
+ "career": {
+  "nodes": [
+   {
+    "id": "bsc",
+    "cat": "edu",
+    "band": 1,
+    "col": 1,
+    "role": "B.Sc. (Hons) Computer Science",
+    "org": "University of the Punjab"
+   },
+   {
+    "id": "se",
+    "cat": "ind",
+    "band": 1,
+    "col": 2,
+    "role": "Software Engineer",
+    "org": "Systems Ltd, CambridgeDocs and Techlogix, Pakistan"
+   },
+   {
+    "id": "ms",
+    "cat": "edu",
+    "band": 1,
+    "col": 3,
+    "role": "Master's in Computing",
+    "org": "Australian National University"
+   },
+   {
+    "id": "nicta",
+    "cat": "res",
+    "band": 1,
+    "col": 4,
+    "role": "Research Scholar",
+    "org": "NICTA Neville Roach Lab"
+   },
+   {
+    "id": "comsats",
+    "cat": "acad",
+    "band": 1,
+    "col": 5,
+    "role": "Assistant Professor",
+    "org": "COMSATS University, Pakistan"
+   },
+   {
+    "id": "lecturer",
+    "cat": "acad",
+    "band": 2,
+    "col": 1,
+    "row": 1,
+    "parallel": true,
+    "role": "Lecturer, Lab Instructor and Student Coach",
+    "brief": "Lecturer and lab instructor",
+    "org": "Griffith University"
+   },
+   {
+    "id": "phd",
+    "cat": "edu",
+    "band": 2,
+    "col": 1,
+    "row": 2,
+    "parallel": true,
+    "role": "PhD (Artificial Intelligence)",
+    "brief": "PhD (AI)",
+    "org": "Griffith University"
+   },
+   {
+    "id": "programmer",
+    "cat": "ind",
+    "band": 2,
+    "col": 1,
+    "row": 3,
+    "parallel": true,
+    "role": "Programmer / Developer",
+    "brief": "Programmer",
+    "org": "Griffith Online Team"
+   },
+   {
+    "id": "arc",
+    "cat": "res",
+    "band": 2,
+    "col": 2,
+    "row": 3,
+    "teach": true,
+    "role": "Postdoctoral Research Fellow",
+    "org": "ARC Research Hub for Driving Farming Productivity and Disease Prevention, Griffith"
+   },
+   {
+    "id": "anu",
+    "cat": "res",
+    "band": 2,
+    "col": 2,
+    "row": 1,
+    "teach": true,
+    "role": "Postdoctoral Research Fellow",
+    "org": "MLAI Future Science Platform, ANU and CSIRO"
+   },
+   {
+    "id": "latrobe",
+    "cat": "res",
+    "band": 2,
+    "col": 3,
+    "row": 1,
+    "teach": true,
+    "current": true,
+    "role": "Research Fellow",
+    "org": "La Trobe University",
+    "extra": "Adjunct at CSIRO and ANU"
+   }
+  ],
+  "edges": [
+   [
+    "bsc",
+    "se"
+   ],
+   [
+    "se",
+    "ms"
+   ],
+   [
+    "ms",
+    "nicta"
+   ],
+   [
+    "nicta",
+    "comsats"
+   ],
+   [
+    "comsats",
+    "lecturer",
+    "wrap"
+   ],
+   [
+    "comsats",
+    "phd",
+    "wrap"
+   ],
+   [
+    "comsats",
+    "programmer",
+    "wrap"
+   ],
+   [
+    "lecturer",
+    "anu"
+   ],
+   [
+    "phd",
+    "arc"
+   ],
+   [
+    "programmer",
+    "arc"
+   ],
+   [
+    "arc",
+    "anu",
+    "up"
+   ],
+   [
+    "anu",
+    "latrobe"
+   ]
+  ],
+  "parallel_label": "In parallel at Griffith University"
+ },
+ "recognition": [
+  {
+   "icon": "book",
+   "title": "Lead guest editor",
+   "detail": "SN Computer Science (Springer Nature) collection, AI for Agriculture, open for submissions until 31 May 2027",
+   "year": "2026",
+   "url": "https://link.springer.com/collections/fiaehabchh"
+  },
+  {
+   "icon": "mic",
+   "title": "Tutorial lead",
+   "detail": "ACML 2026 tutorial, Topological Deep Learning for Robust Representation Learning: Foundations, Architectures, and Applications, with Abdelwahed Khamis (CSIRO)",
+   "year": "2026",
+   "url": "https://www.acml-conf.org/2026/program/tutorials/"
+  },
+  {
+   "icon": "award",
+   "title": "Silver Reviewer",
+   "detail": "ICML 2026, recognised on the basis of area chair ratings of review quality",
+   "year": "2026"
+  },
+  {
+   "icon": "award",
+   "title": "Best Student Paper Award",
+   "detail": "APRS/IEEE award, for weakly supervised pixel-wise classification of hyperspectral images",
+   "year": "2025",
+   "paper": "Weakly Supervised Pixel-Wise"
+  },
+  {
+   "icon": "mic",
+   "title": "Sole invited speaker",
+   "detail": "Joint IEEE GRSS, IEEE CS and CDS seminar at ANU on fine-grained AI",
+   "year": "2025"
+  },
+  {
+   "icon": "book",
+   "title": "Guest editor",
+   "detail": "Frontiers in Remote Sensing special issue, Building Resilient Cities through Remote Sensing and Artificial Intelligence",
+   "year": "2025"
+  },
+  {
+   "icon": "landmark",
+   "title": "Invited contributor",
+   "detail": "Wrote the AI in Agriculture section of a report on artificial intelligence to the Australian Senate, through the ANU Integrated AI Network",
+   "year": "2024"
+  },
+  {
+   "icon": "award",
+   "title": "Runner-up Best Paper Award",
+   "detail": "For contrastive-aware ViT for weakly supervised semantic segmentation",
+   "year": "2023",
+   "paper": "Contrastive-Aware ViT"
+  },
+  {
+   "icon": "acad",
+   "title": "Teaching Excellence Awards",
+   "detail": "With Best Instructor commendations, COMSATS University",
+   "year": "2011–13"
+  }
+ ],
+ "themes": [
+  {
+   "id": "topology",
+   "title": "Topological deep learning",
+   "icon": "hol",
+   "color": "violet",
+   "items": [
+    {
+     "t": "Persistent homology for anomaly segmentation",
+     "papers": [
+      "Learning Topology-Aware Representations via Test-Time"
+     ]
+    },
+    {
+     "t": "Optimal transport between persistence diagrams",
+     "papers": [
+      "Test-Time Adaptation for Anomaly Segmentation via"
+     ]
+    },
+    {
+     "t": "Hypergraphs for sensor and radar fusion",
+     "papers": [
+      "Hypergraph Contrastive Sensor Fusion",
+      "HyperEcho"
+     ]
+    },
+    {
+     "t": "Review of the field and the TopoX library",
+     "papers": [
+      "Topological Deep Learning: A Review",
+      "TopoX",
+      "ICML 2023 Topological Deep Learning Challenge"
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "img": "papers/topotta-refinement.webp",
+     "alt": "Anomaly masks for a metal nut, a carrot and a transistor: input, ground truth, heat map, masks at increasing filtration levels and the final TopoTTA mask",
+     "caption": "Filtrations of the anomaly map yield clean pseudo-labels.",
+     "paper": "Learning Topology-Aware Representations via Test-Time"
+    },
+    {
+     "svg": "topoot-chain.svg",
+     "alt": "Diagram of optimal transport chained across persistence diagrams from different thresholds and filtrations",
+     "caption": "Optimal transport chained across persistence diagrams.",
+     "paper": "Test-Time Adaptation for Anomaly Segmentation via"
+    },
+    {
+     "img": "papers/mmhcan-arch.webp",
+     "alt": "MM-HCAN architecture: a raw-signal branch and an STFT image branch, k-nearest-neighbour hypergraphs within and across modalities, and a multimodal hypergraph attention network",
+     "caption": "Hypergraphs within and across sensor modalities.",
+     "paper": "Hypergraph Contrastive Sensor Fusion"
+    }
+   ]
+  },
+  {
+   "id": "hyperspectral",
+   "title": "Hyperspectral and multimodal sensing",
+   "icon": "hsi",
+   "color": "teal",
+   "items": [
+    {
+     "t": "Spectral–spatial feature extraction",
+     "papers": [
+      "Spectral-Spatial Scale Invariant"
+     ]
+    },
+    {
+     "t": "Depth and 3D reconstruction from spectra",
+     "papers": [
+      "Exploring Chromatic Aberration",
+      "3D Reconstruction from Hyperspectral",
+      "3D Plant Modelling via Hyperspectral Imaging"
+     ]
+    },
+    {
+     "t": "Weak-signal unmixing and pixel classification",
+     "papers": [
+      "A New Hyperspectral Unmixing Benchmark",
+      "Weakly Supervised Pixel-Wise"
+     ]
+    },
+    {
+     "t": "Fusion with radar, lidar and point clouds",
+     "papers": [
+      "Learning Structurally Consistent",
+      "2D–3D Feature Fusion",
+      "Multiscale Representations Learning Transformer",
+      "Geometry-Conditioned Implicit"
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "img": "papers/tgrs-classification.webp",
+     "alt": "Land-cover classification maps of the Houston 2013 scene: the ground truth and maps from eight comparison methods and the proposed network, coloured by classes such as grass, trees, water, roads, railway and parking lots",
+     "caption": "Hyperspectral–LiDAR land-cover maps of Houston.",
+     "paper": "Geometry-Conditioned Implicit"
+    },
+    {
+     "img": "papers/wsnet-datasets.webp",
+     "alt": "Three hyperspectral scenes (simulated, Samson and Apex) shown in colour, with an abundance map for each material and the endmember spectra plotted against wavelength",
+     "caption": "Hyperspectral scenes unmixed into material abundances and spectra.",
+     "paper": "WS-Net"
+    },
+    {
+     "img": "papers/wsnet-cuprite.webp",
+     "alt": "Abundance maps of five minerals (alunite, dumortierite, kaolinite, sphene and chalcedony) on the Cuprite scene: ground truth, seven comparison methods and WS-Net",
+     "caption": "Mineral abundance maps on the Cuprite scene.",
+     "paper": "WS-Net"
+    },
+    {
+     "img": "papers/hyperradar-arch.webp",
+     "alt": "HyperRadar architecture: range–Doppler, range–angle and angle–Doppler radar views are encoded, refined with hypergraph features and fused for segmentation",
+     "caption": "Three radar views refined with hypergraphs and fused.",
+     "paper": "Learning Structurally Consistent"
+    }
+   ]
+  },
+  {
+   "id": "reliable",
+   "title": "Reliable AI under real conditions",
+   "icon": "reliable",
+   "color": "indigo",
+   "items": [
+    {
+     "t": "Source-free test-time adaptation",
+     "papers": [
+      "Learning Topology-Aware Representations via Test-Time",
+      "Test-Time Adaptation for Anomaly Segmentation via"
+     ]
+    },
+    {
+     "t": "Robustness from representation geometry",
+     "papers": [
+      "Representation Geometry as a Diagnostic",
+      "TopoGeoScore"
+     ]
+    },
+    {
+     "t": "Training-free vision–language reasoning",
+     "papers": [
+      "Geometry-Aware Semantic Reasoning"
+     ]
+    },
+    {
+     "t": "Learning with few labels",
+     "papers": [
+      "Collaborative Static-Dynamic Teaching",
+      "SSTD: Stripe-Like",
+      "Contrastive-Aware ViT"
+     ]
+    }
+   ],
+   "figures": [
+    {
+     "img": "papers/topotta-3d.webp",
+     "alt": "3D anomaly detection results for a cable gland, carrot, dowel, foam, rope, tyre and potato: RGB, point cloud, ground truth and masks from baselines and TopoTTA",
+     "caption": "Test-time adaptation on 3D benchmarks, without source data or labels.",
+     "paper": "Learning Topology-Aware Representations via Test-Time"
+    },
+    {
+     "img": "mafr.jpg",
+     "alt": "MAFR architecture: RGB and point-cloud features are extracted, fused and restored, and anomaly maps are aggregated from the restoration errors",
+     "caption": "Anomalies found from how poorly each modality is restored.",
+     "paper": "2D–3D Feature Fusion"
+    }
+   ]
+  }
+ ],
+ "applications": [
+  {
+   "title": "Agriculture and Food",
+   "icon": "agri",
+   "color": "green",
+   "items": [
+    {
+     "t": "Crop disease detection",
+     "papers": [
+      "Early Detection of Sugarcane Smut",
+      "Determining Mosaic Resilience"
+     ]
+    },
+    {
+     "t": "Biomass estimation",
+     "papers": [
+      "BioNet and NeFF",
+      "MMCBE"
+     ]
+    },
+    {
+     "t": "Livestock behaviour recognition",
+     "papers": [
+      "CVB: A Video Dataset",
+      "A Review on Vision-Centric"
+     ]
+    },
+    {
+     "t": "Food quality and contamination",
+     "papers": [
+      "Unlocking Chickpea Flour",
+      "A New Hyperspectral Unmixing Benchmark"
+     ]
+    }
+   ],
+   "id": "agri",
+   "figures": [
+    {
+     "img": "papers/bionet-reconstruction.webp",
+     "alt": "A drone image of crop rows beside two 3D reconstructions of the same plot: a sharp one from NeFF with its geometry loss and a blurrier one without it",
+     "caption": "From drone images to 3D crops for biomass prediction.",
+     "paper": "BioNet and NeFF"
+    },
+    {
+     "img": "projects/annotation-flow.jpg",
+     "alt": "CVB annotation workflow: surveillance video is trimmed into clips, cattle are detected and tracked, and behaviours are annotated in CVAT, with example frames below",
+     "caption": "Semi-automatic annotation of cattle behaviour video.",
+     "paper": "CVB: A Video Dataset"
+    },
+    {
+     "img": "papers/chickpea-vit.webp",
+     "alt": "A near-infrared spectrum split into K patches that are linearly projected, given positional embeddings and passed through a Transformer encoder to a regression head",
+     "caption": "NIR spectra split into patches for a Vision Transformer that predicts flour composition.",
+     "paper": "Unlocking Chickpea Flour",
+     "credit": "Figure CC BY-NC-ND 4.0"
+    }
+   ]
+  },
+  {
+   "title": "Healthcare",
+   "icon": "health",
+   "color": "rose",
+   "items": [
+    {
+     "t": "Mental-state-aware brain–computer interface",
+     "papers": [
+      "A Mental State Aware"
+     ]
+    },
+    {
+     "t": "IVF embryo (blastocyst) assessment",
+     "papers": [
+      "Expert Fusion Network"
+     ]
+    },
+    {
+     "t": "Retinal fundus image enhancement",
+     "papers": [
+      "Multi-Scale Target-Aware"
+     ]
+    }
+   ],
+   "id": "health",
+   "figures": [
+    {
+     "img": "papers/bci-system.webp",
+     "alt": "Brain–computer interface wheelchair: an Emotiv EPOC+ headset sends EEG over Bluetooth for signal processing and model training, navigation commands drive the wheelchair, and a mental-state detector alerts an attendant",
+     "caption": "EEG control of a wheelchair, with stress detection that alerts an attendant.",
+     "paper": "A Mental State Aware",
+     "credit": "Figure CC BY 4.0"
+    },
+    {
+     "img": "papers/embryo-annotation.webp",
+     "alt": "Three blastocyst microscope images with expert annotations of the inner cell mass, trophectoderm and blastocoel, and the corresponding masks",
+     "caption": "Blastocyst images, expert annotations and masks used for grading.",
+     "paper": "Expert Fusion Network"
+    },
+    {
+     "img": "papers/fundus-enhancement.webp",
+     "alt": "A degraded fundus image enhanced by five published methods and by MTRL-FIE, with zoomed views of the optic disc and vessels and the high-quality reference",
+     "caption": "Fundus enhancement compared with five other methods.",
+     "paper": "Multi-Scale Target-Aware"
+    }
+   ]
+  },
+  {
+   "title": "Energy Optimisation",
+   "icon": "energy",
+   "color": "amber",
+   "items": [
+    {
+     "t": "Microgrid energy management",
+     "papers": [
+      "Short-Term Load Forecasting",
+      "Microgrid Energy Management System"
+     ]
+    },
+    {
+     "t": "Short-term load forecasting for smart grids",
+     "papers": [
+      "Short-Term Load Forecasting"
+     ]
+    },
+    {
+     "t": "Battery storage scheduling",
+     "papers": [
+      "Microgrid Energy Management System"
+     ]
+    }
+   ],
+   "id": "energy",
+   "figures": [
+    {
+     "img": "papers/energy-forecasting.webp",
+     "alt": "Forecasting pipeline: historical load and meteorological data are decomposed with a best-basis stationary wavelet packet transform, forecast by parallel HHO-FNN models and reconstructed into a day-ahead load forecast",
+     "caption": "Wavelet decomposition and HHO-FNN models for day-ahead load forecasting.",
+     "paper": "Short-Term Load Forecasting"
+    },
+    {
+     "img": "papers/energy-forecast-result.webp",
+     "alt": "Day-ahead load forecast for a summer working day: actual load plotted against the proposed method and three baselines, PSO-ANN, PSO-LSSVM and BPNN",
+     "caption": "Forecast against actual load on a summer working day.",
+     "paper": "Short-Term Load Forecasting"
+    }
+   ]
+  },
+  {
+   "title": "Cybersecurity and IoT",
+   "icon": "security",
+   "color": "indigo",
+   "items": [
+    {
+     "t": "IoT device fingerprinting",
+     "papers": [
+      "A Comparative Analysis of IoT",
+      "An Improved IoT Device"
+     ]
+    },
+    {
+     "t": "Blockchain-enabled IoT edge computing",
+     "papers": [
+      "Deadline-Aware Workload"
+     ]
+    }
+   ],
+   "id": "security",
+   "figures": [
+    {
+     "img": "papers/iot-fingerprinting.webp",
+     "alt": "Device fingerprinting process: traffic capture, feature extraction, preprocessing, fingerprint generation, sampling into training and testing data, model training, evaluation and device classification",
+     "caption": "Identifying IoT devices from their network traffic.",
+     "paper": "A Comparative Analysis of IoT"
+    },
+    {
+     "img": "papers/iot-blockchain.webp",
+     "alt": "System model: IoT and less capable devices offload work through an edge server to volunteer devices over the internet, with a public blockchain alongside",
+     "caption": "Edge offloading to volunteer devices, with incentives on a public blockchain.",
+     "paper": "Deadline-Aware Workload"
+    }
+   ]
+  }
+ ]
+}
