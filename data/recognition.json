@@ -1,0 +1,72 @@
+{
+ "_note": "Awards, editorial roles and service. Groups render in this order on /recognition/. An item with \"home\": N also appears in the home page's selected list, ordered by N. \"paper\" is a publication title prefix and adds its venue tag. \"url\" links the title.",
+ "footnote": "* Older roles and recognition will be added later.",
+ "groups": [
+  {
+   "id": "editorial",
+   "title": "Editorial roles",
+   "icon": "book",
+   "items": [
+    {"title": "Associate Editor", "detail": "SN Computer Science (Springer Nature)", "year": "Current", "url": "https://link.springer.com/journal/42979/editorial-board", "home": 1},
+    {"title": "Lead guest editor", "detail": "SN Computer Science collection, AI for Agriculture, open for submissions until 31 May 2027", "year": "2026", "url": "https://link.springer.com/collections/fiaehabchh", "home": 2},
+    {"title": "Guest editor", "detail": "Frontiers in Remote Sensing Research Topic, Building Resilient Cities with Remote Sensing and AI; editorial published 2026", "year": "2025", "url": "https://doi.org/10.3389/frsen.2026.1991820", "home": 8}
+   ]
+  },
+  {
+   "id": "awards",
+   "title": "Awards",
+   "icon": "award",
+   "items": [
+    {"title": "Silver Reviewer", "detail": "ICML 2026, recognised on the basis of area chair ratings of review quality", "year": "2026", "home": 6},
+    {"title": "Best Student Paper Award", "detail": "APRS/IEEE award, for weakly supervised pixel-wise classification of hyperspectral images", "year": "2025", "paper": "Weakly Supervised Pixel-Wise", "home": 5},
+    {"title": "Runner-up Best Paper Award", "detail": "For contrastive-aware ViT for weakly supervised semantic segmentation", "year": "2023", "paper": "Contrastive-Aware ViT"},
+    {"title": "Teaching Excellence Awards", "detail": "With Best Instructor commendations, COMSATS University", "year": "2011–13"},
+    {"title": "Best project award", "detail": "Robot path identification and map construction", "year": "2011"}
+   ]
+  },
+  {
+   "id": "conferences",
+   "title": "Conference and programme roles",
+   "icon": "acad",
+   "items": [
+    {"title": "Area chair", "detail": "DICTA 2026 programme committee", "year": "2026", "home": 4},
+    {"title": "Tutorial lead", "detail": "ACML 2026 tutorial, Topological Deep Learning for Robust Representation Learning: Foundations, Architectures, and Applications, with Abdelwahed Khamis (CSIRO)", "year": "2026", "url": "https://www.acml-conf.org/2026/program/tutorials/", "home": 3},
+    {"title": "Scientific committee", "detail": "2026 Australian Agronomy Conference", "year": "2025"},
+    {"title": "Programme committee", "detail": "IVCNZ 2025", "year": "2025"},
+    {"title": "Poster session lead", "detail": "DICTA 2024, Perth", "year": "2024"}
+   ]
+  },
+  {
+   "id": "reviewing",
+   "title": "Reviewing",
+   "icon": "reliable",
+   "items": [
+    {"title": "Conferences", "detail": "CVPR (CVPR 2026 reviewer recognition), ECCV, ICML (ICML 2026 Silver Reviewer), ICLR, AAAI and ACML", "year": "Ongoing"},
+    {"title": "Journals", "detail": "IEEE Transactions on Geoscience and Remote Sensing, IEEE Transactions on Multimedia, Engineering Applications of Artificial Intelligence", "year": "Ongoing"}
+   ]
+  },
+  {
+   "id": "talks",
+   "title": "Invited talks and contributions",
+   "icon": "mic",
+   "items": [
+    {"title": "Sole invited speaker", "detail": "Joint IEEE GRSS, IEEE CS and CDS seminar at ANU on fine-grained AI", "year": "2025", "home": 7},
+    {"title": "Invited contributor", "detail": "Wrote the AI in Agriculture section of a report on artificial intelligence to the Australian Senate, through the ANU Integrated AI Network", "year": "2024"},
+    {"title": "Invited seminars", "detail": "COMSATS University and University of the Punjab", "year": "2023"}
+   ]
+  },
+  {
+   "id": "community",
+   "title": "Workshops, committees and memberships",
+   "icon": "landmark",
+   "items": [
+    {"title": "Co-lead", "detail": "CSIRO ML Workshop Series", "year": "2024"},
+    {"title": "Workshop host", "detail": "CSIRO ML/AI Animal Science Workshop", "year": "2024"},
+    {"title": "Event host", "detail": "Three-day programme of workshops and seminars for early-career researchers, CSIRO", "year": "2024"},
+    {"title": "Committee nominations", "detail": "CERC and AgCatalyst committees, CSIRO Agriculture and Food", "year": "2023"},
+    {"title": "Topological Deep Learning Challenge", "detail": "ICML 2023, TAG in Machine Learning team", "year": "2023"},
+    {"title": "Memberships", "detail": "IEEE, AAAI, Australian Computer Society, Queensland AI Hub", "year": ""}
+   ]
+  }
+ ]
+}

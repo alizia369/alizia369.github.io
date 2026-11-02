@@ -404,6 +404,9 @@ a.g-media:hover { border-color: var(--a, var(--leaf)); }
 .awards .h a:hover { color: var(--leaf); text-decoration-color: currentColor; }
 .awards .s { display: block; font-size: .88rem; color: var(--ink-2); line-height: 1.45; margin-top: 2px; }
 .awards .s .vt { --a: var(--leaf); margin-left: 2px; }
+.rec-group { margin-top: 36px; }
+.rec-group h2 { margin-bottom: 8px; }
+.footnote { margin-top: 32px; font-size: .9rem; color: var(--ink-2); }
 .awards .y { font-size: .82rem; color: var(--ink-2); white-space: nowrap; padding-top: 2px; }
 
 /* caption under a theme's main figure */

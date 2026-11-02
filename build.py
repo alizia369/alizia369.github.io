@@ -65,6 +65,7 @@ def _scholar():
 
 SCHOLAR = _scholar()
 OV = data("overview.json")  # career, stats, themes and applications
+REC = data("recognition.json")  # awards, editorial roles, reviewing and service
 
 
 def scholar_date():
@@ -78,7 +79,7 @@ def svg(name):
 
 # ---------------------------------------------------------------- layout
 MENU = [("/", "About"), ("/research/", "Research"), ("/publications/", "Publications"),
-        ("/code/", "Code"), ("/teaching/", "Teaching"), ("/grants/", "Grants"), ("/resume/", "Resume")]
+        ("/code/", "Code"), ("/teaching/", "Teaching"), ("/grants/", "Grants"), ("/recognition/", "Recognition"), ("/resume/", "Resume")]
 
 ICONS = {
     "mail": '<path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.3V17h16V7.3l-8 5.4-8-5.4ZM5.6 7 12 11.3 18.4 7H5.6Z"/>',
@@ -468,32 +469,15 @@ def build_resume():
             <li><span class="y">2006</span><div><b>BSc (Hons) in Computer Science</b>, University of the Punjab</div></li>
           </ul>
           <h2 class="block-title" style="margin-top:32px">Service and recognition</h2>
-          <ul class="entries">
-            <li><div class="h">Associate Editor</div><div class="s"><a href="https://link.springer.com/journal/42979/editorial-board" rel="noopener">SN Computer Science</a> (Springer Nature)</div></li>
-            <li><div class="h">Lead guest editor</div><div class="s"><a href="https://link.springer.com/collections/fiaehabchh" rel="noopener">SN Computer Science collection, AI for Agriculture</a>, 2026</div></li>
-            <li><div class="h">Tutorial lead</div><div class="s"><a href="https://www.acml-conf.org/2026/program/tutorials/" rel="noopener">Topological Deep Learning, ACML 2026</a></div></li>
-            <li><div class="h">Silver Reviewer</div><div class="s">ICML 2026</div></li>
-            <li><div class="h">Reviewer</div><div class="s">CVPR, ECCV, ICML, ICLR, AAAI and ACML; IEEE TGRS, IEEE TMM and Engineering Applications of Artificial Intelligence</div></li>
-            <li><div class="h">Co-lead</div><div class="s">CSIRO ML Workshop Series</div></li>
-            <li><div class="h">Best student paper award</div><div class="s">APRS/IEEE, DICTA 2025</div></li>
-            <li><div class="h">Guest editor</div><div class="s">Frontiers in Remote Sensing special issue on resilient cities, remote sensing and AI, 2025</div></li>
-            <li><div class="h">Area chair</div><div class="s">DICTA 2026 programme committee</div></li>
-            <li><div class="h">Scientific committee</div><div class="s">2026 Australian Agronomy Conference</div></li>
-            <li><div class="h">Programme committee</div><div class="s">IVCNZ 2025</div></li>
-            <li><div class="h">Poster session lead</div><div class="s">DICTA 2024, Perth</div></li>
-            <li><div class="h">Workshop host</div><div class="s">CSIRO ML/AI Animal Science Workshop and a three-day early-career researcher event, 2024</div></li>
-            <li><div class="h">Sole invited speaker</div><div class="s">Joint IEEE GRSS, IEEE CS and CDS seminar at ANU, 2025</div></li>
-            <li><div class="h">Runner-up paper award</div><div class="s">DICTA 2023</div></li>
-            <li><div class="h">Committee nominations</div><div class="s">CERC and AgCatalyst committees, CSIRO Agriculture and Food, 2023</div></li>
-            <li><div class="h">Topological Deep Learning Challenge</div><div class="s">ICML 2023 TAG in Machine Learning team</div></li>
-            <li><div class="h">Invited seminars</div><div class="s">COMSATS University and University of the Punjab, 2023</div></li>
-            <li><div class="h">Best project award</div><div class="s">Robot path identification and map construction, 2011</div></li>
-            <li><div class="h">Memberships</div><div class="s">IEEE, AAAI, Australian Computer Society, Queensland AI Hub</div></li>
-          </ul>
+          <ul class="entries">RESUME_REC</ul>
+          <p style="margin-top:12px"><a href="/recognition/">All awards, editorial roles, reviewing and service</a></p>
           <p style="margin-top:20px"><a href="/grants/">Grants</a> and <a href="/teaching/">teaching</a> have their own pages.</p>
         </div>
       </div>
     </section>"""
+    rec = "".join(f'<li><div class="h">{esc(r["title"])}</div><div class="s">{esc(r["detail"])}{", " + esc(r["year"]) if r["year"][:1].isdigit() else ""}</div></li>'
+                  for r, _ in selected_recognition())
+    body = body.replace("RESUME_REC", rec)
     write("/resume/", "Resume", "Resume of Ali Zia: positions, education, service and downloadable CVs.", body)
 
 
@@ -670,18 +654,41 @@ def theme_caption(theme_id, pubs):
     return f'<p class="theme-cap">{esc(text)} {venue_tag(find_pub(pubs, paper))}</p>'
 
 
+def award_li(pubs, r, ic):
+    detail = esc(r["detail"])
+    if r.get("paper"):
+        detail += " " + venue_tag(find_pub(pubs, r["paper"]))
+    title = esc(r["title"])
+    if r.get("url"):
+        title = f'<a href="{esc(r["url"])}" rel="noopener">{title}</a>'
+    return (f'<li><span class="aw-ic">{icon(r.get("icon") or ic)}</span><div><span class="h">{title}</span>'
+            f'<span class="s">{detail}</span></div><span class="y">{esc(r["year"])}</span></li>')
+
+
+def selected_recognition():
+    picked = [(r, g["icon"]) for g in REC["groups"] for r in g["items"] if r.get("home")]
+    return sorted(picked, key=lambda x: x[0]["home"])
+
+
 def recognition_html(pubs):
-    lis = []
-    for r in OV["recognition"]:
-        detail = esc(r["detail"])
-        if r.get("paper"):
-            detail += " " + venue_tag(find_pub(pubs, r["paper"]))
-        title = esc(r["title"])
-        if r.get("url"):
-            title = f'<a href="{esc(r["url"])}" rel="noopener">{title}</a>'
-        lis.append(f'<li><span class="aw-ic">{icon(r["icon"])}</span><div><span class="h">{title}</span>'
-                   f'<span class="s">{detail}</span></div><span class="y">{esc(r["year"])}</span></li>')
-    return f'<ul class="awards">{"".join(lis)}</ul>'
+    lis = "".join(award_li(pubs, r, ic) for r, ic in selected_recognition())
+    return (f'<ul class="awards">{lis}</ul>'
+            f'<a class="more-link" href="/recognition/">All awards, editorial roles and service</a>')
+
+
+def build_recognition(pubs):
+    groups = "".join(
+        f'<section aria-labelledby="rg-{g["id"]}" class="rec-group"><h2 id="rg-{g["id"]}">{esc(g["title"])}</h2>'
+        f'<ul class="awards">{"".join(award_li(pubs, r, g["icon"]) for r in g["items"])}</ul></section>'
+        for g in REC["groups"])
+    body = f"""
+    <section aria-labelledby="t">
+      <h1 class="page-title" id="t">Awards and recognition</h1>
+      <p class="intro-text">Awards, editorial roles, conference and programme roles, reviewing, invited talks and community service. The home page shows a selection.</p>
+    </section>
+    {groups}
+    <p class="footnote">{esc(REC["footnote"])}</p>"""
+    write("/recognition/", "Awards and recognition", "Awards, editorial roles, reviewing and service of Ali Zia.", body)
 
 
 def theme_teasers():
@@ -762,4 +769,5 @@ if __name__ == "__main__":
     build_teaching()
     build_grants(data("grants.json"))
     build_resume()
+    build_recognition(pubs)
     redirect("/cv/", "/resume/")
