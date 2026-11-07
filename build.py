@@ -177,12 +177,29 @@ def link_buttons(links):
 
 
 # ---------------------------------------------------------------- home
-FEATURED_COPY = {
-    "Test-Time Adaptation for Anomaly Segmentation via": ("svg:topoot-chain.svg", "TopoOT chains optimal transport across persistence diagrams from different thresholds and filtrations, then trains a light head online on the features that stay stable. Up to +24.1% mean F1 over the next best method on 2D benchmarks."),
-    "Learning Topology-Aware Representations": ("topotta-arch.jpg", "TopoTTA replaces threshold heuristics with persistent homology on anomaly maps, producing pseudo-labels that keep defects connected. About 15% higher F1 on average across five 2D and 3D benchmarks."),
-    "Hypergraph Contrastive Sensor Fusion": ("mmhcan.jpg", "MM-HCAN builds hypergraphs within and across sensor modalities and trains them contrastively, diagnosing bearing, stator and rotor faults together. Up to 99.82% accuracy with strong cross-domain transfer."),
-    "2D–3D Feature Fusion": ("mafr.jpg", "MAFR fuses RGB and point clouds in one latent space and finds anomalies by how badly each modality restores. Mean I-AUROC of 0.972 on MVTec 3D-AD."),
-}
+FEATURED = [
+    ("Topological deep learning", [
+        {"key": "Test-Time Adaptation for Anomaly Segmentation via", "fig": "svg:topoot-chain.svg",
+         "what": "TopoOT chains optimal transport across persistence diagrams from different thresholds and filtrations, then trains a light head online on the features that stay stable. Up to +24.1% mean F1 over the next best method on 2D benchmarks."},
+        {"key": "Learning Topology-Aware Representations", "fig": "topotta-arch.jpg",
+         "what": "TopoTTA replaces threshold heuristics with persistent homology on anomaly maps, producing pseudo-labels that keep defects connected. About 15% higher F1 on average across five 2D and 3D benchmarks."},
+        {"title": "Learnable Persistent Topology for Multi-View Radar Semantic Segmentation", "badge": "NeurIPS 2026 workshop",
+         "venue": "NeurIPS 2026 Workshop on Symmetry and Geometry in Neural Representations (NeurReps), Sydney",
+         "what": "Makes persistent topology a learnable part of multi-view radar segmentation, so the network keeps the connected structure of objects that reach the sensor as sparse, scattered returns."},
+    ]),
+    ("Spectral 3D and radar perception", [
+        {"key": "Spectral 3D Computer Vision", "fig": "papers/survey-spectral3d.webp",
+         "what": "A survey that connects spectral imaging with 3D vision: how spectral 3D data are acquired and represented, the learning methods built on them, benchmarks, and applications from agriculture to heritage. Computer Science Review, impact factor 17.5."},
+        {"key": "Learning Structurally Consistent Representations", "fig": "papers/hyperradar-arch.webp", "badge": "ECCV 2026 · HyperRadar",
+         "what": "HyperRadar learns hypergraphs over radar returns that belong to the same object and aligns range–angle, range–Doppler and angle–Doppler views with unbalanced optimal transport, so scattered echoes are segmented as one pedestrian, cyclist or car."},
+    ]),
+    ("AI for health", [
+        {"key": "Expert Fusion Network", "fig": "papers/embryo-annotation.webp",
+         "what": "EFN gives each embryo region graders use (trophectoderm, inner cell mass, blastocoel) its own expert subnetwork and fuses them with attention-gated weighting. Dice scores of 0.92, 0.91 and 0.90 on 2,344 annotated images, with cross-dataset validation."},
+        {"key": "Context-Aware AI for Localised Pollen-Risk", "badge": "HICSS-60 (2027)", "fig": "papers/hicss-pollen-orchestration.webp",
+         "what": "A CLIP plant gate, YOLOv8 family detection, DINOv2 retrieval, allergen knowledge and live weather feed a rule-based risk score that a vision-language model explains. 91.2% top-1 accuracy on 26,978 plant images; the gate cut false acceptance of non-plant images from 83.8% to 0%."},
+    ]),
+]
 
 
 def compact_pub(p):
@@ -208,20 +225,25 @@ def build_home(news, pubs, code):
     toggle = ('<button class="toggle" type="button" aria-expanded="false" aria-controls="news-list" id="news-toggle">Show older news</button>'
               if len(news) > 6 else "")
 
-    order = ["Test-Time Adaptation for Anomaly Segmentation via", "Learning Topology-Aware Representations", "Hypergraph Contrastive Sensor Fusion", "2D–3D Feature Fusion"]
-    feats = []
-    for key in order:
-        p = next((x for x in pubs if x["title"].startswith(key)), None)
-        if not p:
-            continue
-        fig, what = FEATURED_COPY[key]
-        if fig.startswith("svg:"):
-            figure = f'<div class="feat-fig drawn" aria-hidden="true">{svg(fig[4:])}</div>'
-        else:
-            figure = f'<div class="feat-fig"><img src="/assets/img/{fig}" alt="Overview figure for {esc(p["title"])}" loading="lazy"></div>'
-        feats.append(f'<article class="feat">{figure}<div><span class="venue">{esc(p.get("short", p["venue"]))} {p["year"]}</span>'
-                     f'<h3>{esc(p["title"])}</h3><p class="authors">{bold_me(p["authors"])}</p>'
-                     f'<p class="what">{what}</p><div class="actions">{link_buttons(p["links"])}</div></div></article>')
+    def feat_card(f):
+        p = next((x for x in pubs if x["title"].startswith(f["key"])), None) if f.get("key") else None
+        title = p["title"] if p else f["title"]
+        badge = f.get("badge") or (f'{p.get("short", p["venue"])} {p["year"]}' if p else "")
+        figure = ""
+        if f.get("fig", "").startswith("svg:"):
+            figure = f'<div class="feat-fig drawn" aria-hidden="true">{svg(f["fig"][4:])}</div>'
+        elif f.get("fig"):
+            figure = f'<div class="feat-fig"><img src="/assets/img/{f["fig"]}" alt="Figure from {esc(title)}" loading="lazy"></div>'
+        authors = f'<p class="authors">{bold_me(p["authors"])}</p>' if p else f'<p class="authors">{esc(f["venue"])}</p>'
+        note = f' <span class="award">{esc(p["note"])}</span>' if p and p.get("note") else ""
+        actions = link_buttons(p["links"]) if p else ""
+        anchor = f'<a href="/publications/#{pub_id(p)}">All details</a>' if p else ""
+        return (f'<article class="feat{"" if figure else " nofig"}">{figure}<div class="feat-body"><div class="feat-tags"><span class="venue">{esc(badge)}</span>{note}</div>'
+                f'<h3>{esc(title)}</h3>{authors}<p class="what">{f["what"]}</p>'
+                f'<div class="actions">{actions}{anchor}</div></div></article>')
+
+    feats = "".join(f'<div class="feat-group"><h3 class="feat-theme">{esc(g)}</h3><div class="feat-grid">{"".join(feat_card(f) for f in items)}</div></div>'
+                    for g, items in FEATURED)
 
     selected = [p for p in pubs if p.get("selected")]
     groups, seen = [], []
@@ -257,6 +279,13 @@ def build_home(news, pubs, code):
       </figure>
     </section>
 
+    <aside class="upcoming" aria-label="Upcoming tutorial">
+      <span class="up-label">Upcoming tutorial · ACML 2026 · Melbourne · 1 December 2026</span>
+      <p class="up-title"><a href="https://alizia369.github.io/acml2026-tdl/">Topological Deep Learning for Robust Representation Learning: Foundations, Architectures, and Applications</a></p>
+      <p class="up-text">A 150-minute introduction to bringing topology and higher-order structure into modern machine learning, at the 18th Asian Conference on Machine Learning.</p>
+      <div class="actions"><a class="code" href="https://alizia369.github.io/acml2026-tdl/">Tutorial website</a><a href="https://www.acml-conf.org/2026/program/tutorials/">ACML 2026 tutorials</a></div>
+    </aside>
+
     <section id="glance" aria-labelledby="glance-h">
       <h2 id="glance-h">At a glance</h2>
       {glance_tiles}
@@ -283,7 +312,7 @@ def build_home(news, pubs, code):
 
     <section id="featured">
       <h2>Featured work</h2>
-      {''.join(feats)}
+      {feats}
     </section>
 
     <section id="selected">

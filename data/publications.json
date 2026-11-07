@@ -89,19 +89,19 @@
   {
    "year": 2026,
    "title": "Spectral 3D Computer Vision: A Survey of Acquisition, Representations, Learning, and Applications",
-   "authors": "Y. Sun, A. Zia, V. Rolland, C. Yu, J. Zhou",
-   "venue": "Computer Science Review",
+   "authors": "A. Zia, Y. Sun, U. Ali, Z. Long, J. Zhou",
+   "venue": "Computer Science Review 63",
    "type": "journal",
    "topics": [
     "hyperspectral",
     "3d"
    ],
    "links": {
+    "paper": "https://doi.org/10.1016/j.cosrev.2026.101084",
     "arxiv": "https://arxiv.org/abs/2302.08054"
    },
    "selected": true,
-   "short": "Computer Science Review",
-   "note": "Accepted"
+   "short": "Computer Science Review"
   },
   {
    "year": 2026,
@@ -123,7 +123,7 @@
   {
    "year": 2026,
    "title": "Expert Fusion Network for Automated Blastocyst Morphology and IVF Decision Support",
-   "authors": "A. Zia, S. Qureshi, F. Ansarizadeh, M. Fozan, E. Kamawal, S. Anwer, et al.",
+   "authors": "A. Zia, S. Qureshi, F. Ansarizadeh, M. Fozan, E. Kamawal, S. Anwer, C. Karmakar",
    "venue": "IEEE Journal of Biomedical and Health Informatics",
    "short": "IEEE JBHI",
    "type": "journal",

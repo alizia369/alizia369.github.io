@@ -126,12 +126,26 @@ figcaption { font-size: .85rem; color: var(--ink-2); margin-top: 8px; max-width:
 .pd-key i { display: inline-block; width: 9px; height: 9px; margin-right: 6px; }
 
 /* ---------- featured work ---------- */
-.feat { display: grid; gap: 22px; padding: 26px 0; border-top: 1px solid var(--line); }
-.feat:first-of-type { border-top: 0; padding-top: 4px; }
-@media (min-width: 760px) { .feat { grid-template-columns: 300px minmax(0, 1fr); gap: 28px; } }
-.feat-fig { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px; align-self: start; }
-.feat-fig.drawn { background: var(--surface); padding: 14px; }
-.feat-fig img { border-radius: 3px; }
+.feat-group { margin-top: 26px; }
+.feat-group:first-of-type { margin-top: 6px; }
+.feat-theme { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 12px; }
+.feat-grid { display: grid; gap: 18px; }
+@media (min-width: 760px) { .feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .feat-grid > .feat:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+.feat { display: flex; flex-direction: column; gap: 14px; border: 1px solid var(--line); border-radius: 10px; padding: 16px; background: var(--surface); }
+.feat.nofig { border-style: dashed; }
+.feat-fig { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 8px; height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.feat-fig img { width: 100%; height: 100%; object-fit: contain; border-radius: 3px; }
+.feat-fig.drawn { background: var(--paper); padding: 12px; }
+.feat-fig.drawn svg { width: 100%; height: 100%; }
+.feat-body { display: flex; flex-direction: column; flex: 1; }
+.feat-body .actions { margin-top: auto; }
+.feat-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
+.feat-tags .venue { margin-bottom: 0; }
+.upcoming { margin: 28px 0 8px; padding: 18px 20px; border: 1px solid var(--leaf); border-left-width: 5px; border-radius: 10px; background: var(--leaf-soft); }
+.up-label { display: block; font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--leaf); margin-bottom: 6px; }
+.up-title { font-family: var(--serif, Georgia, serif); font-size: 1.2rem; line-height: 1.35; margin: 0 0 6px; }
+.up-title a { color: var(--ink); text-decoration-color: var(--leaf); text-underline-offset: 3px; }
+.up-text { margin: 0 0 12px; color: var(--ink-2); }
 .venue { display: inline-block; font-size: .8rem; font-weight: 600; color: var(--leaf); background: var(--leaf-soft); padding: 2px 9px; border-radius: 999px; margin-bottom: 8px; }
 .feat h3 { font-size: 1.28rem; line-height: 1.3; margin-bottom: 6px; }
 .authors { margin: 0 0 8px; color: var(--ink-2); font-size: .92rem; }

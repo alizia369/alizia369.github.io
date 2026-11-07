@@ -2,7 +2,7 @@
   "_note": "Newest first. date is YYYY-MM or YYYY. text may contain simple HTML links. Items after the first 6 are hidden behind 'Show older news'.",
   "items": [
     {"date": "2026-11", "text": "Joined <a href=\"https://www.frontiersin.org/journals/remote-sensing/sections/multi--and-hyper-spectral-imaging/editors\">Frontiers in Remote Sensing</a> as <strong>Associate Editor</strong> in the Multi- and Hyper-Spectral Imaging section."},
-    {"date": "2026-11", "text": "<strong>Survey accepted in Computer Science Review</strong> (impact factor 17.5): <a href=\"/publications/#p-spectral-3d-computer-vision-a-survey-of-acquisition\">Spectral 3D Computer Vision: A Survey of Acquisition, Representations, Learning, and Applications</a>."},
+    {"date": "2026-11", "text": "<strong>Survey published in Computer Science Review</strong> (impact factor 17.5), online from 3 November: <a href=\"https://doi.org/10.1016/j.cosrev.2026.101084\">Spectral 3D Computer Vision: A Survey of Acquisition, Representations, Learning, and Applications</a>."},
     {"date": "2026-10", "text": "Call for papers open for <a href=\"https://link.springer.com/collections/fiaehabchh\">AI for Agriculture</a>, an SN Computer Science collection I lead as guest editor; submissions close 31 May 2027."},
     {"date": "2026-10", "text": "Code for <a href=\"https://github.com/alizia369/HyperRadar\">HyperRadar</a> (ECCV 2026, multi-view radar segmentation) is now public."},
     {"date": "2026-10", "text": "Code for <a href=\"https://github.com/alizia369/TopoOT\">TopoOT</a>, <a href=\"https://github.com/alizia369/TopoTTA\">TopoTTA</a>, <a href=\"https://github.com/alizia369/MAFR\">MAFR</a> and <a href=\"https://github.com/alizia369/MM-HCAN\">MM-HCAN</a> is now public."},
