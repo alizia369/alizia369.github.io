@@ -179,13 +179,15 @@ def link_buttons(links):
 # ---------------------------------------------------------------- home
 FEATURED = [
     ("Topological deep learning", [
-        {"key": "Test-Time Adaptation for Anomaly Segmentation via", "fig": "svg:topoot-chain.svg",
+        {"key": "Topology-Aware Optimal Transport for Source-Free", "fig": "papers/topoot-architecture.webp",
          "what": "TopoOT chains optimal transport across persistence diagrams from different thresholds and filtrations, then trains a light head online on the features that stay stable. Up to +24.1% mean F1 over the next best method on 2D benchmarks."},
         {"key": "Learning Topology-Aware Representations", "fig": "topotta-arch.jpg",
          "what": "TopoTTA replaces threshold heuristics with persistent homology on anomaly maps, producing pseudo-labels that keep defects connected. About 15% higher F1 on average across five 2D and 3D benchmarks."},
         {"title": "Learnable Persistent Topology for Multi-View Radar Semantic Segmentation", "badge": "NeurIPS 2026 workshop",
          "venue": "NeurIPS 2026 Workshop on Symmetry and Geometry in Neural Representations (NeurReps), Sydney",
-         "what": "Makes persistent topology a learnable part of multi-view radar segmentation, so the network keeps the connected structure of objects that reach the sensor as sparse, scattered returns."},
+         "fig": "papers/neurreps-topology-module.webp",
+         "links": {"paper": "/assets/papers/Zia_NeurReps2026_Learnable_Persistent_Topology_Radar.pdf"},
+         "what": "Learns cubical multifiltrations over a joint range–Doppler, range–angle and angle–Doppler representation and feeds persistent H<sub>0</sub> and H<sub>1</sub> structure into radar segmentation end to end. On CARRADA it matches the strongest published methods (63.85% RD and 44.70% RA mIoU) with the best car IoU in both views."},
     ]),
     ("Spectral 3D and radar perception", [
         {"key": "Spectral 3D Computer Vision", "fig": "papers/survey-spectral3d.webp",
@@ -236,7 +238,7 @@ def build_home(news, pubs, code):
             figure = f'<div class="feat-fig"><img src="/assets/img/{f["fig"]}" alt="Figure from {esc(title)}" loading="lazy"></div>'
         authors = f'<p class="authors">{bold_me(p["authors"])}</p>' if p else f'<p class="authors">{esc(f["venue"])}</p>'
         note = f' <span class="award">{esc(p["note"])}</span>' if p and p.get("note") else ""
-        actions = link_buttons(p["links"]) if p else ""
+        actions = link_buttons(p["links"] if p else f.get("links", {}))
         anchor = f'<a href="/publications/#{pub_id(p)}">All details</a>' if p else ""
         return (f'<article class="feat{"" if figure else " nofig"}">{figure}<div class="feat-body"><div class="feat-tags"><span class="venue">{esc(badge)}</span>{note}</div>'
                 f'<h3>{esc(title)}</h3>{authors}<p class="what">{f["what"]}</p>'

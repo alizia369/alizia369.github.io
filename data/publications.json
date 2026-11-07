@@ -52,8 +52,8 @@
   },
   {
    "year": 2026,
-   "title": "Test-Time Adaptation for Anomaly Segmentation via Topology-Aware Optimal Transport Chaining",
-   "authors": "A. Zia, U. Ali, U. Ramzan, A. Rehman, A. Khamis, W. Xiang",
+   "title": "Topology-Aware Optimal Transport for Source-Free Test-Time Adaptation in Anomaly Segmentation",
+   "authors": "A. Zia, U. Ali, A. Khamis, M. U. Ramzan, A. Rehman, W. Xiang",
    "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
    "short": "NeurIPS",
    "type": "conference",
@@ -130,7 +130,9 @@
    "topics": [
     "health"
    ],
-   "links": {},
+   "links": {
+    "paper": "https://doi.org/10.1109/JBHI.2026.3727646"
+   },
    "selected": true
   },
   {

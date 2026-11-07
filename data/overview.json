@@ -260,7 +260,7 @@
     {
      "t": "Optimal transport between persistence diagrams",
      "papers": [
-      "Test-Time Adaptation for Anomaly Segmentation via"
+      "Topology-Aware Optimal Transport for Source-Free"
      ]
     },
     {
@@ -290,7 +290,7 @@
      "svg": "topoot-chain.svg",
      "alt": "Diagram of optimal transport chained across persistence diagrams from different thresholds and filtrations",
      "caption": "Optimal transport chained across persistence diagrams.",
-     "paper": "Test-Time Adaptation for Anomaly Segmentation via"
+     "paper": "Topology-Aware Optimal Transport for Source-Free"
     },
     {
      "img": "papers/mmhcan-arch.webp",
@@ -374,7 +374,7 @@
      "t": "Source-free test-time adaptation",
      "papers": [
       "Learning Topology-Aware Representations via Test-Time",
-      "Test-Time Adaptation for Anomaly Segmentation via"
+      "Topology-Aware Optimal Transport for Source-Free"
      ]
     },
     {
