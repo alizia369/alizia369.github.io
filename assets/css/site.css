@@ -425,3 +425,45 @@ a.g-media:hover { border-color: var(--a, var(--leaf)); }
 
 /* caption under a theme's main figure */
 .theme-cap { margin: 8px 2px 0; font-size: .84rem; line-height: 1.5; color: var(--ink-2); }
+
+/* ---------- citations per year (home, At a glance) ---------- */
+.cites { margin: 26px 0 10px; }
+.cites-h { font-size: .88rem; color: var(--ink-2); margin: 0 0 6px; }
+.cbars { list-style: none; margin: 0; padding: 22px 8px 0; height: 190px; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 2px; align-items: end; border-bottom: 1px solid var(--line); }
+.cbars li { position: relative; height: 100%; display: flex; align-items: flex-end; }
+.cbars .bar { position: relative; display: block; width: 100%; max-width: 30px; margin: 0 auto; height: max(var(--h), 2px); background: var(--leaf); border-radius: 4px 4px 0 0; transition: opacity .12s; }
+.cbars:hover li:not(:hover) .bar { opacity: .5; }
+.cbars .v { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 3px; font-size: .75rem; line-height: 1.2; color: var(--ink); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .12s; }
+.cbars li.on .v, .cbars li:hover .v, .cbars .bar:focus-visible .v { opacity: 1; }
+.cbars .yr { position: absolute; top: 100%; left: -6px; right: -6px; margin-top: 6px; text-align: center; font-size: .7rem; color: var(--ink-2); }
+@media (max-width: 640px) { .cbars li:nth-last-child(even) .yr { visibility: hidden; } }
+.cites figcaption { margin-top: 34px; font-size: .8rem; line-height: 1.45; color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { .cbars .bar, .cbars .v { transition: none; } }
+
+/* ---------- methods by applications grid (research page) ---------- */
+.mg-wrap { overflow-x: auto; margin: 18px 0 10px; }
+.mgrid { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 2px; font-size: .88rem; }
+.mgrid thead th { padding: 6px 6px 8px; font-weight: 500; font-size: .82rem; line-height: 1.3; color: var(--ink-2); text-align: center; vertical-align: bottom; }
+.mgrid thead td { width: 28%; background: none; }
+.mgrid tbody th { padding: 8px 12px 8px 0; font-weight: 500; line-height: 1.3; color: var(--ink); text-align: left; }
+.mgrid td { height: 54px; padding: 0; text-align: center; border-radius: 4px; background: var(--surface); background: color-mix(in srgb, var(--leaf) calc(8% + var(--k, 0) * 34%), var(--surface)); }
+.mgrid td.z { background: transparent; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+.mgrid .cell { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; min-height: 54px; border-radius: 4px; font: 500 1.35rem/1 var(--serif); color: var(--ink); text-decoration: none; }
+.mgrid .cell:hover, .mgrid .cell.cur { box-shadow: inset 0 0 0 2px var(--ink); }
+.mg-list { display: none; margin: 8px 0 0; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.mg-list:target { display: block; }
+.mg-lists.js .mg-list { display: none; }
+.mg-lists.js .mg-list.open { display: block; }
+.mg-list:focus { outline: none; }
+.mg-list-h { margin: 0 0 6px; font-weight: 500; }
+.mg-list ul { margin: 0; padding-left: 18px; }
+.mg-list li { margin: 5px 0; font-size: .92rem; line-height: 1.5; }
+@media (max-width: 640px) {
+  .mgrid { font-size: .8rem; }
+  .mgrid thead td { width: 30%; }
+  .mgrid thead th { padding: 4px 2px 6px; font-size: .72rem; }
+  .mgrid tbody th { padding-right: 6px; }
+  .mgrid td, .mgrid .cell { height: 46px; min-height: 46px; }
+  .mgrid .cell { font-size: 1.1rem; }
+  .mg-list { padding: 12px 14px; }
+}

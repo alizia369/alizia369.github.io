@@ -45,6 +45,10 @@ def main():
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "source": "Google Scholar",
     }
+    # Citations per year, for the bar chart on the home page. Keep the last good series
+    # if Scholar returns none, so a partial fetch never blanks the chart.
+    per_year = {str(int(y)): int(c) for y, c in (author.get("cites_per_year") or {}).items()}
+    new["by_year"] = dict(sorted(per_year.items())) or old.get("by_year", {})
     # Guard against a bad parse: never accept a large drop
     if old.get("citations") and new["citations"] < 0.8 * old["citations"]:
         print(f"Suspicious drop {old['citations']} -> {new['citations']}; not saving.")

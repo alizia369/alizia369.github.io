@@ -291,6 +291,7 @@ def build_home(news, pubs, code):
     <section id="glance" aria-labelledby="glance-h">
       <h2 id="glance-h">At a glance</h2>
       {glance_tiles}
+      {citation_chart()}
       {milestones_html()}
       <a class="more-link" href="/resume/#pathway">Full career pathway</a>
     </section>
@@ -309,7 +310,7 @@ def build_home(news, pubs, code):
     <section id="research-themes">
       <h2>Research</h2>
       {theme_teasers()}
-      <a class="more-link" href="/research/#applications">Applications in agriculture, health, energy and IoT</a>
+      <a class="more-link" href="/research/#methods-grid">How the methods map onto applications</a> &nbsp; <a class="more-link" href="/research/#applications">Applications in agriculture, health, energy and IoT</a>
     </section>
 
     <section id="featured">
@@ -565,6 +566,84 @@ def tiles(items, cols, label):
     return f'<div class="tiles t{cols}" role="group" aria-label="{esc(label)}">{"".join(items)}</div>'
 
 
+def citation_chart():
+    """Citations per year from data/scholar.json (refreshed by .github/workflows/scholar.yml)."""
+    by = {int(y): c for y, c in SCHOLAR.get("by_year", {}).items()}
+    if not by:
+        return ""
+    years = list(range(min(by), max(by) + 1))
+    top = max(by.values())
+    upd = SCHOLAR.get("updated", "")
+    to_date = f"{int(upd[8:10])} {MONTHS[int(upd[5:7]) - 1]}" if len(upd) == 10 else ""
+    shown = set(years[-3:])  # direct labels on the latest three years; the rest show on hover or focus
+    bars = []
+    for y in years:
+        c = by.get(y, 0)
+        partial = " (to date)" if y == years[-1] and to_date else ""
+        cls = ' class="on"' if y in shown else ""
+        bars.append(f'<li{cls} style="--h:{c / top * 100:.1f}%"><span class="bar" tabindex="0" aria-label="{y}{partial}: {c} citations">'
+                    f'<span class="v" aria-hidden="true">{c}</span></span><span class="yr" aria-hidden="true">{y}</span></li>')
+    rows = "".join(f"<tr><th scope=\"row\">{y}</th><td>{by.get(y, 0)}</td></tr>" for y in years)
+    end = f"{to_date} {years[-1]}" if to_date else scholar_date()
+    return (f'<figure class="cites" aria-labelledby="cites-h">'
+            f'<p class="cites-h" id="cites-h">Citations per year</p>'
+            f'<ol class="cbars" style="--n:{len(years)}">{"".join(bars)}</ol>'
+            f'<table class="sr"><caption>Google Scholar citations per year</caption><tr><th scope="col">Year</th><th scope="col">Citations</th></tr>{rows}</table>'
+            f'<figcaption>Google Scholar, {years[0]} to {end}. '
+            f'Refreshed automatically every three days.</figcaption></figure>')
+
+
+# Rows are the three research themes plus everything else; columns are application areas.
+# Both read the topic tags in data/publications.json, so retagging a paper moves it in the grid.
+GRID_ROWS = [("topology", "Topological deep learning", {"topology"}),
+             ("hyperspectral", "Hyperspectral and multimodal sensing", {"hyperspectral", "3d"}),
+             ("reliable", "Reliable AI under real conditions", {"anomaly", "robustness"}),
+             ("ml", "Other machine learning", None)]
+GRID_COLS = [("agri", "Agriculture and food", {"agriculture"}),
+             ("health", "Health", {"health"}),
+             ("sensing", "Radar and sensing", {"sensing"}),
+             ("general", "Methods and other areas", None)]
+
+
+def methods_grid(pubs):
+    theme_tags = set().union(*(r[2] for r in GRID_ROWS if r[2]))
+    app_tags = set().union(*(c[2] for c in GRID_COLS if c[2]))
+
+    def in_row(p, tags):
+        t = set(p["topics"])
+        return bool(t & tags) if tags else not t & theme_tags
+
+    def in_col(p, tags):
+        t = set(p["topics"])
+        return bool(t & tags) if tags else not t & app_tags
+
+    cells = {(r, c): [p for p in pubs if in_row(p, rt) and in_col(p, ct)] for r, _, rt in GRID_ROWS for c, _, ct in GRID_COLS}
+    # The catch-all corner (other ML, no application tag) would set the scale and wash out the rest
+    top = max(len(v) for k, v in cells.items() if k != ("ml", "general")) or 1
+    head = "".join(f'<th scope="col">{esc(cl)}</th>' for _, cl, _ in GRID_COLS)
+    body, lists = [], []
+    for r, rl, _ in GRID_ROWS:
+        tds = []
+        for c, cl, _ in GRID_COLS:
+            ps = cells[(r, c)]
+            if not ps:
+                tds.append('<td class="z"><span aria-label="no papers">–</span></td>')
+                continue
+            cid = f"mg-{r}-{c}"
+            word = "paper" if len(ps) == 1 else "papers"
+            tds.append(f'<td style="--k:{min(len(ps) / top, 1):.2f}"><a class="cell" href="#{cid}" aria-controls="{cid}" '
+                       f'aria-label="{len(ps)} {word}: {esc(rl)}, {esc(cl)}">{len(ps)}</a></td>')
+            items = "".join(f'<li><a href="/publications/#{pub_id(p)}">{esc(p["title"])}</a> '
+                            f'<span class="muted">{esc(p.get("short") or p["venue"])} {p["year"]}</span></li>'
+                            for p in sorted(ps, key=lambda p: -p["year"]))
+            lists.append(f'<div class="mg-list" id="{cid}" tabindex="-1"><p class="mg-list-h">{esc(rl)} <span aria-hidden="true">×</span>'
+                         f'<span class="sr"> in</span> {esc(cl)}</p><ul>{items}</ul></div>')
+        body.append(f'<tr><th scope="row">{esc(rl)}</th>{"".join(tds)}</tr>')
+    return (f'<div class="mg-wrap"><table class="mgrid"><caption class="sr">Publications by method and application area</caption>'
+            f'<thead><tr><td></td>{head}</tr></thead><tbody>{"".join(body)}</tbody></table></div>'
+            f'<div class="mg-lists">{"".join(lists)}</div>')
+
+
 def fixed_tile(key):
     s = OV["stats"][key]
     return tile(s["value"], s["label"], s["detail"], s.get("decimals", 0), s.get("prefix", ""), s.get("suffix", ""))
@@ -768,7 +847,13 @@ def build_research(projects, earlier, pubs, code):
       <h1 class="page-title" id="t">Research</h1>
       <p class="intro-text">My work asks how to give learning systems structure they can trust: the shape of the data, the physics of the sensor and the relationships between modalities. It runs along three themes and is applied with partners in agriculture, food, health, energy and industry.</p>
       {stats}
-      <nav class="jump" aria-label="On this page">{"".join(f'<a href="#{t["id"]}">{esc(t["title"])}</a>' for t in OV["themes"])}<a href="#applications">Applications</a></nav>
+      <nav class="jump" aria-label="On this page">{"".join(f'<a href="#{t["id"]}">{esc(t["title"])}</a>' for t in OV["themes"])}<a href="#methods-grid">Methods across applications</a><a href="#applications">Applications</a></nav>
+    </section>
+
+    <section id="methods-grid" aria-labelledby="mg-h">
+      <h2 id="mg-h">Methods across applications</h2>
+      <p class="intro-text">How my published work spreads across method and application. Each number counts papers; select one to list them. A paper that combines methods or areas appears in more than one cell.</p>
+      {methods_grid(pubs)}
     </section>
 
     <section aria-labelledby="themes-h">

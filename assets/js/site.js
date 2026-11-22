@@ -149,6 +149,32 @@
     }
   }
 
+  // Research page: methods-by-applications grid. Without JS each cell links to its list via :target.
+  var mgLists = document.querySelector('.mg-lists');
+  if (mgLists) {
+    mgLists.classList.add('js');
+    var cellsEl = Array.prototype.slice.call(document.querySelectorAll('.mgrid .cell'));
+    var openList = function (id, focus) {
+      cellsEl.forEach(function (a) {
+        var on = a.getAttribute('aria-controls') === id;
+        a.setAttribute('aria-expanded', on ? 'true' : 'false');
+        a.classList.toggle('cur', on);
+      });
+      mgLists.querySelectorAll('.mg-list').forEach(function (l) { l.classList.toggle('open', l.id === id); });
+      var el = id && document.getElementById(id);
+      if (el && focus) el.focus({ preventScroll: true });
+    };
+    cellsEl.forEach(function (a) {
+      a.setAttribute('aria-expanded', 'false');
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var id = a.getAttribute('aria-controls');
+        openList(a.getAttribute('aria-expanded') === 'true' ? '' : id, false);
+      });
+    });
+    if (location.hash.indexOf('#mg-') === 0 && location.hash !== '#mg-h') openList(location.hash.slice(1), true);
+  }
+
   // Publication filters
   var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
   if (!pubs.length) return;

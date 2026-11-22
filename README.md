@@ -13,6 +13,8 @@ Most updates only touch the data files, then rebuild:
 |---|---|
 | News | `data/news.json` (newest first; the first six show, the rest sit behind "Show older news") |
 | Publications | `data/publications.json` (`"selected": true` puts a paper in the home page list; featured cards are set in `FEATURED_COPY` in `build.py`) |
+| Methods-by-applications grid (Research page) | the `topics` tags in `data/publications.json`; rows and columns are set in `GRID_ROWS` and `GRID_COLS` in `build.py` |
+| Citation figures and the citations-per-year chart | nothing: `.github/workflows/scholar.yml` refreshes `data/scholar.json` every three days (edit that file by hand if Scholar blocks the fetch) |
 | Research projects | `data/projects.json` (images go in `assets/img/projects/`) |
 | Code repositories | `data/code.json` (groups on the Code page; the first group also shows on the home page) |
 | Grants | `data/grants.json` (the summary line and the table on the Grants page) |

@@ -365,7 +365,7 @@
    "short": "AI Review",
    "type": "journal",
    "topics": [
-    "other"
+    "sensing"
    ],
    "links": {},
    "selected": true
@@ -573,7 +573,8 @@
    "short": "DICTA",
    "type": "conference",
    "topics": [
-    "hyperspectral"
+    "hyperspectral",
+    "agriculture"
    ],
    "links": {},
    "selected": true
