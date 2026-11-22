@@ -16,7 +16,10 @@ import re
 from datetime import date
 
 ROOT = pathlib.Path(__file__).resolve().parent
-SITE = "https://ali-zia.me"
+# Canonical address for <link rel="canonical"> and social cards. ali-zia.me currently redirects only its
+# home page here (inner pages 404 on that host), so point canonicals at GitHub Pages until the domain
+# serves the site itself; then set this back to "https://ali-zia.me".
+SITE = "https://alizia369.github.io"
 # Optional base path for a preview copy served below a domain root, e.g. SITE_BASE=/site-staging
 # for https://alizia369.github.io/site-staging/. Leave unset for production: output is unchanged.
 BASE = os.environ.get("SITE_BASE", "").rstrip("/")
@@ -88,7 +91,7 @@ ICONS = {
     "orcid": '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM8.3 17H6.9V9.4h1.4V17Zm-.7-8.6a.9.9 0 1 1 0-1.8.9.9 0 0 1 0 1.8ZM17.3 13.2c0 2.2-1.6 3.8-4 3.8h-3V9.4h3c2.4 0 4 1.6 4 3.8Zm-1.4 0c0-1.5-1-2.5-2.7-2.5h-1.5v5h1.5c1.7 0 2.7-1 2.7-2.5Z"/>',
     "linkedin": '<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5Z"/>',
 }
-LINKS = [("mail", "mailto:alizia369@gmail.com", "Email"),
+LINKS = [("mail", "mailto:a.zia@latrobe.edu.au", "Email"),
          ("scholar", "https://scholar.google.com/citations?user=BVBJ06QAAAAJ", "Google Scholar"),
          ("github", "https://github.com/alizia369", "GitHub"),
          ("orcid", "https://orcid.org/0000-0003-4819-6666", "ORCID"),
@@ -140,7 +143,7 @@ def page(path, title, description, body):
   <main id="content">
 {body}
     <footer>
-      <p>Get in touch at <a href="mailto:alizia369@gmail.com">alizia369@gmail.com</a> or <a href="mailto:ali.zia@anu.edu.au">ali.zia@anu.edu.au</a>.</p>
+      <p>Get in touch at <a href="mailto:a.zia@latrobe.edu.au">a.zia@latrobe.edu.au</a> or <a href="mailto:alizia369@gmail.com">alizia369@gmail.com</a>.</p>
       <p>Code on <a href="https://github.com/alizia369">GitHub</a>, papers on <a href="https://scholar.google.com/citations?user=BVBJ06QAAAAJ">Google Scholar</a>, and <a href="https://orcid.org/0000-0003-4819-6666">ORCID</a> and <a href="https://www.linkedin.com/in/ali-zia-0411b123/">LinkedIn</a> profiles.</p>
       <p>Last updated {updated}.</p>
       <button class="theme-switch" type="button" id="theme-switch">Dark theme</button>
@@ -297,7 +300,8 @@ def build_home(news, pubs, code):
     </section>
 
     <section id="recognition" aria-labelledby="rec-h">
-      <h2 id="rec-h">Selected awards and recognition</h2>
+      <h2 id="rec-h">Leadership, editorial roles and awards</h2>
+      <p class="measure">I co-supervise four PhD students, co-lead the CSIRO ML Workshop Series and work with partners including Agriculture Victoria, Hort Innovation, GRDC, Denso and Turosi. <a href="/grants/">Funding and my role on each grant</a>.</p>
       {recognition_html(pubs)}
     </section>
 
@@ -400,6 +404,7 @@ def build_teaching():
 
     <section aria-labelledby="courses-h">
       <h2 id="courses-h">Courses</h2>
+      <p class="measure"><b>Courses I have convened</b> include Artificial Intelligence, Machine Learning, Computer Vision, Human–Computer Interaction, Systems Programming and Programming, along with others below. As convenor I was responsible for each course's design, assessment and delivery.</p>
       <div class="two">
         <div>
           <ul class="entries">
@@ -410,8 +415,8 @@ def build_teaching():
         </div>
         <div>
           <ul class="entries">
-            <li><div class="h">COMSATS University, Pakistan</div><div class="s">Artificial Intelligence (eight semesters), Machine Learning (three), Computer Vision (two), Systems Programming and Advanced Operating Systems; designed the AI, Operating Systems and Systems Programming courses</div></li>
-            <li><div class="h">Also taught</div><div class="s">Electric Circuits (Griffith, 1301ENG), Human–Computer Interaction, Computing for Management</div></li>
+            <li><div class="h">COMSATS University, Pakistan</div><div class="s">Convenor and lecturer: Artificial Intelligence (eight semesters), Machine Learning (three), Computer Vision (two), Systems Programming, Human–Computer Interaction and Advanced Operating Systems; designed the AI, Operating Systems and Systems Programming courses</div></li>
+            <li><div class="h">Also taught</div><div class="s">Electric Circuits (Griffith, 1301ENG), Computing for Management</div></li>
             <li><div class="h">Service at COMSATS</div><div class="s">Batch advisor and student counsellor; member of campus-level committees and of the teams organising international conferences, workshops and seminars</div></li>
           </ul>
         </div>
@@ -468,8 +473,8 @@ def build_resume():
     body = """
     <section aria-labelledby="t">
       <h1 class="page-title" id="t">Resume</h1>
-      <p class="intro-text">A summary of my career is below. The PDFs carry full details; they date from 2023 and 2024 and will be refreshed.</p>
-      <div class="downloads"><a class="primary" href="/assets/cv/Ali_Zia_CV_short.pdf">Short resume (PDF)</a><a href="/assets/cv/Ali_Zia_CV_detailed.pdf">Detailed resume (PDF)</a></div>
+      <p class="intro-text">A summary of my career is below. The CV has full details of positions, publications, funding, teaching, service and referees.</p>
+      <div class="downloads"><a class="primary" href="/assets/cv/Ali_Zia_CV.pdf">Curriculum vitae (PDF, November 2026)</a></div>
     </section>
 
     <section class="career-path" id="pathway" aria-labelledby="path-h">
@@ -847,7 +852,7 @@ def build_research(projects, earlier, pubs, code):
       <h1 class="page-title" id="t">Research</h1>
       <p class="intro-text">My work asks how to give learning systems structure they can trust: the shape of the data, the physics of the sensor and the relationships between modalities. It runs along three themes and is applied with partners in agriculture, food, health, energy and industry.</p>
       {stats}
-      <nav class="jump" aria-label="On this page">{"".join(f'<a href="#{t["id"]}">{esc(t["title"])}</a>' for t in OV["themes"])}<a href="#methods-grid">Methods across applications</a><a href="#applications">Applications</a></nav>
+      <nav class="jump" aria-label="On this page">{"".join(f'<a href="#{t["id"]}">{esc(t["title"])}</a>' for t in OV["themes"])}<a href="#methods-grid">Methods across applications</a><a href="#directions">Next directions</a><a href="#applications">Applications</a></nav>
     </section>
 
     <section id="methods-grid" aria-labelledby="mg-h">
@@ -860,6 +865,19 @@ def build_research(projects, earlier, pubs, code):
       <h2 id="themes-h">Research themes</h2>
       <p class="intro-text">Each tag opens the paper behind it on the Publications page.</p>
       {"".join(themes)}
+    </section>
+
+    <section id="directions" aria-labelledby="dir-h">
+      <h2 id="dir-h">Next directions</h2>
+      <div class="measure">
+        <p>Over the next five years I want to turn topological and geometric structure from a useful regulariser into a working theory of learning from weak signals: what structure survives noise, missing labels and shifted data, and how a model can use it with guarantees rather than hope. Three lines of work carry this forward.</p>
+        <ul class="plain">
+          <li><b>Computational topology for weak signals.</b> Persistent homology that is stable and differentiable on 3D hyperspectral data, so faint material signatures such as early disease or contamination are kept rather than averaged away.</li>
+          <li><b>Structure-aware optimal transport.</b> Transport plans constrained by topology and curvature, building on our NeurIPS 2026 work, for aligning modalities and adapting models at test time without source data.</li>
+          <li><b>Inverse problems in spectral imaging.</b> Hyperspectral unmixing and depth from chromatic aberration posed as structured inverse problems, with topological priors on the solution and checks on when the recovered structure can be trusted.</li>
+        </ul>
+        <p>Underneath all three is one question: how to tell, from geometry and topology alone, when a model's representation can be relied on.</p>
+      </div>
     </section>
 
     <section id="applications" aria-labelledby="apps-h">

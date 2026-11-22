@@ -2,12 +2,12 @@
  "_note": "Structured content for the home, Research, Resume and Teaching pages. career: roles in chronological order (the phone timeline uses this order); band/col/row place them in the two-row desktop flow on the Resume page; cat is edu, ind, acad or res (industry + academic research); teach adds a teaching badge. milestones: the short career strip on the home page. stats: figures that cannot be counted from other data files (publication, citation and repository counts are computed); top_venues are named on the home publications tile and must each match the short name of at least one paper in publications.json. themes and applications: each item lists the start of one or more publication titles from publications.json; the build links every one to that paper on the Publications page and stops with an error if a title does not match exactly one paper. Projects join an application through their domain in projects.json. Theme and application figures: img is relative to assets/img/ (svg names a file in assets/svg/); paper links the caption to that publication. recognition: the Awards and recognition list on the home page, newest first; paper links an item to that publication.",
  "stats": {
   "funding": {
-   "value": 1.3,
+   "value": 1.4,
    "decimals": 1,
    "prefix": "$",
    "suffix": "M+",
    "label": "AUD in competitive funding",
-   "detail": "CSIRO, the CSIRO–CAS partnership and La Trobe"
+   "detail": "$806k of it as lead chief investigator or work-package lead; from CSIRO, the CSIRO–CAS partnership and La Trobe"
   },
   "offerings": {
    "value": 60,
