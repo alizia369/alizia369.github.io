@@ -490,12 +490,13 @@ def build_resume():
           <ul class="entries">
             <li><div class="h">Research Fellow</div><div class="s">School of Computing, Engineering and Mathematical Sciences, La Trobe University</div></li>
             <li><div class="h">Adjunct appointments</div><div class="s">CSIRO and the Australian National University</div></li>
-            <li><div class="h">Postdoctoral Research Fellow</div><div class="s">Future Science Platform, Australian National University and CSIRO</div></li>
-            <li><div class="h">Postdoctoral Researcher</div><div class="s">ARC Hub for Driving Farming Productivity and Disease Prevention, Griffith University</div></li>
-            <li><div class="h">Developer, lab instructor and lecturer</div><div class="s">Griffith University</div></li>
+            <li><div class="h">Postdoctoral Research Fellow</div><div class="s">MLAI Future Science Platform, Australian National University and CSIRO</div></li>
+            <li><div class="h">Research Fellow (postdoctoral)</div><div class="s">ARC Hub for Driving Farming Productivity and Disease Prevention, Griffith University</div></li>
+            <li><div class="h">Lecturer, lab instructor and student coach</div><div class="s">Griffith University</div></li>
+            <li><div class="h">Software architect and programmer</div><div class="s">Griffith Online Team, Griffith University</div></li>
             <li><div class="h">Assistant Professor</div><div class="s">COMSATS University, Pakistan</div></li>
             <li><div class="h">Research Scholar</div><div class="s">NICTA, Australia</div></li>
-            <li><div class="h">Software Engineer</div><div class="s">Systems Ltd, Cambridge Docs and Techlogix, Pakistan</div></li>
+            <li><div class="h">Software Engineer</div><div class="s">Systems Ltd, CambridgeDocs and Techlogix, Pakistan</div></li>
           </ul>
         </div>
         <div>

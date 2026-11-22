@@ -45,7 +45,7 @@
  "milestones": [
   {
    "cat": "edu",
-   "role": "B.Sc. (Hons)",
+   "role": "BSc (Hons)",
    "org": "University of the Punjab"
   },
   {
@@ -55,7 +55,7 @@
   },
   {
    "cat": "edu",
-   "role": "Master's in Computing",
+   "role": "Master of Computing",
    "org": "ANU"
   },
   {
@@ -87,7 +87,7 @@
     "cat": "edu",
     "band": 1,
     "col": 1,
-    "role": "B.Sc. (Hons) Computer Science",
+    "role": "BSc (Hons) Computer Science",
     "org": "University of the Punjab"
    },
    {
@@ -103,7 +103,7 @@
     "cat": "edu",
     "band": 1,
     "col": 3,
-    "role": "Master's in Computing",
+    "role": "Master of Computing",
     "org": "Australian National University"
    },
    {
@@ -151,7 +151,7 @@
     "col": 1,
     "row": 3,
     "parallel": true,
-    "role": "Programmer / Developer",
+    "role": "Software Architect and Programmer",
     "brief": "Programmer",
     "org": "Griffith Online Team"
    },
@@ -162,7 +162,7 @@
     "col": 2,
     "row": 3,
     "teach": true,
-    "role": "Postdoctoral Research Fellow",
+    "role": "Research Fellow (postdoctoral)",
     "org": "ARC Research Hub for Driving Farming Productivity and Disease Prevention, Griffith"
    },
    {
