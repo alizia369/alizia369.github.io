@@ -122,6 +122,22 @@
   },
   {
    "year": 2026,
+   "title": "WS-Net: Weak-Signal Representation Learning and Gated Abundance Reconstruction for Hyperspectral Unmixing via State-Space and Weak Signal Attention Fusion",
+   "authors": "Z. Long, A. Zia, G. Fu, V. Rolland, J. Zhou",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "type": "journal",
+   "topics": [
+    "hyperspectral"
+   ],
+   "links": {
+    "arxiv": "https://arxiv.org/abs/2603.09037"
+   },
+   "selected": true,
+   "short": "IEEE TGRS",
+   "note": "Accepted"
+  },
+  {
+   "year": 2026,
    "title": "Expert Fusion Network for Automated Blastocyst Morphology and IVF Decision Support",
    "authors": "A. Zia, S. Qureshi, F. Ansarizadeh, M. Fozan, E. Kamawal, S. Anwer, C. Karmakar",
    "venue": "IEEE Journal of Biomedical and Health Informatics",
@@ -209,20 +225,6 @@
    ],
    "links": {},
    "selected": false
-  },
-  {
-   "year": 2026,
-   "title": "WS-Net: Weak-Signal Representation Learning and Gated Abundance Reconstruction for Hyperspectral Unmixing via State-Space and Weak Signal Attention Fusion",
-   "authors": "Z. Long, A. Zia, G. Fu, V. Rolland, J. Zhou",
-   "venue": "arXiv preprint",
-   "type": "preprint",
-   "topics": [
-    "hyperspectral"
-   ],
-   "links": {
-    "arxiv": "https://arxiv.org/abs/2603.09037"
-   },
-   "selected": true
   },
   {
    "year": 2026,
